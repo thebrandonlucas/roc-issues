@@ -27,7 +27,6 @@ Each `bugs/BUG-XXX-*` directory is a self-contained repro with its own
 `README.md` and `repro.sh`.
 
 - [BUG-001: Duplicate module names across packages panic the compiler](./bugs/BUG-001-duplicate-module-name-across-packages/README.md)
-- [BUG-002: `roc test` aborts in LIR lowering through the plugin union registry path](./bugs/BUG-002-plugin-run-registry-test-segfault/README.md)
 
 ## Adding a repro
 
