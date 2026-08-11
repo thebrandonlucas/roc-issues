@@ -1,0 +1,5 @@
+.direnv/
+bugs/*/app
+bugs/*/plugin-tests
+bugs/*/core
+bugs/*/core.*

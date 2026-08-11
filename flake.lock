@@ -1,0 +1,69 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1786384358,
+        "narHash": "sha256-RzPPiWeUtuvymnpuEWsdtzli5w4kjZs49FqEs3/1u+I=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "2fcb964de67fcf60b43471c55d5d99e61a9ccb5a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-x86-darwin": {
+      "locked": {
+        "lastModified": 1786367589,
+        "narHash": "sha256-OThVjKEZnNLw3eGBuxY644zKkmrDywlejQSZXR1vUUA=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "4014d8bb312b04b49ec74adff5f9b32982bd0580",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-26.05-darwin",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "roc-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nixpkgs-darwin": [
+          "nixpkgs-x86-darwin"
+        ]
+      },
+      "locked": {
+        "lastModified": 1784073071,
+        "narHash": "sha256-tmJuQY9Kr4yFTnA56pdTbyExRfd94NTj7jRBtpSozCc=",
+        "owner": "thebrandonlucas",
+        "repo": "roc-overlay",
+        "rev": "a9afdcfed9bf90c53e6b4b1443e00676a939e971",
+        "type": "github"
+      },
+      "original": {
+        "owner": "thebrandonlucas",
+        "repo": "roc-overlay",
+        "rev": "a9afdcfed9bf90c53e6b4b1443e00676a939e971",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-x86-darwin": "nixpkgs-x86-darwin",
+        "roc-overlay": "roc-overlay"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
