@@ -22,7 +22,7 @@ thread <id> panic: typed_cir invariant violated: duplicate module name <path>/cu
 
 The bug is **compile-cache dependent**:
 
-- The **first** `roc build` (or `roc check`) on a cold cache succeeds.
+- The **first** `roc check` on a cold cache succeeds.
 - **Every subsequent run panics** until the cache is cleared
   (`rm -rf ~/.cache/roc`).
 
@@ -38,17 +38,13 @@ or manually:
 
 ```sh
 rm -rf ~/.cache/roc
-roc build main.roc --output=app   # succeeds
-roc build main.roc --output=app   # panics: typed_cir invariant violated
+roc check main.roc   # succeeds
+roc check main.roc   # panics: typed_cir invariant violated
 ```
-
-`roc check` behaves the same way.
 
 ## Layout
 
-- `main.roc` — the app importing both plugins
-- `package.roc`, `Plugin.roc`, `parser/` — the shared `kai` support package
-  the plugins import (`kai.Plugin`, `parser.Body`, ...)
+- `main.roc`, `Repro.roc` — the root package importing both plugins
 - `custom0/`, `custom1/` — identical packages exposing `Plugin` with
   component sub-packages
 
@@ -56,7 +52,8 @@ roc build main.roc --output=app   # panics: typed_cir invariant violated
 
 - The original context was `xkai` staging two custom plugins as isolated
   packages (`custom0`, `custom1`) where both plugin modules were named
-  `Plugin.roc`.
+  `Plugin.roc`. This repro is platform-free so it can run unchanged across
+  compiler versions.
 - A single plugin, or two plugins whose modules/components have different
   names, does not trigger the panic.
 - Workaround used downstream: give the second top-level plugin module a

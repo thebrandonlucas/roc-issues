@@ -1,1 +1,1 @@
-package [Local] { kai: "../../package.roc" }
+package [Local] {}

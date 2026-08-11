@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 # Reproduces BUG-001: duplicate module names across packages panic the compiler.
 #
-# Expected behavior: both builds succeed (or the compiler reports a diagnostic).
-# Actual behavior: the first (cold-cache) build succeeds; the second panics.
+# Expected behavior: both checks succeed (or the compiler reports a diagnostic).
+# Actual behavior: the first (cold-cache) check succeeds; the second panics.
 set -uo pipefail
-cd "$(dirname "$0")"
+cd "$(dirname "$0")" || exit 1
 
 echo "roc version: $(roc version)"
 echo "clearing roc cache for a cold run..."
 rm -rf ~/.cache/roc
 
 echo "--- run 1 (cold cache) ---"
-if roc build main.roc --output=app; then
+if roc check main.roc; then
     echo "run 1: OK (as expected, cold cache succeeds)"
 else
     echo "run 1: FAILED unexpectedly"
@@ -19,7 +19,7 @@ else
 fi
 
 echo "--- run 2 (warm cache) ---"
-if roc build main.roc --output=app; then
+if roc check main.roc; then
     echo "run 2: OK — BUG NOT REPRODUCED (compiler no longer panics)"
     exit 1
 else
