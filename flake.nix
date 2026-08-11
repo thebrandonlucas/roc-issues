@@ -7,11 +7,10 @@
     # Intel macOS is no longer supported by nixos-unstable.
     nixpkgs-x86-darwin.url = "github:NixOS/nixpkgs/nixpkgs-26.05-darwin";
 
-    # This overlay commit's `nightly` is nightly-2026-July-14-c9147c2
-    # (`roc version` = release-fast-c9147c28), the compiler these bugs were
-    # found on.
+    # Pin the overlay catalog so every recorded compiler remains reproducible.
+    # The default shell still uses the compiler these bugs were found on.
     roc-overlay = {
-      url = "github:thebrandonlucas/roc-overlay/a9afdcfed9bf90c53e6b4b1443e00676a939e971";
+      url = "github:thebrandonlucas/roc-overlay/9fb8a897144075e042c3aac7705d76ddf8ea0d6f";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixpkgs-darwin.follows = "nixpkgs-x86-darwin";
     };
@@ -40,20 +39,53 @@
           inherit system;
           overlays = [ roc-overlay.overlays.default ];
         };
-    in
-    {
-      packages = forAllSystems (system: {
-        roc = (pkgsFor system).rocpkgs."nightly-2026-July-14-c9147c2";
-        default = (pkgsFor system).rocpkgs."nightly-2026-July-14-c9147c2";
-      });
 
-      devShells = forAllSystems (system: {
-        default = (pkgsFor system).mkShell {
+      foundVersion = "nightly-2026-July-14-c9147c2";
+      mkRocShell =
+        pkgs: roc:
+        pkgs.mkShell {
           packages = [
-            (pkgsFor system).rocpkgs."nightly-2026-July-14-c9147c2"
-            (pkgsFor system).llvmPackages.bintools
+            roc
+            pkgs.llvmPackages.bintools
           ];
         };
-      });
+    in
+    {
+      # Expose every compiler recorded by roc-overlay. `default`, `found`, and
+      # `roc` select the compiler the bug was found on; `latest` tracks the
+      # newest compiler in this pinned overlay catalog.
+      packages = forAllSystems (
+        system:
+        let
+          versions = roc-overlay.packages.${system};
+          found = versions.${foundVersion};
+        in
+        versions
+        // {
+          inherit found;
+          roc = found;
+          default = found;
+          latest = versions.nightly;
+        }
+      );
+
+      # `nix develop .#<release-tag>` switches the active Roc compiler while
+      # retaining the common debugging tools.
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = pkgsFor system;
+          versions = roc-overlay.packages.${system};
+          versionShells = lib.mapAttrs (_: roc: mkRocShell pkgs roc) versions;
+          found = mkRocShell pkgs versions.${foundVersion};
+        in
+        versionShells
+        // {
+          inherit found;
+          roc = found;
+          default = found;
+          latest = mkRocShell pkgs versions.nightly;
+        }
+      );
     };
 }
