@@ -1,6 +1,7 @@
 # BUG-001: Duplicate module names across packages panic the compiler
 
-Found with Roc `release-fast-c9147c28`.
+Found with Roc `release-fast-c9147c28`
+(`nightly-2026-July-14-c9147c2`).
 
 ## Description
 
@@ -28,19 +29,33 @@ The bug is **compile-cache dependent**:
 
 ## Reproduction
 
-From this directory (with the repo's dev shell active):
+From this directory:
 
 ```sh
+kai run repro
+```
+
+For an interactive shell with the same pinned compiler:
+
+```sh
+kai shell repro
 ./repro.sh
 ```
 
-or manually:
+The harness creates a temporary `HOME`, so it starts with a cold Roc cache and
+does not touch the user's compiler cache. To run the same steps manually:
 
 ```sh
-rm -rf ~/.cache/roc
+tmp_home=$(mktemp -d)
+export HOME="$tmp_home"
+export XDG_CACHE_HOME="$HOME/.cache"
 roc check main.roc   # succeeds
 roc check main.roc   # panics: typed_cir invariant violated
+rm -rf "$tmp_home"
 ```
+
+The harness reports success only when the warm-cache check contains the expected
+duplicate-module panic.
 
 ## Layout
 
