@@ -29,18 +29,21 @@ The bug is **compile-cache dependent**:
 
 ## Reproduction
 
-From this directory:
+From this directory, bootstrap Kai through Nix and run the harness:
 
 ```sh
-kai run repro
+nix run github:thebrandonlucas/kai -- run repro
 ```
 
-For an interactive shell with the same pinned compiler:
+For an interactive developer shell with the same pinned compiler, bootstrap
+Kai through Nix and then run `./repro.sh` inside the shell:
 
 ```sh
-kai shell repro
-./repro.sh
+nix run github:thebrandonlucas/kai -- shell repro
 ```
+
+If `kai` is already on `PATH`, the equivalent commands are `kai run repro` and
+`kai shell repro`.
 
 The harness creates a temporary `HOME`, so it starts with a cold Roc cache and
 does not touch the user's compiler cache. To run the same steps manually:

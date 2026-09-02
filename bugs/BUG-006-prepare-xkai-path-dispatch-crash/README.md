@@ -18,20 +18,23 @@ The existing directory passed by the harness should make the helper return
 
 ## Reproduction
 
-From this directory:
+From this directory, bootstrap Kai through Nix and run the harness:
 
 ```sh
-kai run repro
+nix run github:thebrandonlucas/kai -- run repro
 ```
 
-For an interactive shell with the same pinned compiler:
+For an interactive developer shell with the same pinned compiler, bootstrap
+Kai through Nix:
 
 ```sh
-kai shell repro
-./repro.sh
+nix run github:thebrandonlucas/kai -- shell repro
 ```
 
-or manually inside that shell:
+If `kai` is already on `PATH`, the equivalent commands are `kai run repro` and
+`kai shell repro`.
+
+Inside that shell, reproduce manually with:
 
 ```sh
 roc build Repro.roc --opt=dev --output=repro

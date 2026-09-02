@@ -22,16 +22,17 @@ roc version
 
 ## Running reproductions
 
-Install Kai 0.0.6 or newer and make `kai` available on `PATH`.
-
 Each bug directory has a `Kaifile` and `kai.lock` that pin its exact
-environment independently of the root flake catalog. Run these commands from
-that bug's directory:
+environment independently of the root flake catalog. From that bug's directory,
+bootstrap Kai through Nix and run either command:
 
 ```sh
-kai run repro     # run the deterministic PASS/FAIL harness
-kai shell repro   # enter the pinned environment for manual investigation
+nix run github:thebrandonlucas/kai -- run repro    # deterministic PASS/FAIL harness
+nix run github:thebrandonlucas/kai -- shell repro  # interactive developer shell
 ```
+
+If Kai 0.0.6 or newer is already on `PATH`, use `kai run repro` or
+`kai shell repro` directly.
 
 A successful harness means the expected bug was reproduced; an unrelated crash
 or failure is not accepted as success. Improvement directories are design ideas
