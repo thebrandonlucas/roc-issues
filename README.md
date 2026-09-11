@@ -6,9 +6,8 @@ compiler the bug was found on.
 ## Setup
 
 The flake pins a [roc-overlay](https://github.com/thebrandonlucas/roc-overlay)
-catalog containing every recorded compiler release. Its default remains
-`nightly-2026-July-14-c9147c2` (`roc version` =
-`release-fast-c9147c28`), the compiler BUG-001 was found on.
+catalog containing every recorded compiler release. The default compiler is
+selected in `flake.nix`.
 
 With [direnv](https://direnv.net/): `direnv allow` selects that default
 compiler. Without direnv, run `nix develop` from the repo root.
@@ -69,28 +68,20 @@ nix run .#latest -- version
 nix run '.#nightly-2026-July-15-c2d30e8' -- check path/to/main.roc
 ```
 
-Outside Kai, a repro script uses whichever `roc` is active, so testing a bug
-against another compiler is one command:
-
-```sh
-nix develop .#latest --command \
-  ./bugs/BUG-001-duplicate-module-name-across-packages/repro.sh
-```
+Outside Kai, a repro script uses whichever `roc` is active, so bugs can also
+be checked against another compiler through `nix develop .#latest`.
 
 ## Bugs
 
 Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
 `Kaifile` and `kai.lock`, source, `README.md`, and executable `repro.sh`.
 
-- [BUG-001: Duplicate module names across packages panic the compiler](./bugs/BUG-001-duplicate-module-name-across-packages/README.md)
-- [BUG-006: An effectful `Path` fold crashes at runtime](./bugs/BUG-006-prepare-xkai-path-dispatch-crash/README.md)
+There are currently no active reproductions.
 
 ## Improvements
 
 Ideas are documented separately from compiler defects and need not have a
-harness.
-
-- [IMPROVEMENT-001: Exempt lambda parameters from module-field shadowing warnings](./improvements/IMPROVEMENT-001-module-record-lambda-shadowing/README.md)
+harness. There are currently no active improvements.
 
 ## Adding a repro
 

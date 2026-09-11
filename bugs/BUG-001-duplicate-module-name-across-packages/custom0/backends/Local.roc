@@ -1,3 +1,0 @@
-Local := [].{
-    backend = { name: "local" }
-}

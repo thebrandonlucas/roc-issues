@@ -1,3 +1,0 @@
-SplitCommand := [].{
-    command = { name: "split" }
-}
