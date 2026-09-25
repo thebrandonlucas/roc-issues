@@ -77,6 +77,7 @@ Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
 `Kaifile` and `kai.lock`, source, `README.md`, and executable `repro.sh`.
 
 - [BUG-007: A shared object cache segfaults a second app's dev build](./bugs/BUG-007-cross-app-object-cache-segfault/README.md)
+- [BUG-008: Interpolating a reserved word in an imported module panics](./bugs/BUG-008-reserved-word-interpolation-panic/README.md)
 
 ## Improvements
 
