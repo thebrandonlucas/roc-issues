@@ -21,21 +21,22 @@ roc version
 
 ## Running reproductions
 
-Each bug directory has a `Kaifile` and `Kaifile.lock` that pin its exact
+Each bug directory has a `flake.nix` and `flake.lock` that pin its exact
 environment independently of the root flake catalog. Each repro's README
 includes a **Shell with the exact compiler** section with the shell command,
 compiler release, and version check. Use that shell rather than the root
 `nix develop` default, which may select a different compiler.
 
-From that bug's directory, bootstrap Kai through Nix and run either command:
+From that bug's directory, use Nix directly (current repro shells support
+x86_64 and aarch64 Linux):
 
 ```sh
-nix run github:thebrandonlucas/kai -- run repro    # deterministic PASS/FAIL harness
-nix run github:thebrandonlucas/kai -- shell repro  # interactive developer shell
+nix develop .                          # shell with the exact compiler
+nix develop . --command bash repro.sh   # deterministic PASS/FAIL harness
 ```
 
-If Kai 0.0.6 or newer is already on `PATH`, use `kai run repro` or
-`kai shell repro` directly.
+Only Nix with flakes enabled is required; no additional environment manager
+is needed.
 
 A successful harness means the expected bug was reproduced; an unrelated crash
 or failure is not accepted as success. Improvement directories are design ideas
@@ -72,13 +73,13 @@ nix run .#latest -- version
 nix run '.#nightly-2026-July-15-c2d30e8' -- check path/to/main.roc
 ```
 
-Outside Kai, a repro script uses whichever `roc` is active, so bugs can also
-be checked against another compiler through `nix develop .#latest`.
+A repro script uses whichever `roc` is active, so bugs can also be checked
+against another compiler through `nix develop .#latest` from the repo root.
 
 ## Bugs
 
 Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
-`Kaifile` and `Kaifile.lock`, source, `README.md`, and executable `repro.sh`.
+`flake.nix` and `flake.lock`, source, `README.md`, and executable `repro.sh`.
 
 - [BUG-007: A shared object cache segfaults a second app's dev build](./bugs/BUG-007-cross-app-object-cache-segfault/README.md)
 - [BUG-008: Interpolating a reserved word in an imported module panics](./bugs/BUG-008-reserved-word-interpolation-panic/README.md)
@@ -97,10 +98,13 @@ harness. There are currently no active improvements.
 3. Add a `README.md` with a description, expected behavior, actual behavior
    (including the exact panic/crash output), and the repro commands. Include a
    **Shell with the exact compiler** section naming the pinned release and
-   showing `nix run github:thebrandonlucas/kai -- shell repro`, where to run it,
-   and `roc version` with the expected compiler build.
+   showing `nix develop .` from the bug's directory and `roc version` with
+   the expected compiler build. Document the harness command:
+   `nix develop . --command bash repro.sh`.
 4. Add an executable `repro.sh` that accepts only the expected failure as
    success and leaves no local build artifacts behind.
-5. Add a `Kaifile` whose `repro` environment pins the affected compiler and
-   whose `repro` task runs the harness.
-6. Run `kai update` in the bug directory and commit its `Kaifile.lock`.
+5. Add a `flake.nix` whose default dev shell selects the affected compiler
+   by its exact release tag from a pinned roc-overlay revision and includes
+   the harness dependencies.
+6. Stage the new `flake.nix` so Nix can see it in the Git checkout. Run
+   `nix flake lock` in the bug directory and commit its `flake.lock`.

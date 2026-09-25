@@ -56,7 +56,7 @@
           };
           buildTarget = rocTarget: rustTarget: ''
             python3 scripts/build.py --target ${rocTarget}
-            # Keep the unstripped host; Kai strips its final executables.
+            # Keep the host's symbols available for debugging the compiler crash.
             cp target/${rustTarget}/release/libhost.a platform/targets/${rocTarget}/libhost.a
           '';
         in

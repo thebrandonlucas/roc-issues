@@ -48,15 +48,16 @@ The process aborts with exit status 134 and dumps core.
 ### Shell with the exact compiler
 
 From this directory, enter a shell with Roc `nightly-2026-09-23-c7852fd`,
-pinned by this repro's `Kaifile` and `Kaifile.lock`:
+pinned by this repro's `flake.nix` and `flake.lock` (Linux):
 
 ```sh
-nix run github:thebrandonlucas/kai -- shell repro
-roc version # verify the compiler build contains c7852fd
+nix develop .
+roc version
+# Roc compiler version nightly-2026-09-23-c7852fd
 ```
 
-If `kai` is already on `PATH`, use `kai shell repro` instead. The root
-`nix develop` shell selects a different compiler; use this per-repro shell.
+The root `nix develop` shell selects a different compiler; use this per-repro
+shell.
 
 Inside that shell, reproduce manually with:
 
@@ -70,10 +71,8 @@ roc check N.roc   # exit 134, panics
 From this directory:
 
 ```sh
-nix run github:thebrandonlucas/kai -- run repro
+nix develop . --command bash repro.sh
 ```
-
-If `kai` is already on `PATH`, use `kai run repro` instead.
 
 The harness copies the sources to a temporary directory with a fresh cache. It
 checks that `roc check M.roc` reports the reserved word, then reports success

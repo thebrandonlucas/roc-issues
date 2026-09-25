@@ -1,5 +1,4 @@
 .direnv/
-bugs/*/.kai/
 bugs/*/app
 bugs/*/plugin-tests
 bugs/*/core
