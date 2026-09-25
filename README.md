@@ -21,9 +21,13 @@ roc version
 
 ## Running reproductions
 
-Each bug directory has a `Kaifile` and `kai.lock` that pin its exact
-environment independently of the root flake catalog. From that bug's directory,
-bootstrap Kai through Nix and run either command:
+Each bug directory has a `Kaifile` and `Kaifile.lock` that pin its exact
+environment independently of the root flake catalog. Each repro's README
+includes a **Shell with the exact compiler** section with the shell command,
+compiler release, and version check. Use that shell rather than the root
+`nix develop` default, which may select a different compiler.
+
+From that bug's directory, bootstrap Kai through Nix and run either command:
 
 ```sh
 nix run github:thebrandonlucas/kai -- run repro    # deterministic PASS/FAIL harness
@@ -74,7 +78,7 @@ be checked against another compiler through `nix develop .#latest`.
 ## Bugs
 
 Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
-`Kaifile` and `kai.lock`, source, `README.md`, and executable `repro.sh`.
+`Kaifile` and `Kaifile.lock`, source, `README.md`, and executable `repro.sh`.
 
 - [BUG-007: A shared object cache segfaults a second app's dev build](./bugs/BUG-007-cross-app-object-cache-segfault/README.md)
 - [BUG-008: Interpolating a reserved word in an imported module panics](./bugs/BUG-008-reserved-word-interpolation-panic/README.md)
@@ -91,9 +95,12 @@ harness. There are currently no active improvements.
    repro self-contained (no imports outside its directory except a pinned
    platform), even if that means duplicating support files between bugs.
 3. Add a `README.md` with a description, expected behavior, actual behavior
-   (including the exact panic/crash output), and the repro commands.
+   (including the exact panic/crash output), and the repro commands. Include a
+   **Shell with the exact compiler** section naming the pinned release and
+   showing `nix run github:thebrandonlucas/kai -- shell repro`, where to run it,
+   and `roc version` with the expected compiler build.
 4. Add an executable `repro.sh` that accepts only the expected failure as
    success and leaves no local build artifacts behind.
 5. Add a `Kaifile` whose `repro` environment pins the affected compiler and
    whose `repro` task runs the harness.
-6. Run `kai update` in the bug directory and commit its `kai.lock`.
+6. Run `kai update` in the bug directory and commit its `Kaifile.lock`.

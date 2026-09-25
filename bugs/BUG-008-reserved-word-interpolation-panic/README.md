@@ -45,21 +45,18 @@ The process aborts with exit status 134 and dumps core.
 
 ## Reproduction
 
-From this directory, bootstrap Kai through Nix and run the harness:
+### Shell with the exact compiler
 
-```sh
-nix run github:thebrandonlucas/kai -- run repro
-```
-
-For an interactive developer shell with the same pinned compiler, bootstrap
-Kai through Nix:
+From this directory, enter a shell with Roc `nightly-2026-09-23-c7852fd`,
+pinned by this repro's `Kaifile` and `Kaifile.lock`:
 
 ```sh
 nix run github:thebrandonlucas/kai -- shell repro
+roc version # verify the compiler build contains c7852fd
 ```
 
-If `kai` is already on `PATH`, the equivalent commands are `kai run repro` and
-`kai shell repro`.
+If `kai` is already on `PATH`, use `kai shell repro` instead. The root
+`nix develop` shell selects a different compiler; use this per-repro shell.
 
 Inside that shell, reproduce manually with:
 
@@ -67,6 +64,16 @@ Inside that shell, reproduce manually with:
 roc check M.roc   # exit 1, reports the reserved word
 roc check N.roc   # exit 134, panics
 ```
+
+### Automated harness
+
+From this directory:
+
+```sh
+nix run github:thebrandonlucas/kai -- run repro
+```
+
+If `kai` is already on `PATH`, use `kai run repro` instead.
 
 The harness copies the sources to a temporary directory with a fresh cache. It
 checks that `roc check M.roc` reports the reserved word, then reports success
