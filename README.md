@@ -76,7 +76,7 @@ be checked against another compiler through `nix develop .#latest`.
 Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
 `Kaifile` and `kai.lock`, source, `README.md`, and executable `repro.sh`.
 
-There are currently no active reproductions.
+- [BUG-007: A shared object cache segfaults a second app's dev build](./bugs/BUG-007-cross-app-object-cache-segfault/README.md)
 
 ## Improvements
 

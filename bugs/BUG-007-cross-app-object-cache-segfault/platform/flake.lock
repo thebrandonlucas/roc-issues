@@ -1,0 +1,67 @@
+{
+  "nodes": {
+    "basic-cli-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1790218076,
+        "narHash": "sha256-oUyMyAJYNGw13Bugz6AZuf8NvLE5qsuVD5/Gj8TtMdk=",
+        "owner": "roc-lang",
+        "repo": "basic-cli",
+        "rev": "473caa2cc4f3fe9ce4e4682158bb80ebc2e19169",
+        "type": "github"
+      },
+      "original": {
+        "owner": "roc-lang",
+        "repo": "basic-cli",
+        "rev": "473caa2cc4f3fe9ce4e4682158bb80ebc2e19169",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1784497964,
+        "narHash": "sha256-vlHUuqAcbcH2RKmHbPiuQzbv1pnzzavXnI62RD0bqCU=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "241313f4e8e508cb9b13278c2b0fa25b9ca27163",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "241313f4e8e508cb9b13278c2b0fa25b9ca27163",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "basic-cli-src": "basic-cli-src",
+        "nixpkgs": "nixpkgs",
+        "rust-overlay": "rust-overlay"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790149037,
+        "narHash": "sha256-01WcSplVEmQt13QUZLfWez27JO+2lyYWX+yTitvkF3g=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "fb058ecf6d14837ea152a3d5225ce7f88ee5cde1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "fb058ecf6d14837ea152a3d5225ce7f88ee5cde1",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
