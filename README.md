@@ -91,6 +91,9 @@ Ideas are documented separately from compiler defects and need not have a
 harness.
 
 - [IMPROVEMENT-002: Let basic-cli apps handle SIGINT (Ctrl-C)](./improvements/IMPROVEMENT-002-basic-cli-sigint-handling/README.md)
+- [IMPROVEMENT-003: Let `roc bundle` include files outside the entry file's directory](./improvements/IMPROVEMENT-003-bundle-files-outside-entry-dir/README.md)
+- [IMPROVEMENT-004: Let basic-cli read a file without following symlinks and set its mode](./improvements/IMPROVEMENT-004-basic-cli-no-follow-open-and-chmod/README.md)
+- [IMPROVEMENT-005: Make a warm `roc app.roc` as fast as a warm cached build](./improvements/IMPROVEMENT-005-warm-roc-run-overhead/README.md)
 
 ## Adding a repro
 
