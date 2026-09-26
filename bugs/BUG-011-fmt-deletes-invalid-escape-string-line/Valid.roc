@@ -1,0 +1,5 @@
+Valid := [].{
+	x =
+		\\first \\
+		\\second
+}
