@@ -99,3 +99,14 @@ only when `roc check N.roc` exits 134 with the expected panic.
 - **Upstream status:** no existing issue or PR found on 2026-09-25 for
   `invalid_string_interpolation`, "Unhandled canonicalize diagnostic", or
   reserved-word interpolation.
+
+## Upstream status
+
+Reported as [roc-lang/roc#11709](https://github.com/roc-lang/roc/issues/11709)
+and fixed by [roc-lang/roc#11718](https://github.com/roc-lang/roc/pull/11718)
+("Canonicalize malformed expressions to unreported runtime errors", merged
+2026-09-26). Checked on 2026-09-26: the harness reproduces the panic on
+`nightly-2026-09-23-c7852fd`, `nightly-2026-09-24-f45bfbe` and
+`nightly-2026-09-25-1ab6804`. On `nightly-2026-09-26-d6267b4`, `roc check
+N.roc` reports the reserved word as an ordinary error (exit 1) without
+panicking.

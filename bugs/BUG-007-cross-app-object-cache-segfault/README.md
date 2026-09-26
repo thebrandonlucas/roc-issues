@@ -114,3 +114,15 @@ first run compiles the Rust host.
   a function passed as a value under a key that does not cover its lambda set.
   roc-lang/roc#11627 (open) reports that a pack's contents depend on more than
   its module and imports. This repro may share either root cause.
+
+## Upstream status
+
+Reported as [roc-lang/roc#11710](https://github.com/roc-lang/roc/issues/11710),
+closed on 2026-09-26 by
+[roc-lang/roc#11721](https://github.com/roc-lang/roc/pull/11721), which pins
+this case with a regression test. The crash itself was already fixed by
+[roc-lang/roc#11676](https://github.com/roc-lang/roc/pull/11676) (merged
+2026-09-25): checked on 2026-09-26, the harness reproduces the segfault on
+`nightly-2026-09-23-c7852fd` and `nightly-2026-09-24-f45bfbe`, and
+`Repro.roc` builds successfully on `nightly-2026-09-25-1ab6804` and
+`nightly-2026-09-26-d6267b4`.
