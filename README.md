@@ -87,7 +87,9 @@ Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
 ## Improvements
 
 Ideas are documented separately from compiler defects and need not have a
-harness. There are currently no active improvements.
+harness.
+
+- [IMPROVEMENT-002: Let basic-cli apps handle SIGINT (Ctrl-C)](./improvements/IMPROVEMENT-002-basic-cli-sigint-handling/README.md)
 
 ## Adding a repro
 
