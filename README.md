@@ -96,6 +96,7 @@ harness.
 - [IMPROVEMENT-003: Let `roc bundle` include files outside the entry file's directory](./improvements/IMPROVEMENT-003-bundle-files-outside-entry-dir/README.md)
 - [IMPROVEMENT-004: Let basic-cli read a file without following symlinks and set its mode](./improvements/IMPROVEMENT-004-basic-cli-no-follow-open-and-chmod/README.md)
 - [IMPROVEMENT-005: Make a warm `roc app.roc` as fast as a warm cached build](./improvements/IMPROVEMENT-005-warm-roc-run-overhead/README.md)
+- [IMPROVEMENT-006: Let an app import modules from outside its own directory](./improvements/IMPROVEMENT-006-import-modules-outside-app-dir/README.md)
 
 ## Adding a repro
 
