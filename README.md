@@ -84,6 +84,7 @@ Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
 - [BUG-009: A mistyped platform requirement segfaults when its nominal type holds a tag-union alias](./bugs/BUG-009-mistyped-requirement-alias-segfault/README.md)
 - [BUG-010: A `..` in XDG_CACHE_HOME makes building a URL-platform app fail](./bugs/BUG-010-dotdot-cache-path-outside-workspace/README.md)
 - [BUG-011: `roc fmt` deletes a multiline-string line that has an invalid escape](./bugs/BUG-011-fmt-deletes-invalid-escape-string-line/README.md)
+- [BUG-012: `roc test` panics when a platform's package imports the platform's own module file](./bugs/BUG-012-test-duplicate-module-shared-with-platform/README.md)
 
 ## Improvements
 
