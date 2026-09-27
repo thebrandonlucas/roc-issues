@@ -2,7 +2,7 @@ platform ""
 	requires {
 		main : Str
 	}
-	exposes [S]
+	exposes []
 	packages {
 		lib: "../lib/main.roc",
 	}

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Reproduces BUG-012: `roc test` panics with "compiled module plan contains
-# duplicate source module" when a platform depends on a package that imports
-# one of the platform's own module files through a second package root.
+# duplicate source module" when a platform and a package it depends on each
+# have a module with the same name.
 set -eu
 cd "$(dirname "$0")"
 

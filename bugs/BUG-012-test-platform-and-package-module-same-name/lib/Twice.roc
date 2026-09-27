@@ -1,4 +1,4 @@
-import api.S
+import S
 
 Twice := [].{
 	twice : Str -> Str
