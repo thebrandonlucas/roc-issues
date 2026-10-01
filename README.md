@@ -87,6 +87,7 @@ Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
 - [BUG-012: `roc test` panics when a platform and its package both have a module with the same name](./bugs/BUG-012-test-platform-and-package-module-same-name/README.md)
 - [BUG-013: `roc check` segfaults when an app calls a package's derived decoder without importing its codec module](./bugs/BUG-013-unimported-codec-module-segfault/README.md)
 - [BUG-014: Interpolating `var` in an imported module panics](./bugs/BUG-014-var-constant-interpolation-panic/README.md) (fixed in `nightly-2026-09-26-d6267b4`)
+- [BUG-015: `Json.parse` rejects a `Dec` with more than 18 fraction digits](./bugs/BUG-015-json-dec-over-18-fraction-digits/README.md)
 
 ## Improvements
 
