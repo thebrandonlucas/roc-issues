@@ -116,3 +116,6 @@ panic.
   roc-lang/roc#10715 (merged 2026-08-10, "Resolve every import naming one
   source module to one environment") changed how same-named imports resolve,
   but is not about the test runner.
+- **Fixed:** `nightly-2026-10-21-5349569` passes the harness ("BUG NOT
+  REPRODUCED: roc test passed"), and Kai's std plugin runs `roc test` on its
+  own test root.

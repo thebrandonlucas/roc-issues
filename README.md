@@ -84,10 +84,11 @@ Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
 - [BUG-009: A mistyped platform requirement segfaults when its nominal type holds a tag-union alias](./bugs/BUG-009-mistyped-requirement-alias-segfault/README.md)
 - [BUG-010: A `..` in XDG_CACHE_HOME makes building a URL-platform app fail](./bugs/BUG-010-dotdot-cache-path-outside-workspace/README.md)
 - [BUG-011: `roc fmt` deletes a multiline-string line that has an invalid escape](./bugs/BUG-011-fmt-deletes-invalid-escape-string-line/README.md)
-- [BUG-012: `roc test` panics when a platform and its package both have a module with the same name](./bugs/BUG-012-test-platform-and-package-module-same-name/README.md)
+- [BUG-012: `roc test` panics when a platform and its package both have a module with the same name](./bugs/BUG-012-test-platform-and-package-module-same-name/README.md) (fixed in `nightly-2026-10-21-5349569`)
 - [BUG-013: `roc check` segfaults when an app calls a package's derived decoder without importing its codec module](./bugs/BUG-013-unimported-codec-module-segfault/README.md)
 - [BUG-014: Interpolating `var` in an imported module panics](./bugs/BUG-014-var-constant-interpolation-panic/README.md) (fixed in `nightly-2026-09-26-d6267b4`)
 - [BUG-015: `Json.parse` rejects a `Dec` with more than 18 fraction digits](./bugs/BUG-015-json-dec-over-18-fraction-digits/README.md)
+- [BUG-016: two calls of one method on an inferred type get a single type](./bugs/BUG-016-method-on-inferred-type-unified-across-calls/README.md)
 
 ## Improvements
 
