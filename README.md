@@ -89,6 +89,7 @@ Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
 - [BUG-020: `roc test` fails an expect because parsed rows hold garbage strings](./bugs/BUG-020-test-after-build-wrong-constant/README.md)
 - [BUG-021: `roc check` segfaults on a record update whose list element misses a field](./bugs/BUG-021-record-update-list-missing-field-segfault/README.md)
 - [BUG-022: an unused `Str` statement is reported as an interpolation mismatch elsewhere](./bugs/BUG-022-unused-statement-reported-as-interpolation-mismatch/README.md)
+- [BUG-024: A type mismatch on an interpolated string literal is reported at a different expression](./bugs/BUG-024-interpolated-literal-mismatch-wrong-region/README.md)
 
 ## Improvements
 
