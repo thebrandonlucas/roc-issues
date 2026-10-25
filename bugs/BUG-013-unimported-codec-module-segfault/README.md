@@ -3,6 +3,13 @@
 Found with Roc `nightly-2026-09-26-d6267b4`, the newest nightly on
 2026-09-27, which this repro's shell pins. No host is needed.
 
+**Fixed in `nightly-2026-10-02-bba1acc`.** Checked on 2026-10-25: the harness
+reproduces on `nightly-2026-10-01-a932c65` and reports "BUG NOT REPRODUCED:
+roc check App.roc succeeded" on `nightly-2026-10-02-bba1acc`,
+`nightly-2026-10-21-5349569` and `nightly-2026-10-23-18478ff`. On
+`nightly-2026-10-09-258ab27` and `nightly-2026-10-12-2664a27` the control
+`roc check Valid.roc` segfaulted instead, so the harness stopped early.
+
 ## Description
 
 `api/` is a package of four modules copied from Kai's platform API (tests and

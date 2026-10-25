@@ -4,6 +4,12 @@ Found with Roc `nightly-2026-09-23-c7852fd`. Still reproduces on
 `nightly-2026-09-26-d6267b4`, the newest nightly on 2026-09-26, which this
 repro's shell pins. No platform or package is needed.
 
+**Fixed in `nightly-2026-10-01-a932c65`.** Checked on 2026-10-25: the harness
+reproduces on `nightly-2026-09-29-7f11a82` and reports "BUG NOT REPRODUCED:
+roc fmt refused the invalid module and kept the line" on
+`nightly-2026-10-01-a932c65`, `nightly-2026-10-21-5349569` and
+`nightly-2026-10-23-18478ff`.
+
 ## Description
 
 `Invalid.roc` has a `\\` multiline string whose first line ends in a lone

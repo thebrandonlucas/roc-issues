@@ -4,6 +4,12 @@ Found with Roc `nightly-2026-09-23-c7852fd`. Still reproduces on
 `nightly-2026-09-26-d6267b4`, the newest nightly on 2026-09-26, which this
 repro's shell pins. No host or package is needed.
 
+**Fixed in `nightly-2026-09-28-9927ba8`.** Checked on 2026-10-25: the harness
+reproduces on `nightly-2026-09-27-a3ce7f1` and reports "BUG NOT REPRODUCED:
+roc check reported the type mismatch without crashing" on
+`nightly-2026-09-28-9927ba8`, `nightly-2026-10-21-5349569` and
+`nightly-2026-10-23-18478ff`.
+
 ## Description
 
 The platform in `platform/` requires `main : P`. `P` is a nominal record whose
