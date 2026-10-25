@@ -89,6 +89,7 @@ Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
 - [BUG-014: Interpolating `var` in an imported module panics](./bugs/BUG-014-var-constant-interpolation-panic/README.md) (fixed in `nightly-2026-09-26-d6267b4`)
 - [BUG-015: `Json.parse` rejects a `Dec` with more than 18 fraction digits](./bugs/BUG-015-json-dec-over-18-fraction-digits/README.md)
 - [BUG-016: two calls of one method on an inferred type get a single type](./bugs/BUG-016-method-on-inferred-type-unified-across-calls/README.md)
+- [BUG-017: the code `roc build` emits depends on the worker count](./bugs/BUG-017-build-output-depends-on-jobs/README.md)
 
 ## Improvements
 
