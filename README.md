@@ -92,6 +92,7 @@ Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
 - [BUG-017: the code `roc build` emits depends on the worker count](./bugs/BUG-017-build-output-depends-on-jobs/README.md)
 - [BUG-018: intermittent SIGSEGV/SIGABRT in `roc check` on CI runners](./bugs/BUG-018-intermittent-check-crash-on-ci/README.md) (observed on CI only)
 - [BUG-019: `roc build` segfaults in lir_gen when a platform provides a value](./bugs/BUG-019-cold-build-value-entrypoint-segfault/README.md)
+- [BUG-020: `roc test` after `roc build` fails an expect that passes without the cache](./bugs/BUG-020-test-after-build-wrong-constant/README.md)
 
 ## Improvements
 
