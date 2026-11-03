@@ -94,6 +94,7 @@ Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
 - [BUG-019: `roc build` segfaults in lir_gen when a platform provides a value](./bugs/BUG-019-cold-build-value-entrypoint-segfault/README.md)
 - [BUG-020: `roc test` after `roc build` fails an expect that passes without the cache](./bugs/BUG-020-test-after-build-wrong-constant/README.md)
 - [BUG-021: `roc check` segfaults on a record update whose list element misses a field](./bugs/BUG-021-record-update-list-missing-field-segfault/README.md)
+- [BUG-022: an unused `Str` statement is reported as an interpolation mismatch elsewhere](./bugs/BUG-022-unused-statement-reported-as-interpolation-mismatch/README.md)
 
 ## Improvements
 
