@@ -95,6 +95,7 @@ Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
 - [BUG-020: `roc test` after `roc build` fails an expect that passes without the cache](./bugs/BUG-020-test-after-build-wrong-constant/README.md)
 - [BUG-021: `roc check` segfaults on a record update whose list element misses a field](./bugs/BUG-021-record-update-list-missing-field-segfault/README.md)
 - [BUG-022: an unused `Str` statement is reported as an interpolation mismatch elsewhere](./bugs/BUG-022-unused-statement-reported-as-interpolation-mismatch/README.md)
+- [BUG-023: a record `Json.parse` decoder passed to `List.map_try` panics `roc check`](./bugs/BUG-023-json-record-decoder-through-map-try-panic/README.md) (fixed in `nightly-2026-09-28-9927ba8`)
 
 ## Improvements
 
