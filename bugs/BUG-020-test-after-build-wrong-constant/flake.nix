@@ -1,10 +1,10 @@
 {
-  description = "BUG-020 repro shell with Roc nightly-2026-10-21-5349569";
+  description = "BUG-020 repro shell with Roc nightly-2026-11-03-34bd006";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     roc-overlay = {
-      url = "github:roc-lang/roc-overlay/0563d2a0ba55a751449c54058328832309b0f3a1";
+      url = "github:roc-lang/roc-overlay/46bac4118b0c1538129de5a23afe4d75a654edc4";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixpkgs-darwin.follows = "nixpkgs";
     };
@@ -17,7 +17,7 @@
         "x86_64-linux"
         "aarch64-linux"
       ];
-      rocFor = system: roc-overlay.packages.${system}.nightly-2026-10-21-5349569;
+      rocFor = system: roc-overlay.packages.${system}.nightly-2026-11-03-34bd006;
     in
     {
       packages = forAllSystems (system: {

@@ -86,7 +86,7 @@ Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
 - [BUG-016: two calls of one method on an inferred type get a single type](./bugs/BUG-016-method-on-inferred-type-unified-across-calls/README.md)
 - [BUG-018: intermittent SIGSEGV/SIGABRT in `roc check` on CI runners](./bugs/BUG-018-intermittent-check-crash-on-ci/README.md) (observed on CI only)
 - [BUG-019: `roc build` segfaults in lir_gen when a platform provides a value](./bugs/BUG-019-cold-build-value-entrypoint-segfault/README.md)
-- [BUG-020: `roc test` after `roc build` fails an expect that passes without the cache](./bugs/BUG-020-test-after-build-wrong-constant/README.md)
+- [BUG-020: `roc test` fails an expect because parsed rows hold garbage strings](./bugs/BUG-020-test-after-build-wrong-constant/README.md)
 - [BUG-021: `roc check` segfaults on a record update whose list element misses a field](./bugs/BUG-021-record-update-list-missing-field-segfault/README.md)
 - [BUG-022: an unused `Str` statement is reported as an interpolation mismatch elsewhere](./bugs/BUG-022-unused-statement-reported-as-interpolation-mismatch/README.md)
 

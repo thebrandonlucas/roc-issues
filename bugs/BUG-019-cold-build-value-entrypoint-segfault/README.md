@@ -1,6 +1,6 @@
 # BUG-019: `roc build` segfaults in lir_gen when a platform provides a value
 
-> **Rechecked 2026-11-05:** still reproduces on nightly-2026-11-03-34bd006, although roc-lang/roc#12559 was closed as completed on 2026-10-26: comment there with the nightly and repro so it can be reopened.
+> **Rechecked 2026-11-06:** still reproduces on nightly-2026-11-03-34bd006. Not filed upstream (roc-lang/roc#12559 below is a different issue). Ready to file: ISSUE.md.
 
 Found with Roc `nightly-2026-10-23-18478ff`, which this repro's shell pins.
 `nightly-2026-10-21-5349569` builds the same app. No real host is needed.

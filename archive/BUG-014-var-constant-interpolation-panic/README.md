@@ -1,6 +1,6 @@
 # BUG-014: Interpolating `var` in an imported module panics
 
-> **Archived 2026-11-05:** fixed upstream (roc-lang/roc#11709, closed 2026-09-26); does not reproduce on nightly-2026-11-03-34bd006.
+> **Archived 2026-11-05:** fixed upstream by roc-lang/roc#11718 (merged 2026-09-26); does not reproduce on nightly-2026-11-03-34bd006.
 
 Found with Roc `nightly-2026-09-19-d025939`, which this repro's shell pins.
 Fixed in `nightly-2026-09-26-d6267b4`. No platform is needed.
