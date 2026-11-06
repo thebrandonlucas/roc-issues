@@ -2,7 +2,7 @@
 
 A platform that hands the app's `main` to the host as a value (`main_for_host : Str`) makes `roc build` segfault in the `lir_gen` stage, before linking, when the cache is empty. `roc check` passes on the same app.
 
-**Nightly:** `nightly-2026-11-03-34bd006` (linux x86_64)
+**Nightly:** `nightly-2026-11-06-34f137a` (linux x86_64)
 
 ### Repro
 
@@ -70,4 +70,4 @@ The app compiles, as it does on `nightly-2026-10-21-5349569`.
 - Harness: https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-019-cold-build-value-entrypoint-segfault
 
 ---
-*Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-03-34bd006` before posting.*
+*Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-06-34f137a` before posting.*

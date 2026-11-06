@@ -2,7 +2,7 @@
 
 A top-level constant is computed by parsing a few lines of text into a record with a list of rows. An `expect` over it fails: the list has the right number of rows, but every row's string fields are the single byte `0xFF`. The comment line in the input is parsed correctly. This happens on every run, with or without a cache.
 
-**Nightly:** `nightly-2026-11-03-34bd006` (linux x86_64)
+**Nightly:** `nightly-2026-11-06-34f137a` (linux x86_64)
 
 ### Repro
 
@@ -126,4 +126,4 @@ The test passes, as on `nightly-2026-10-21-5349569`.
 - Harness: https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-020-test-after-build-wrong-constant
 
 ---
-*Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-03-34bd006` before posting.*
+*Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-06-34f137a` before posting.*

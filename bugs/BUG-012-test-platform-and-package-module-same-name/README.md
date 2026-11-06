@@ -1,6 +1,6 @@
 # BUG-012: `roc test` panics when a platform and its package both have a module with the same name
 
-> **Rechecked 2026-11-06:** crashes again on nightly-2026-11-03-34bd006: SIGSEGV in `roc test App.roc` (SIGTRAP on 2026-11-01 and 11-02) instead of the panic described below; passes on nightly-2026-10-28-bad769b. Not filed upstream; roc-lang/roc#11065 (BUG-001, ours, closed) is related. Ready to file: ISSUE.md.
+> **Rechecked 2026-11-06:** crashes again on nightly-2026-11-06-34f137a: SIGSEGV in `roc test App.roc` (SIGTRAP on 2026-11-01 and 11-02) instead of the panic described below; passes on nightly-2026-10-28-bad769b. Not filed upstream; roc-lang/roc#11065 (BUG-001, ours, closed) is related. Ready to file: ISSUE.md.
 
 Found with Roc `nightly-2026-09-26-d6267b4`, the newest nightly on
 2026-09-27, which this repro's shell pins. No host is needed.

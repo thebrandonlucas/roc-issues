@@ -1,6 +1,6 @@
 # BUG-021: `roc check` segfaults on a record update whose list element misses a field
 
-> **Rechecked 2026-11-06:** still reproduces on nightly-2026-11-03-34bd006, but the outcome depends on the setup: a segfault (this harness) or the wrong "does not have a field named files" error, deterministic per working-directory name and XDG_CACHE_HOME. Not filed upstream (roc-lang/roc#11057 below is someone else's). Ready to file: ISSUE.md.
+> **Rechecked 2026-11-06:** still reproduces on nightly-2026-11-06-34f137a, but the outcome depends on the setup: a segfault (this harness) or the wrong "does not have a field named files" error, deterministic per working-directory name and XDG_CACHE_HOME. Not filed upstream (roc-lang/roc#11057 below is someone else's). Ready to file: ISSUE.md.
 
 Found with Roc `nightly-2026-10-21-5349569`, which this repro's shell pins.
 `nightly-2026-11-02-847b82c` crashes the same way. No platform is needed.

@@ -1,6 +1,6 @@
 # BUG-022: an unused `Str` statement is reported as an interpolation mismatch elsewhere
 
-> **Rechecked 2026-11-06:** still reproduces on nightly-2026-11-03-34bd006. Not filed upstream. Ready to file: ISSUE.md.
+> **Rechecked 2026-11-06:** still reproduces on nightly-2026-11-06-34f137a. Not filed upstream. Ready to file: ISSUE.md.
 
 Found with Roc `nightly-2026-10-21-5349569`, which this repro's shell pins.
 `nightly-2026-11-02-847b82c` reports the same. No platform is needed.

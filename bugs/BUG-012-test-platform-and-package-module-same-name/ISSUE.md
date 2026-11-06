@@ -2,7 +2,7 @@
 
 A platform has a module `S`, and the package it depends on has its own module `S`. `roc check` passes and `roc test` on the package alone passes, but `roc test App.roc` crashes with no diagnostic: SIGSEGV on the current nightly, SIGTRAP on the two before it.
 
-**Nightly:** `nightly-2026-11-03-34bd006` (linux x86_64)
+**Nightly:** `nightly-2026-11-06-34f137a` (linux x86_64)
 
 ### Repro
 
@@ -97,4 +97,4 @@ All (3) tests passed
 - Harness: https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-012-test-platform-and-package-module-same-name
 
 ---
-*Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-03-34bd006` before posting.*
+*Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-06-34f137a` before posting.*

@@ -1,6 +1,6 @@
 # BUG-015: `Json.parse` rejects a `Dec` with more than 18 fraction digits
 
-> **Rechecked 2026-11-06:** still reproduces on nightly-2026-11-03-34bd006, also with basic-cli 0.26.0. Not filed upstream (roc-lang/roc#10550 below is someone else's related issue). Ready to file: ISSUE.md.
+> **Rechecked 2026-11-06:** still reproduces on nightly-2026-11-06-34f137a, without basic-cli (ISSUE.md uses expects; basic-cli 0.26.0 no longer compiles cleanly on this nightly). Not filed upstream (roc-lang/roc#10550 below is someone else's related issue). Ready to file: ISSUE.md.
 
 Found with Roc `nightly-2026-09-19-d025939`, which this repro's shell pins.
 Still present in `nightly-2026-09-26-d6267b4`. Uses basic-cli 0.22.2 only for
