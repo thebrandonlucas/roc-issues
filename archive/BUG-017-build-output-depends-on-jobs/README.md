@@ -1,5 +1,7 @@
 # BUG-017: the code `roc build` emits depends on the worker count
 
+> **Archived 2026-11-05:** does not reproduce on nightly-2026-11-03-34bd006 (all 4 builds identical), but roc-lang/roc#11449 is still open: comment there with the result so it can be closed.
+
 Found with Roc `nightly-2026-10-21-5349569`, which this repro's shell pins,
 on x86_64 Linux. The program is the
 [Kai](https://github.com/thebrandonlucas/kai) CLI at commit `3fd862f`, a

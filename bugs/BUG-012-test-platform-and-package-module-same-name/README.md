@@ -1,5 +1,7 @@
 # BUG-012: `roc test` panics when a platform and its package both have a module with the same name
 
+> **Rechecked 2026-11-05:** still a crash on nightly-2026-11-03-34bd006, but now a SIGSEGV in `roc test App.roc` instead of the panic described below (the index called it fixed in nightly-2026-10-21-5349569; it is back). Not filed upstream yet.
+
 Found with Roc `nightly-2026-09-26-d6267b4`, the newest nightly on
 2026-09-27, which this repro's shell pins. No host is needed.
 

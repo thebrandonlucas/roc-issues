@@ -1,5 +1,7 @@
 # IMPROVEMENT-004: Let basic-cli read a file without following symlinks and set its mode
 
+> **Rechecked 2026-11-05:** still needed: basic-cli 0.26.0 can choose permissions only when it creates a file (`create_permissions`); it still cannot open without following symlinks or chmod an existing file. Kai's `cli/Snapshot.roc` still runs `cp -R -P`.
+
 This is a platform capability gap, not a compiler bug. basic-cli cannot open a
 file with `O_NOFOLLOW` or set a file's permission bits. `Path.read_bytes!` and
 `Path.copy!` follow a final-component symlink, so copying a tree by checking

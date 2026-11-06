@@ -1,5 +1,7 @@
 # IMPROVEMENT-005: Make a warm `roc app.roc` as fast as a warm cached build
 
+> **Rechecked 2026-11-05:** still relevant; not filed upstream yet.
+
 This is a performance gap, not a correctness bug. With a warm cache, running an
 app with `roc app.roc` costs about 0.5 s more than building it with
 `roc build --opt=dev` and running the binary, and the gap grows with the

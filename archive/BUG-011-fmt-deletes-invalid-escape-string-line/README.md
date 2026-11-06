@@ -1,5 +1,7 @@
 # BUG-011: `roc fmt` deletes a multiline-string line that has an invalid escape
 
+> **Archived 2026-11-05:** no longer reproduces on nightly-2026-11-03-34bd006: roc fmt refuses the invalid module and keeps the line.
+
 Found with Roc `nightly-2026-09-23-c7852fd`. Still reproduces on
 `nightly-2026-09-26-d6267b4`, the newest nightly on 2026-09-26, which this
 repro's shell pins. No platform or package is needed.

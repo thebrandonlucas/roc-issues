@@ -1,5 +1,7 @@
 # BUG-016: two calls of one method on an inferred type get a single type
 
+> **Rechecked 2026-11-05:** still reproduces on nightly-2026-11-03-34bd006. Not filed upstream yet.
+
 Found with Roc `nightly-2026-10-21-5349569`, which this repro's shell pins.
 `nightly-2026-09-26-d6267b4` compiled the same code. Uses basic-cli 0.26.0
 only for printing.

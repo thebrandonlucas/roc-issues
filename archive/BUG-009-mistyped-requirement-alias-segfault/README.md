@@ -1,5 +1,7 @@
 # BUG-009: A mistyped platform requirement segfaults when its nominal type holds a tag-union alias
 
+> **Archived 2026-11-05:** no longer reproduces on nightly-2026-11-03-34bd006: roc check reports the type mismatch without crashing.
+
 Found with Roc `nightly-2026-09-23-c7852fd`. Still reproduces on
 `nightly-2026-09-26-d6267b4`, the newest nightly on 2026-09-26, which this
 repro's shell pins. No host or package is needed.

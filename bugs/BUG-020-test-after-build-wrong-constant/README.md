@@ -1,5 +1,7 @@
 # BUG-020: `roc test` after `roc build` fails an expect that passes without the cache
 
+> **Rechecked 2026-11-05:** changed on nightly-2026-11-03-34bd006: the expect now fails every time, including on an empty cache and with `--no-cache`, not only after `roc build`. Update the description before filing. Not filed upstream yet.
+
 Found with Roc `nightly-2026-10-21-5349569`, which this repro's shell pins.
 `nightly-2026-11-01-48d3369` behaves the same.
 

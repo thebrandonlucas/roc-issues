@@ -1,5 +1,7 @@
 # IMPROVEMENT-002: Let basic-cli apps handle SIGINT (Ctrl-C)
 
+> **Archived 2026-11-05:** done upstream: basic-cli 0.26.0 (2026-10-21) has a Signal module that catches Ctrl-C and SIGTERM.
+
 This is a platform capability gap, not a compiler bug. basic-cli exposes no way
 to install a signal handler or observe SIGINT, so a long-running app cannot
 print a summary or save state when the user presses Ctrl-C: the default

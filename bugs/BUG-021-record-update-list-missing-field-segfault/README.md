@@ -1,5 +1,7 @@
 # BUG-021: `roc check` segfaults on a record update whose list element misses a field
 
+> **Rechecked 2026-11-05:** still reproduces on nightly-2026-11-03-34bd006, although roc-lang/roc#11057 was closed as completed on 2026-09-03: comment there with the nightly and repro so it can be reopened.
+
 Found with Roc `nightly-2026-10-21-5349569`, which this repro's shell pins.
 `nightly-2026-11-02-847b82c` crashes the same way. No platform is needed.
 

@@ -1,5 +1,7 @@
 # BUG-013: `roc check` segfaults when an app calls a package's derived decoder without importing its codec module
 
+> **Archived 2026-11-05:** no longer reproduces on nightly-2026-11-03-34bd006: roc check App.roc succeeds.
+
 Found with Roc `nightly-2026-09-26-d6267b4`, the newest nightly on
 2026-09-27, which this repro's shell pins. No host is needed.
 

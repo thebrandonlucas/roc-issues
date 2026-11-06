@@ -1,5 +1,7 @@
 # BUG-010: A `..` in XDG_CACHE_HOME makes building a URL-platform app fail with PathOutsideWorkspace
 
+> **Archived 2026-11-05:** no longer reproduces on nightly-2026-11-03-34bd006: the build with a .. in XDG_CACHE_HOME succeeds. (The control build now segfaults in lir_gen; that is BUG-019.)
+
 Found with Roc `nightly-2026-09-23-c7852fd`. Still reproduces on
 `nightly-2026-09-26-d6267b4`, the newest nightly on 2026-09-26, which this
 repro's shell pins. No real host is needed.

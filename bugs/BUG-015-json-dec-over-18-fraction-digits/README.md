@@ -1,5 +1,7 @@
 # BUG-015: `Json.parse` rejects a `Dec` with more than 18 fraction digits
 
+> **Rechecked 2026-11-05:** still reproduces on nightly-2026-11-03-34bd006. roc-lang/roc#10550 (the same rejection) was closed as completed on 2026-08-04, so this is a regression: comment there or file a new issue.
+
 Found with Roc `nightly-2026-09-19-d025939`, which this repro's shell pins.
 Still present in `nightly-2026-09-26-d6267b4`. Uses basic-cli 0.22.2 only for
 printing.

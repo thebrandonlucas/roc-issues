@@ -1,5 +1,7 @@
 # IMPROVEMENT-006: Let an app import modules from outside its own directory
 
+> **Rechecked 2026-11-05:** still needed: the workaround moved with the passage pipeline from Aristos to Archeion (`scripts/Passages.roc` and `scripts/passages.roc`) on 2026-10-14. Not filed upstream yet.
+
 This is a capability gap, not a compiler bug. An app can import only modules
 that sit in its own directory: `import Shared` in `sub/app.roc` resolves to
 `sub/Shared.roc`, and there is no way to name `../Shared.roc` (`roc check`

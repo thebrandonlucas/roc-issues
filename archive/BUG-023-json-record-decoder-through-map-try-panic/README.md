@@ -1,5 +1,7 @@
 # BUG-023: a record `Json.parse` decoder passed to `List.map_try` panics `roc check`
 
+> **Archived 2026-11-05:** fixed upstream (roc-lang/roc#11730, closed 2026-09-27); nightly-2026-11-03-34bd006 no longer panics.
+
 Found with Roc `nightly-2026-09-26-d6267b4`, which this repro's shell pins.
 `nightly-2026-09-27-a3ce7f1` panics the same way. `nightly-2026-09-19-d025939`
 and `nightly-2026-09-28-9927ba8` check it cleanly. The repro needs basic-cli

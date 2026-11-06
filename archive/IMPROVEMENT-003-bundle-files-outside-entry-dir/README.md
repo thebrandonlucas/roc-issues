@@ -1,5 +1,7 @@
 # IMPROVEMENT-003: Let `roc bundle` include files outside the entry file's directory
 
+> **Archived 2026-11-05:** no longer needed: Kai dropped the staging-directory bundle step on 2026-09-26 (201284b).
+
 This is a CLI capability gap, not a compiler bug. `roc bundle` stores every
 file relative to the directory of its first `.roc` argument and rejects any
 file outside it. That root became the entry file's directory on purpose

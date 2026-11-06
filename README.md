@@ -81,32 +81,38 @@ against another compiler through `nix develop .#latest` from the repo root.
 Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
 `flake.nix` and `flake.lock`, source, `README.md`, and executable `repro.sh`.
 
-- [BUG-009: A mistyped platform requirement segfaults when its nominal type holds a tag-union alias](./bugs/BUG-009-mistyped-requirement-alias-segfault/README.md) (fixed in `nightly-2026-09-28-9927ba8`)
-- [BUG-010: A `..` in XDG_CACHE_HOME makes building a URL-platform app fail](./bugs/BUG-010-dotdot-cache-path-outside-workspace/README.md)
-- [BUG-011: `roc fmt` deletes a multiline-string line that has an invalid escape](./bugs/BUG-011-fmt-deletes-invalid-escape-string-line/README.md) (fixed in `nightly-2026-10-01-a932c65`)
-- [BUG-012: `roc test` panics when a platform and its package both have a module with the same name](./bugs/BUG-012-test-platform-and-package-module-same-name/README.md) (fixed in `nightly-2026-10-21-5349569`)
-- [BUG-013: `roc check` segfaults when an app calls a package's derived decoder without importing its codec module](./bugs/BUG-013-unimported-codec-module-segfault/README.md) (fixed in `nightly-2026-10-02-bba1acc`)
-- [BUG-014: Interpolating `var` in an imported module panics](./bugs/BUG-014-var-constant-interpolation-panic/README.md) (fixed in `nightly-2026-09-26-d6267b4`)
+- [BUG-012: `roc test` panics when a platform and its package both have a module with the same name](./bugs/BUG-012-test-platform-and-package-module-same-name/README.md) (crashes again on `nightly-2026-11-03-34bd006`)
 - [BUG-015: `Json.parse` rejects a `Dec` with more than 18 fraction digits](./bugs/BUG-015-json-dec-over-18-fraction-digits/README.md)
 - [BUG-016: two calls of one method on an inferred type get a single type](./bugs/BUG-016-method-on-inferred-type-unified-across-calls/README.md)
-- [BUG-017: the code `roc build` emits depends on the worker count](./bugs/BUG-017-build-output-depends-on-jobs/README.md)
 - [BUG-018: intermittent SIGSEGV/SIGABRT in `roc check` on CI runners](./bugs/BUG-018-intermittent-check-crash-on-ci/README.md) (observed on CI only)
 - [BUG-019: `roc build` segfaults in lir_gen when a platform provides a value](./bugs/BUG-019-cold-build-value-entrypoint-segfault/README.md)
 - [BUG-020: `roc test` after `roc build` fails an expect that passes without the cache](./bugs/BUG-020-test-after-build-wrong-constant/README.md)
 - [BUG-021: `roc check` segfaults on a record update whose list element misses a field](./bugs/BUG-021-record-update-list-missing-field-segfault/README.md)
 - [BUG-022: an unused `Str` statement is reported as an interpolation mismatch elsewhere](./bugs/BUG-022-unused-statement-reported-as-interpolation-mismatch/README.md)
-- [BUG-023: a record `Json.parse` decoder passed to `List.map_try` panics `roc check`](./bugs/BUG-023-json-record-decoder-through-map-try-panic/README.md) (fixed in `nightly-2026-09-28-9927ba8`)
 
 ## Improvements
 
 Ideas are documented separately from compiler defects and need not have a
 harness.
 
-- [IMPROVEMENT-002: Let basic-cli apps handle SIGINT (Ctrl-C)](./improvements/IMPROVEMENT-002-basic-cli-sigint-handling/README.md)
-- [IMPROVEMENT-003: Let `roc bundle` include files outside the entry file's directory](./improvements/IMPROVEMENT-003-bundle-files-outside-entry-dir/README.md)
 - [IMPROVEMENT-004: Let basic-cli read a file without following symlinks and set its mode](./improvements/IMPROVEMENT-004-basic-cli-no-follow-open-and-chmod/README.md)
 - [IMPROVEMENT-005: Make a warm `roc app.roc` as fast as a warm cached build](./improvements/IMPROVEMENT-005-warm-roc-run-overhead/README.md)
 - [IMPROVEMENT-006: Let an app import modules from outside its own directory](./improvements/IMPROVEMENT-006-import-modules-outside-app-dir/README.md)
+
+## Archived
+
+Drafts that no longer reproduce or are no longer needed, kept with a
+dated note at the top of each README explaining why.
+
+- [BUG-009: A mistyped platform requirement segfaults when its nominal type holds a tag-union alias](./archive/BUG-009-mistyped-requirement-alias-segfault/README.md) (fixed in `nightly-2026-09-28-9927ba8`)
+- [BUG-010: A `..` in XDG_CACHE_HOME makes building a URL-platform app fail](./archive/BUG-010-dotdot-cache-path-outside-workspace/README.md)
+- [BUG-011: `roc fmt` deletes a multiline-string line that has an invalid escape](./archive/BUG-011-fmt-deletes-invalid-escape-string-line/README.md) (fixed in `nightly-2026-10-01-a932c65`)
+- [BUG-013: `roc check` segfaults when an app calls a package's derived decoder without importing its codec module](./archive/BUG-013-unimported-codec-module-segfault/README.md) (fixed in `nightly-2026-10-02-bba1acc`)
+- [BUG-014: Interpolating `var` in an imported module panics](./archive/BUG-014-var-constant-interpolation-panic/README.md) (fixed in `nightly-2026-09-26-d6267b4`)
+- [BUG-017: the code `roc build` emits depends on the worker count](./archive/BUG-017-build-output-depends-on-jobs/README.md)
+- [BUG-023: a record `Json.parse` decoder passed to `List.map_try` panics `roc check`](./archive/BUG-023-json-record-decoder-through-map-try-panic/README.md) (fixed in `nightly-2026-09-28-9927ba8`)
+- [IMPROVEMENT-002: Let basic-cli apps handle SIGINT (Ctrl-C)](./archive/IMPROVEMENT-002-basic-cli-sigint-handling/README.md)
+- [IMPROVEMENT-003: Let `roc bundle` include files outside the entry file's directory](./archive/IMPROVEMENT-003-bundle-files-outside-entry-dir/README.md)
 
 ## Adding a repro
 
