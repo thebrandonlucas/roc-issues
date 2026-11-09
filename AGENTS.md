@@ -86,6 +86,15 @@ Rules for the body:
 - **Check the exact text.** Extract the code from `ISSUE.md` into a fresh
   directory and run the command on the stated nightly (and the last good one
   for a regression) before calling it ready.
+- **Roc only, or a link.** This repo, and everything posted from it, is read
+  by people who know Roc and nothing of the projects these bugs were found
+  in. Name another project (Kai, Lyceum Study, Archeion, Claude Code, ...)
+  only with a link to it and a few words on what it is, on its first mention
+  in each file, e.g. "[Kai](https://github.com/thebrandonlucas/kai) (a CLI
+  for Nix and Guix written in Roc)", and link any file of it you cite.
+  Better still, describe the code without the project when the name adds
+  nothing. Applies to READMEs, notes and issues alike; never cite a private
+  repository.
 - **Facts only.** No guesses about the cause in the compiler. Observations
   (what changes the result) are welcome.
 - **Smallest dependencies.** Drop basic-cli when the bug doesn't need it; when

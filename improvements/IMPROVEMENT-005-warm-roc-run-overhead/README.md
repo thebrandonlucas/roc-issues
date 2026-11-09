@@ -7,7 +7,7 @@ app with `roc app.roc` costs about 0.5 s more than building it with
 `roc build --opt=dev` and running the binary, and the gap grows with the
 amount of code the app imports.
 
-Measured on `nightly-2026-09-23-c7852fd` (not re-measured on later nightlies), with Kai's Kaifile platform and plugin prototype:
+Measured on `nightly-2026-09-23-c7852fd` (not re-measured on later nightlies), with the platform and plugin prototype of [Kai](https://github.com/thebrandonlucas/kai) (a CLI for Nix and Guix written in Roc), which reads a project's `Kaifile.roc`:
 
 | Step (warm cache) | Time |
 |---|---|

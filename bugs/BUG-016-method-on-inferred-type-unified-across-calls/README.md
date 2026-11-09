@@ -72,7 +72,7 @@ when the merged `[Count(U64), Name(U64)]` type appears.
   the code compiles. The bug needs the receiver's type to be inferred.
 - **Workaround:** calling the function form, `List.keep_oks(command.args, ...)`,
   compiles, since each call of a function is instantiated on its own.
-- **Regression:** Kai's platform had this shape and compiled with
+- **Regression:** the platform of [Kai](https://github.com/thebrandonlucas/kai) (a CLI for Nix and Guix written in Roc) had this shape and compiled with
   `nightly-2026-09-26-d6267b4`.
 
 ## Upstream status

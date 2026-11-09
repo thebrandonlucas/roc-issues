@@ -100,7 +100,7 @@ with a segfault in the type-check of `Main`.
   level deeper and the element bound first, repeated runs with a fresh cache
   sometimes segfault and sometimes report that same wrong "does not have a
   field named" error, so the checker likely reads memory it should not.
-- **How it was found:** checking a module of Kai (its `direct` backend) whose
+- **How it was found:** checking a module of [Kai](https://github.com/thebrandonlucas/kai) (a CLI for Nix and Guix written in Roc), its `direct` backend, whose
   test fixture built a `Model` by updating `Model.empty(...)` with a list of
   download records, while the record type inside the `Model` nominal had a
   field that the fixture's record alias lacked. `roc check` crashed in the

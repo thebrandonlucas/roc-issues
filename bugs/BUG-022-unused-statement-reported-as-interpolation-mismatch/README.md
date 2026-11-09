@@ -125,7 +125,7 @@ Each change below makes `roc check` report the unused value correctly:
 
 Effectful functions (`=>`, `tool!`, `served!`) behave the same.
 
-**How it was found:** in Kai's download store, an effectful `realise!` with an
+**How it was found:** in the download store of [Kai](https://github.com/thebrandonlucas/kai) (a CLI for Nix and Guix written in Roc), an effectful `realise!` with an
 inferred error type called `served!`, whose error interpolated two values,
 and then ran `Store.tool!("chmod", ...)?` as a statement, discarding the
 `Str` it returns. `roc check` reported "The values interpolated into this

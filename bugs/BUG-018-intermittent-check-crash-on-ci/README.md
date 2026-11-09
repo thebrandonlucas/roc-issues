@@ -1,6 +1,6 @@
 # BUG-018: intermittent SIGSEGV/SIGABRT in `roc check` on CI runners
 
-> **Rechecked 2026-11-09:** still seen on Kai's CI with nightly-2026-10-21-5349569: two runs on 2026-11-05 (42027788988, 42032621297) had `roc check` segfault. Not checked on newer compilers, and never reproduced locally, so not ready to file.
+> **Rechecked 2026-11-09:** still seen on the CI of [Kai](https://github.com/thebrandonlucas/kai) (a CLI for Nix and Guix written in Roc) with nightly-2026-10-21-5349569: two runs on 2026-11-05 (42027788988, 42032621297) had `roc check` segfault. Not checked on newer compilers, and never reproduced locally, so not ready to file.
 
 Found with Roc `nightly-2026-10-21-5349569`, which this repro's shell pins.
 Observed on CI only, not reproduced locally. The programs are the roots of

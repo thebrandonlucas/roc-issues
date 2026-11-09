@@ -26,4 +26,4 @@ Add, for example:
 Run GNU `cp -R -P --parents` (which opens with `O_NOFOLLOW` and checks the
 inode it inspected) and `chmod` as child processes, in batches.
 
-Used by: Kai's project snapshot (`cli/Snapshot.roc`).
+Used by: the project snapshot of [Kai](https://github.com/thebrandonlucas/kai) (a CLI for Nix and Guix written in Roc), [`cli/Snapshot.roc`](https://github.com/thebrandonlucas/kai/blob/master/cli/Snapshot.roc).

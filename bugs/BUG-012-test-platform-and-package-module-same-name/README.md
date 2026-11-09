@@ -111,7 +111,7 @@ panic.
     (`package [S] {}` beside the platform's `main.roc`).
 - **The panic names the platform's module** (`platform/main.roc.S`), even
   when the files differ.
-- **How it was found:** Kai's platform has modules named `Sexpr` and `Plan`,
+- **How it was found:** the platform of [Kai](https://github.com/thebrandonlucas/kai) (a CLI for Nix and Guix written in Roc) has modules named `Sexpr` and `Plan`,
   and so does a package the platform depends on. As a result, no app or
   plugin package on Kai's platform can run `roc test`.
 - **Upstream status:** no existing issue or PR found on 2026-09-27.

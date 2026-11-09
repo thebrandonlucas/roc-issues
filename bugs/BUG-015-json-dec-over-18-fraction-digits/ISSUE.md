@@ -1,6 +1,6 @@
 # `Json.parse` and `Dec.from_str` reject a decimal with more than 18 fraction digits
 
-Decoding a JSON number with 19 or more fraction digits into a `Dec` field fails the whole parse with `InvalidJson("Invalid JSON")`, and `Dec.from_str` returns `Err(BadNumStr)` for the same text. The input is valid JSON and the value is well within `Dec`'s range; only the extra digit is rejected. Floating-point output often has such numbers: Claude Code's `--output-format json` writes `total_cost_usd` values like `0.0007735999999999999`.
+Decoding a JSON number with 19 or more fraction digits into a `Dec` field fails the whole parse with `InvalidJson("Invalid JSON")`, and `Dec.from_str` returns `Err(BadNumStr)` for the same text. The input is valid JSON and the value is well within `Dec`'s range; only the extra digit is rejected. Floating-point output often has such numbers: [Claude Code](https://claude.com/claude-code)'s `--output-format json` writes `total_cost_usd` values like `0.0007735999999999999`.
 
 **Nightly:** `nightly-2026-11-09-9e85de7` (linux x86_64)
 
