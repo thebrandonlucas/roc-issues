@@ -2,7 +2,7 @@
 
 In `realise`, `Main.tool(name)?` is used as a statement although its value is a `Str` (it should be `_ = Main.tool(name)?`). Instead of saying the value is unused, `roc check` reports that the values interpolated into a string in `served` have different types (`{}` and `Str`), points at the call of `served`, and never names the line with the mistake. Both interpolated values are `name`, a `Str`.
 
-**Nightly:** `nightly-2026-11-06-34f137a` (linux x86_64)
+**Nightly:** `nightly-2026-11-09-9e85de7` (linux x86_64)
 
 ### Repro
 
@@ -90,9 +90,9 @@ Each of these makes `roc check` report the unused value correctly:
 - The unused statement before the call of `served`.
 - Removing the call `_ = Main.served(name)?`.
 
-Effectful versions (`=>`, `tool!`, `served!`) behave the same. Seen on every nightly from `nightly-2026-10-21-5349569` to `nightly-2026-11-06-34f137a`.
+Effectful versions (`=>`, `tool!`, `served!`) behave the same. Seen on every nightly from `nightly-2026-10-21-5349569` to `nightly-2026-11-09-9e85de7`.
 
 - Harness: https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-022-unused-statement-reported-as-interpolation-mismatch
 
 ---
-*Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-06-34f137a` before posting.*
+*Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-09-9e85de7` before posting.*

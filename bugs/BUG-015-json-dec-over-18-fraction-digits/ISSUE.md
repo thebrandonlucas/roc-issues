@@ -2,7 +2,7 @@
 
 Decoding a JSON number with 19 or more fraction digits into a `Dec` field fails the whole parse with `InvalidJson("Invalid JSON")`, and `Dec.from_str` returns `Err(BadNumStr)` for the same text. The input is valid JSON and the value is well within `Dec`'s range; only the extra digit is rejected. Floating-point output often has such numbers: Claude Code's `--output-format json` writes `total_cost_usd` values like `0.0007735999999999999`.
 
-**Nightly:** `nightly-2026-11-06-34f137a` (linux x86_64)
+**Nightly:** `nightly-2026-11-09-9e85de7` (linux x86_64)
 
 ### Repro
 
@@ -65,8 +65,8 @@ All three pass: the number is rounded (or truncated) to 18 fraction digits, as f
 ### Notes
 
 - 18 fraction digits decode; 19 fail.
-- Seen on every nightly from `nightly-2026-09-19-d025939` to `nightly-2026-11-06-34f137a`.
+- Seen on every nightly from `nightly-2026-09-19-d025939` to `nightly-2026-11-09-9e85de7`.
 - Harness: https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-015-json-dec-over-18-fraction-digits
 
 ---
-*Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-06-34f137a` before posting.*
+*Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-09-9e85de7` before posting.*

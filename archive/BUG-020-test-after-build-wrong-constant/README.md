@@ -1,5 +1,7 @@
 # BUG-020: `roc test` fails an expect because parsed rows hold garbage strings
 
+
+> **Archived 2026-11-09:** fixed upstream between nightly-2026-11-07-ad3a5d2 (still fails) and nightly-2026-11-09-9e85de7 (all tests pass; the parsed ids are "1", "2", "3"). Never filed.
 Found with Roc `nightly-2026-10-21-5349569`, where it needed a `roc build` first
 (see "History"). This repro's shell now pins `nightly-2026-11-03-34bd006`, where
 `roc test` alone fails. No platform is needed.

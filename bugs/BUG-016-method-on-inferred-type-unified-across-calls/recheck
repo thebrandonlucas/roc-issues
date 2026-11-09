@@ -1,0 +1,2 @@
+command: roc check Main.roc
+reproduced-if: \(List\(Str\), List\(Str\)\)

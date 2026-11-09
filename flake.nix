@@ -41,6 +41,27 @@
         };
 
       foundVersion = "nightly-2026-July-14-c9147c2";
+
+      # `latest`: the nightly pinned in nightly.json (scripts/recheck.sh
+      # updates it), built from Roc's own download for each platform by hash,
+      # so everyone gets exactly the compiler the issues were last checked on.
+      latestNightly =
+        system: pkgs:
+        let
+          pinned = builtins.fromJSON (builtins.readFile ./nightly.json);
+          asset = pinned.assets.${system};
+        in
+        pkgs.stdenvNoCC.mkDerivation {
+          pname = "roc";
+          version = pinned.tag;
+          src = pkgs.fetchurl { inherit (asset) url hash; };
+          sourceRoot = ".";
+          dontStrip = true;
+          installPhase = ''
+            mkdir -p $out/bin
+            cp "$(find . -type f -name roc | head -1)" $out/bin/roc
+          '';
+        };
       mkRocShell =
         pkgs: roc:
         pkgs.mkShell {
@@ -52,8 +73,8 @@
     in
     {
       # Expose every compiler recorded by roc-overlay. `default`, `found`, and
-      # `roc` select the compiler the bug was found on; `latest` tracks the
-      # newest compiler in this pinned overlay catalog.
+      # `roc` select the compiler the bug was found on; `latest` is the
+      # nightly pinned in nightly.json.
       packages = forAllSystems (
         system:
         let
@@ -65,7 +86,7 @@
           inherit found;
           roc = found;
           default = found;
-          latest = versions.nightly;
+          latest = latestNightly system (pkgsFor system);
         }
       );
 
@@ -84,7 +105,7 @@
           inherit found;
           roc = found;
           default = found;
-          latest = mkRocShell pkgs versions.nightly;
+          latest = mkRocShell pkgs (latestNightly system pkgs);
         }
       );
     };

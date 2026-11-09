@@ -116,3 +116,31 @@ Don't delete drafts. Move one that no longer reproduces, is fixed upstream or
 is no longer needed to `archive/` with `git mv`, add a dated
 `> **Archived YYYY-MM-DD:** <why>` line under its title, and move its index
 entry to the README's "Archived" section.
+
+## Rechecking on the newest nightly
+
+Before posting anything, and whenever asked to "recheck", run
+
+```sh
+scripts/recheck.sh            # or: scripts/recheck.sh nightly-YYYY-MM-DD-<hash>
+```
+
+It pins the newest nightly in `nightly.json` (so `nix develop .#latest` gives
+anyone that exact compiler), runs each `bugs/*/ISSUE.md`'s code as written
+(`bugs/*/recheck` holds the command and what output means "still
+reproduces"), prints a table, and names the new nightly in the issues that
+still reproduce. Then:
+
+1. For each `NOT FOUND`, read `recheck.last-output`, confirm by hand (it may
+   be fixed, or the compiler's wording changed), find the nightly that fixed
+   it if you can, and archive it (see "Archiving") or fix its `recheck`.
+2. If an issue's Observed output changed (line numbers, wording), update it.
+3. Refresh line 3 of each kept draft's README (the dated recheck note).
+4. Commit and push, and report the table.
+
+A new bug added to `bugs/` needs a `recheck` file:
+
+```
+command: roc check Main.roc
+reproduced-if: <extended regex over the output and a final exit=N line>
+```

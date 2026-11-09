@@ -1,0 +1,2 @@
+command: roc test pkg/main.roc
+reproduced-if: 1 failed

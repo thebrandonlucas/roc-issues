@@ -1,0 +1,2 @@
+command: roc check Main.roc
+reproduced-if: does not have a field named files|type-check|exit=139

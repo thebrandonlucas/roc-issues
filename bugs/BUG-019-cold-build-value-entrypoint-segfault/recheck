@@ -1,0 +1,2 @@
+command: roc build App.roc
+reproduced-if: lir_gen|exit=139

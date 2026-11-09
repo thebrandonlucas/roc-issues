@@ -76,6 +76,20 @@ nix run '.#nightly-2026-July-15-c2d30e8' -- check path/to/main.roc
 A repro script uses whichever `roc` is active, so bugs can also be checked
 against another compiler through `nix develop .#latest` from the repo root.
 
+
+## Reproducing on the newest nightly
+
+`nightly.json` pins the nightly the ready issues were last checked on, and
+`latest` builds it from Roc's own download for each platform:
+
+```sh
+nix develop .#latest          # a shell with that compiler
+cd bugs/BUG-022-*/            # then follow the issue's Command
+```
+
+`scripts/recheck.sh` moves the pin to the newest nightly and reruns every
+issue (see AGENTS.md, "Rechecking on the newest nightly").
+
 ## Bugs
 
 Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
@@ -86,7 +100,6 @@ Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
 - [BUG-016: two calls of one method on an inferred type get a single type](./bugs/BUG-016-method-on-inferred-type-unified-across-calls/README.md)
 - [BUG-018: intermittent SIGSEGV/SIGABRT in `roc check` on CI runners](./bugs/BUG-018-intermittent-check-crash-on-ci/README.md) (observed on CI only)
 - [BUG-019: `roc build` segfaults in lir_gen when a platform provides a value](./bugs/BUG-019-cold-build-value-entrypoint-segfault/README.md)
-- [BUG-020: `roc test` fails an expect because parsed rows hold garbage strings](./bugs/BUG-020-test-after-build-wrong-constant/README.md)
 - [BUG-021: `roc check` segfaults on a record update whose list element misses a field](./bugs/BUG-021-record-update-list-missing-field-segfault/README.md)
 - [BUG-022: an unused `Str` statement is reported as an interpolation mismatch elsewhere](./bugs/BUG-022-unused-statement-reported-as-interpolation-mismatch/README.md)
 - [BUG-024: A type mismatch on an interpolated string literal is reported at a different expression](./bugs/BUG-024-interpolated-literal-mismatch-wrong-region/README.md)
@@ -114,6 +127,8 @@ dated note at the top of each README explaining why.
 - [BUG-023: a record `Json.parse` decoder passed to `List.map_try` panics `roc check`](./archive/BUG-023-json-record-decoder-through-map-try-panic/README.md) (fixed in `nightly-2026-09-28-9927ba8`)
 - [IMPROVEMENT-002: Let basic-cli apps handle SIGINT (Ctrl-C)](./archive/IMPROVEMENT-002-basic-cli-sigint-handling/README.md)
 - [IMPROVEMENT-003: Let `roc bundle` include files outside the entry file's directory](./archive/IMPROVEMENT-003-bundle-files-outside-entry-dir/README.md)
+
+- [BUG-020: `roc test` fails an expect because parsed rows hold garbage strings](./archive/BUG-020-test-after-build-wrong-constant/README.md)
 
 ## Adding a repro
 

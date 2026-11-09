@@ -1,0 +1,2 @@
+command: roc check Main.roc
+reproduced-if: must all have the same type
