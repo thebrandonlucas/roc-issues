@@ -67,7 +67,7 @@ The app compiles, as it does on `nightly-2026-10-21-5349569`.
 - Running `roc check App.roc` first with the same cache makes the following `roc build` succeed; only a build with an empty cache crashes.
 - A bundled platform fetched by URL crashes the same way as the local path.
 - Regression: builds on `nightly-2026-10-21-5349569`, segfaults since `nightly-2026-10-23-18478ff`.
-- Harness: https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-019-cold-build-value-entrypoint-segfault
+- A reproduction script, with the compiler it was found on pinned by Nix: [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-019-cold-build-value-entrypoint-segfault)
 
 ---
 *Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-09-9e85de7` before posting.*

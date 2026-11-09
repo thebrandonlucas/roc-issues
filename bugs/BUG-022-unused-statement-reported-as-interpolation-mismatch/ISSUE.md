@@ -92,7 +92,7 @@ Each of these makes `roc check` report the unused value correctly:
 
 Effectful versions (`=>`, `tool!`, `served!`) behave the same. Seen on every nightly from `nightly-2026-10-21-5349569` to `nightly-2026-11-09-9e85de7`.
 
-- Harness: https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-022-unused-statement-reported-as-interpolation-mismatch
+- A reproduction script, with the compiler it was found on pinned by Nix: [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-022-unused-statement-reported-as-interpolation-mismatch)
 
 ---
 *Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-09-9e85de7` before posting.*

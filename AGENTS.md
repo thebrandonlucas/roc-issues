@@ -104,6 +104,27 @@ Rules for the body:
 - Keep the title free of "Bug:" or "[BUG-XXX]" prefixes and of the repo's
   numbering.
 
+## Drafts stand on their own
+
+A draft's README and ISSUE.md are pasted, or read, outside this repo, so they
+must make sense to someone who has never seen it:
+
+- **Titles** (the README's and the issue's): no `BUG-XXX:` or
+  `IMPROVEMENT-XXX:`; just what is wrong, starting with a capital. The
+  numbers live only in directory names and the README index.
+- **No filing status.** Never write "not filed upstream", "ready to file",
+  "searched upstream on ... found nothing" or the like: a draft in `bugs/` is
+  unfiled by definition, and a filed one is archived. Upstream issues that
+  are related go under a `## Related` heading, with a link and a clause on
+  how they relate.
+- **Dated notes** (`> **Rechecked YYYY-MM-DD:** ...` on line 3) say only
+  what was checked and what happened, on which nightly.
+- **Anything of this repo's** (the harness, the pinned shell, another
+  draft) says where it lives: "From this bug's directory in
+  [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/<dir>)",
+  "A reproduction script, with the compiler it was found on pinned by Nix:
+  [roc-issues](<link>)". Never refer to another draft by its number.
+
 ## Improvements
 
 Feature ideas (`improvements/`) go to the Roc Zulip (#ideas, or #contributing
@@ -116,8 +137,8 @@ structure where it fits: what you want, the current workaround, and why.
   comment. Show the final `ISSUE.md` first.
 - Post with `gh issue create -R roc-lang/roc --title "<title>" --body-file
   <body>` (the body is `ISSUE.md` without its first line).
-- Afterwards, record the URL in the draft README's "Upstream status" section
-  and in the root README index, and commit.
+- Afterwards, archive the draft (see "Archiving") with a note linking the
+  issue, and commit.
 
 ## Archiving
 

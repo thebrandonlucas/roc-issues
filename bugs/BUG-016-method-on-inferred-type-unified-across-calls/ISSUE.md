@@ -99,7 +99,7 @@ No errors: `split` returns `(List(Str), List(U64))`, here `(["a"], [2])`.
 - Annotating `split : { args : List(Arg) } -> (List(Str), List(U64))` makes it check, so the receiver's type has to be inferred.
 - The function form, `List.keep_oks(command.args, ...)`, checks.
 - Regression: `nightly-2026-09-26-d6267b4` compiled this shape; `nightly-2026-10-21-5349569` and every nightly since, through `nightly-2026-11-09-9e85de7`, reject it.
-- Harness: https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-016-method-on-inferred-type-unified-across-calls
+- A reproduction script, with the compiler it was found on pinned by Nix: [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-016-method-on-inferred-type-unified-across-calls)
 
 ---
 *Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-09-9e85de7` before posting.*

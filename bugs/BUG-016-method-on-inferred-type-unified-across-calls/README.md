@@ -1,8 +1,8 @@
-# BUG-016: two calls of one method on an inferred type get a single type
+# Two calls of one method on an inferred type get a single type
 
-> **Rechecked 2026-11-09:** still reproduces on nightly-2026-11-09-9e85de7 (ISSUE.md now needs no platform). Not filed upstream. Ready to file: ISSUE.md.
+> **Rechecked 2026-11-09:** still reproduces on nightly-2026-11-09-9e85de7, without a platform.
 
-Found with Roc `nightly-2026-10-21-5349569`, which this repro's shell pins.
+Found with Roc `nightly-2026-10-21-5349569`, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-016-method-on-inferred-type-unified-across-calls) pins.
 `nightly-2026-09-26-d6267b4` compiled the same code. Uses basic-cli 0.26.0
 only for printing.
 
@@ -39,8 +39,8 @@ different, incompatible keep_oks methods".
 
 ### Shell with the exact compiler
 
-From this directory, enter a shell with Roc `nightly-2026-10-21-5349569`,
-pinned by this repro's `flake.nix` (Linux):
+From this bug's directory in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-016-method-on-inferred-type-unified-across-calls), enter a shell with Roc `nightly-2026-10-21-5349569`,
+pinned by its `flake.nix` (Linux):
 
 ```sh
 nix develop .
@@ -56,7 +56,7 @@ roc check main.roc
 
 ### Automated harness
 
-From this directory:
+From the same directory of [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-016-method-on-inferred-type-unified-across-calls):
 
 ```sh
 nix develop . --command bash repro.sh
@@ -74,7 +74,3 @@ when the merged `[Count(U64), Name(U64)]` type appears.
   compiles, since each call of a function is instantiated on its own.
 - **Regression:** the platform of [Kai](https://github.com/thebrandonlucas/kai) (a CLI for Nix and Guix written in Roc) had this shape and compiled with
   `nightly-2026-09-26-d6267b4`.
-
-## Upstream status
-
-Not checked upstream yet.

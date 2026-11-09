@@ -1,8 +1,8 @@
-# BUG-021: `roc check` segfaults on a record update whose list element misses a field
+# `roc check` segfaults on a record update whose list element misses a field
 
-> **Rechecked 2026-11-09:** still reproduces on nightly-2026-11-09-9e85de7, but the outcome depends on the setup: a segfault (this harness) or the wrong "does not have a field named files" error, deterministic per working-directory name and XDG_CACHE_HOME. Not filed upstream (roc-lang/roc#11057 below is someone else's). Ready to file: ISSUE.md.
+> **Rechecked 2026-11-09:** still reproduces on nightly-2026-11-09-9e85de7, but the outcome depends on the setup: a segfault (this harness) or the wrong "does not have a field named files" error, deterministic per working-directory name and `XDG_CACHE_HOME`.
 
-Found with Roc `nightly-2026-10-21-5349569`, which this repro's shell pins.
+Found with Roc `nightly-2026-10-21-5349569`, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-021-record-update-list-missing-field-segfault) pins.
 `nightly-2026-11-02-847b82c` crashes the same way. No platform is needed.
 
 ## Description
@@ -53,8 +53,8 @@ Work in progress on thread 2977818 (compile worker 2), outermost first:
 
 ### Shell with the exact compiler
 
-From this directory, enter a shell with Roc `nightly-2026-10-21-5349569`,
-pinned by this repro's `flake.nix` (Linux):
+From this bug's directory in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-021-record-update-list-missing-field-segfault), enter a shell with Roc `nightly-2026-10-21-5349569`,
+pinned by its `flake.nix` (Linux):
 
 ```sh
 nix develop .
@@ -70,7 +70,7 @@ roc check Main.roc
 
 ### Automated harness
 
-From this directory:
+From the same directory of [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-021-record-update-list-missing-field-segfault):
 
 ```sh
 nix develop . --command bash repro.sh
@@ -107,11 +107,8 @@ with a segfault in the type-check of `Main`.
   type-check of that module instead of naming the missing field; making the
   two record types agree made it pass.
 
-## Upstream status
+## Related
 
-Not reported upstream yet. Searching roc-lang/roc issues on 2026-11-03 for
-"segfault check record", "record update segfault", "record update nominal"
-and "record update list missing field" found no matching issue.
-[roc-lang/roc#11057](https://github.com/roc-lang/roc/issues/11057) (closed,
-a misleading error when updating a nominal record field with a tag) is the
+[roc-lang/roc#11057](https://github.com/roc-lang/roc/issues/11057) (closed, a
+misleading error when updating a nominal record field with a tag) is the
 closest.

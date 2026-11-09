@@ -1,8 +1,8 @@
-# BUG-015: `Json.parse` rejects a `Dec` with more than 18 fraction digits
+# `Json.parse` rejects a `Dec` with more than 18 fraction digits
 
-> **Rechecked 2026-11-09:** still reproduces on nightly-2026-11-09-9e85de7, without basic-cli (ISSUE.md uses expects; basic-cli 0.26.0 no longer compiles cleanly on this nightly). Not filed upstream (roc-lang/roc#10550 below is someone else's related issue). Ready to file: ISSUE.md.
+> **Rechecked 2026-11-09:** still reproduces on nightly-2026-11-09-9e85de7, without basic-cli (the issue uses expects; basic-cli 0.26.0 no longer compiles cleanly on this nightly).
 
-Found with Roc `nightly-2026-09-19-d025939`, which this repro's shell pins.
+Found with Roc `nightly-2026-09-19-d025939`, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-015-json-dec-over-18-fraction-digits) pins.
 Still present in `nightly-2026-09-26-d6267b4`. Uses basic-cli 0.22.2 only for
 printing.
 
@@ -36,8 +36,8 @@ Dec.from_str: Err(BadNumStr)
 
 ### Shell with the exact compiler
 
-From this directory, enter a shell with Roc `nightly-2026-09-19-d025939`,
-pinned by this repro's `flake.nix` and `flake.lock` (Linux):
+From this bug's directory in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-015-json-dec-over-18-fraction-digits), enter a shell with Roc `nightly-2026-09-19-d025939`,
+pinned by its `flake.nix` and `flake.lock` (Linux):
 
 ```sh
 nix develop .
@@ -56,7 +56,7 @@ roc main.roc
 
 ### Automated harness
 
-From this directory:
+From the same directory of [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-015-json-dec-over-18-fraction-digits):
 
 ```sh
 nix develop . --command bash repro.sh
@@ -77,9 +77,8 @@ when the 18-digit number decodes and both the 19-digit JSON decode and
   nightly, basic-cli 0.22.2 also prints 75 unrelated `redundant open tag union`
   warnings before the output.
 
-## Upstream status
+## Related
 
-No existing upstream issue found (searched roc-lang/roc on 2026-10-01).
 [roc-lang/roc#10550](https://github.com/roc-lang/roc/issues/10550) (closed)
 is a different `Dec.from_str` `Err(BadNumStr)` case: exponential notation
 such as `"2e5"`.

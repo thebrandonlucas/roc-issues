@@ -1,8 +1,8 @@
-# BUG-022: an unused `Str` statement is reported as an interpolation mismatch elsewhere
+# An unused `Str` statement is reported as an interpolation mismatch elsewhere
 
-> **Rechecked 2026-11-09:** still reproduces on nightly-2026-11-09-9e85de7. Not filed upstream. Ready to file: ISSUE.md.
+> **Rechecked 2026-11-09:** still reproduces on nightly-2026-11-09-9e85de7.
 
-Found with Roc `nightly-2026-10-21-5349569`, which this repro's shell pins.
+Found with Roc `nightly-2026-10-21-5349569`, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-022-unused-statement-reported-as-interpolation-mismatch) pins.
 `nightly-2026-11-02-847b82c` reports the same. No platform is needed.
 
 ## Description
@@ -26,9 +26,6 @@ realise = |name| {
 mismatch between the values interpolated into the string in `served`, says
 the call of `served` gives them the types `{}` and `Str`, and never names the
 line with the mistake. Both values are `name`, a `Str`.
-
-This is a wrong diagnostic, not a crash, but it is a compiler defect with a
-deterministic harness, so it is recorded as a bug rather than an improvement.
 
 ## Expected behavior
 
@@ -84,8 +81,8 @@ with .to_str().
 
 ### Shell with the exact compiler
 
-From this directory, enter a shell with Roc `nightly-2026-10-21-5349569`,
-pinned by this repro's `flake.nix` (Linux):
+From this bug's directory in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-022-unused-statement-reported-as-interpolation-mismatch), enter a shell with Roc `nightly-2026-10-21-5349569`,
+pinned by its `flake.nix` (Linux):
 
 ```sh
 nix develop .
@@ -101,7 +98,7 @@ roc check Main.roc
 
 ### Automated harness
 
-From this directory:
+From the same directory of [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-022-unused-statement-reported-as-interpolation-mismatch):
 
 ```sh
 nix develop . --command bash repro.sh
@@ -131,10 +128,3 @@ and then ran `Store.tool!("chmod", ...)?` as a statement, discarding the
 `Str` it returns. `roc check` reported "The values interpolated into this
 string must all have the same type" in `served!`, pointing at the call of
 `served!`. Adding `_ =` to the `chmod` statement fixed it.
-
-## Upstream status
-
-Not reported upstream yet. Searching roc-lang/roc issues on 2026-11-03 for
-"values interpolated into this string", "interpolated same type", "unused
-string statement", "unused expression statement" and "produces a value, but
-it's not being used" found no matching issue.

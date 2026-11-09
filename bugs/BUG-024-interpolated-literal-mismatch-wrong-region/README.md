@@ -1,6 +1,6 @@
-# BUG-024: A type mismatch on an interpolated string literal is reported at a different expression
+# A type mismatch on an interpolated string literal is reported at a different expression
 
-Found with Roc `nightly-2026-10-21-5349569`, which this repro's shell pins.
+Found with Roc `nightly-2026-10-21-5349569`, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-024-interpolated-literal-mismatch-wrong-region) pins.
 Still reproduces on `nightly-2026-10-23-18478ff`, the newest nightly on
 2026-10-23. No platform is needed.
 
@@ -69,8 +69,8 @@ The exit status is 1.
 
 ### Shell with the exact compiler
 
-From this directory, enter a shell with Roc `nightly-2026-10-21-5349569`,
-pinned by this repro's `flake.nix` and `flake.lock` (Linux):
+From this bug's directory in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-024-interpolated-literal-mismatch-wrong-region), enter a shell with Roc `nightly-2026-10-21-5349569`,
+pinned by its `flake.nix` and `flake.lock` (Linux):
 
 ```sh
 nix develop .
@@ -90,7 +90,7 @@ roc check App.roc     # exit 1, mismatch reported at `number` (App.roc:6:24)
 
 ### Automated harness
 
-From this directory:
+From the same directory of [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-024-interpolated-literal-mismatch-wrong-region):
 
 ```sh
 nix develop . --command bash repro.sh

@@ -76,7 +76,7 @@ Hint: This record is missing the field: size
 - A structural alias, `Model : { ... }`, behaves the same, so the nominal type isn't needed.
 - Seen on `nightly-2026-10-21-5349569` through `nightly-2026-11-09-9e85de7`.
 - Related: roc-lang/roc#11057 (closed), a misleading error when updating a nominal record's field with a tag.
-- Harness (it hits the segfault): https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-021-record-update-list-missing-field-segfault
+- A reproduction script, with the compiler it was found on pinned by Nix (it hits the segfault): [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-021-record-update-list-missing-field-segfault)
 
 ---
 *Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-09-9e85de7` before posting.*

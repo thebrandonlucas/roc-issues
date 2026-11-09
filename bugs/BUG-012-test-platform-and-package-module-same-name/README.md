@@ -1,9 +1,9 @@
-# BUG-012: `roc test` panics when a platform and its package both have a module with the same name
+# `roc test` panics when a platform and its package both have a module with the same name
 
-> **Rechecked 2026-11-09:** crashes again on nightly-2026-11-09-9e85de7: SIGSEGV in `roc test App.roc` (SIGTRAP on 2026-11-01 and 11-02) instead of the panic described below; passes on nightly-2026-10-28-bad769b. Not filed upstream; roc-lang/roc#11065 (BUG-001, ours, closed) is related. Ready to file: ISSUE.md.
+> **Rechecked 2026-11-09:** crashes again on nightly-2026-11-09-9e85de7: SIGSEGV in `roc test App.roc` (SIGTRAP on 2026-11-01 and 11-02) instead of the panic described below; passes on nightly-2026-10-28-bad769b. [roc-lang/roc#11065](https://github.com/roc-lang/roc/issues/11065) (closed) is related.
 
 Found with Roc `nightly-2026-09-26-d6267b4`, the newest nightly on
-2026-09-27, which this repro's shell pins. No host is needed.
+2026-09-27, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-012-test-platform-and-package-module-same-name) pins. No host is needed.
 
 ## Description
 
@@ -66,8 +66,8 @@ The exit status is 134 (SIGABRT).
 
 ### Shell with the exact compiler
 
-From this directory, enter a shell with Roc `nightly-2026-09-26-d6267b4`,
-pinned by this repro's `flake.nix` and `flake.lock` (Linux):
+From this bug's directory in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-012-test-platform-and-package-module-same-name), enter a shell with Roc `nightly-2026-09-26-d6267b4`,
+pinned by its `flake.nix` and `flake.lock` (Linux):
 
 ```sh
 nix develop .
@@ -88,7 +88,7 @@ roc test App.roc         # exit 134, panics
 
 ### Automated harness
 
-From this directory:
+From the same directory of [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-012-test-platform-and-package-module-same-name):
 
 ```sh
 nix develop . --command bash repro.sh

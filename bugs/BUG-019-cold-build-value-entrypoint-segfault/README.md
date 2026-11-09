@@ -1,8 +1,8 @@
-# BUG-019: `roc build` segfaults in lir_gen when a platform provides a value
+# `roc build` segfaults in lir_gen when a platform provides a value
 
-> **Rechecked 2026-11-09:** still reproduces on nightly-2026-11-09-9e85de7. Not filed upstream (roc-lang/roc#12559 below is a different issue). Ready to file: ISSUE.md.
+> **Rechecked 2026-11-09:** still reproduces on nightly-2026-11-09-9e85de7.
 
-Found with Roc `nightly-2026-10-23-18478ff`, which this repro's shell pins.
+Found with Roc `nightly-2026-10-23-18478ff`, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-019-cold-build-value-entrypoint-segfault) pins.
 `nightly-2026-10-21-5349569` builds the same app. No real host is needed.
 
 ## Description
@@ -46,8 +46,8 @@ Work in progress on thread 2448737 (main), outermost first:
 
 ### Shell with the exact compiler
 
-From this directory, enter a shell with Roc `nightly-2026-10-23-18478ff`,
-pinned by this repro's `flake.nix` (Linux):
+From this bug's directory in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-019-cold-build-value-entrypoint-segfault), enter a shell with Roc `nightly-2026-10-23-18478ff`,
+pinned by its `flake.nix` (Linux):
 
 ```sh
 nix develop .
@@ -67,7 +67,7 @@ XDG_CACHE_HOME=$(mktemp -d) roc build App.roc --output=app
 
 ### Automated harness
 
-From this directory:
+From the same directory of [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-019-cold-build-value-entrypoint-segfault):
 
 ```sh
 nix develop . --command bash repro.sh
@@ -90,14 +90,11 @@ build exits 139 with a segfault in `lir_gen`.
   `XDG_CACHE_HOME` makes the following `roc build` succeed. Only a build with
   an empty cache crashes.
 - **Platform source:** the crash is the same for a local platform path and a
-  bundled platform fetched by URL (found through BUG-010's harness, whose
-  first build crashes this way on this nightly).
+  bundled platform fetched by URL.
 
-## Upstream status
+## Related
 
-Not reported upstream yet. Searching roc-lang/roc issues for "lir_gen" on
-2026-10-25 found no matching segfault.
-[roc-lang/roc#12559](https://github.com/roc-lang/roc/issues/12559) (open,
-"--opt=speed build hangs when a Dict value is the empty record {}", since
+[roc-lang/roc#12559](https://github.com/roc-lang/roc/issues/12559) ("--opt=speed
+build hangs when a Dict value is the empty record {}", since
 nightly-2026-10-23) is another build regression from the same nightly whose
 report mentions `lir_gen`, and may be related.

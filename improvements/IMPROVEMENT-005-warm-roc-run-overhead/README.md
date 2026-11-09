@@ -1,6 +1,6 @@
-# IMPROVEMENT-005: Make a warm `roc app.roc` as fast as a warm cached build
+# Make a warm `roc app.roc` as fast as a warm cached build
 
-> **Rechecked 2026-11-05:** still relevant; not filed upstream yet.
+> **Rechecked 2026-11-05:** still relevant.
 
 This is a performance gap, not a correctness bug. With a warm cache, running an
 app with `roc app.roc` costs about 0.5 s more than building it with

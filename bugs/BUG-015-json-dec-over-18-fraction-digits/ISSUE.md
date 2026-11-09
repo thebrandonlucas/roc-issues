@@ -66,7 +66,7 @@ All three pass: the number is rounded (or truncated) to 18 fraction digits, as f
 
 - 18 fraction digits decode; 19 fail.
 - Seen on every nightly from `nightly-2026-09-19-d025939` to `nightly-2026-11-09-9e85de7`.
-- Harness: https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-015-json-dec-over-18-fraction-digits
+- A reproduction script, with the compiler it was found on pinned by Nix: [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-015-json-dec-over-18-fraction-digits)
 
 ---
 *Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-09-9e85de7` before posting.*

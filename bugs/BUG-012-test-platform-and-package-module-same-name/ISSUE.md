@@ -94,7 +94,7 @@ All (3) tests passed
 - `roc check App.roc` reports no errors, and `roc test lib/main.roc` passes.
 - Regression: passes on `nightly-2026-10-28-bad769b` and earlier back to `nightly-2026-10-21-5349569`; crashes since `nightly-2026-11-01-48d3369`. (On nightlies before 2026-10-21 it panicked with "compiled module plan contains duplicate source module".)
 - Related: roc-lang/roc#11065 (closed), the same kind of crash for two packages that expose a module with the same name.
-- Harness: https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-012-test-platform-and-package-module-same-name
+- A reproduction script, with the compiler it was found on pinned by Nix: [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-012-test-platform-and-package-module-same-name)
 
 ---
 *Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-09-9e85de7` before posting.*
