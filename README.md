@@ -97,7 +97,6 @@ Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
 
 - [BUG-012: `roc test` panics when a platform and its package both have a module with the same name](./bugs/BUG-012-test-platform-and-package-module-same-name/README.md) (crashes again on `nightly-2026-11-03-34bd006`)
 - [BUG-018: intermittent SIGSEGV/SIGABRT in `roc check` on CI runners](./bugs/BUG-018-intermittent-check-crash-on-ci/README.md) (observed on CI only)
-- [BUG-021: `roc check` segfaults on a record update whose list element misses a field](./bugs/BUG-021-record-update-list-missing-field-segfault/README.md)
 
 ## Improvements
 
@@ -136,6 +135,8 @@ dated note at the top of each README explaining why.
 
 - [BUG-024: A type mismatch on an interpolated string literal is reported at a different expression](./archive/BUG-024-interpolated-literal-mismatch-wrong-region/README.md)
 - [BUG-026: `roc check` segfaults in boxy_lowering when a nominal record's list elements miss a field](./bugs/BUG-026-nominal-list-element-fields-boxy-segfault/README.md)
+
+- [BUG-021: `roc check` segfaults on a record update whose list element misses a field](./archive/BUG-021-record-update-list-missing-field-segfault/README.md)
 
 ## Adding a repro
 
