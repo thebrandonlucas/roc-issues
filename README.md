@@ -97,7 +97,6 @@ Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
 
 - [BUG-012: `roc test` panics when a platform and its package both have a module with the same name](./bugs/BUG-012-test-platform-and-package-module-same-name/README.md) (crashes again on `nightly-2026-11-03-34bd006`)
 - [BUG-015: `Json.parse` rejects a `Dec` with more than 18 fraction digits](./bugs/BUG-015-json-dec-over-18-fraction-digits/README.md)
-- [BUG-016: two calls of one method on an inferred type get a single type](./bugs/BUG-016-method-on-inferred-type-unified-across-calls/README.md)
 - [BUG-018: intermittent SIGSEGV/SIGABRT in `roc check` on CI runners](./bugs/BUG-018-intermittent-check-crash-on-ci/README.md) (observed on CI only)
 - [BUG-021: `roc check` segfaults on a record update whose list element misses a field](./bugs/BUG-021-record-update-list-missing-field-segfault/README.md)
 - [BUG-024: A type mismatch on an interpolated string literal is reported at a different expression](./bugs/BUG-024-interpolated-literal-mismatch-wrong-region/README.md)
@@ -131,6 +130,8 @@ dated note at the top of each README explaining why.
 - [BUG-022: an unused `Str` statement is reported as an interpolation mismatch elsewhere](./archive/BUG-022-unused-statement-reported-as-interpolation-mismatch/README.md)
 
 - [BUG-019: `roc build` segfaults in lir_gen when a platform provides a value](./archive/BUG-019-cold-build-value-entrypoint-segfault/README.md)
+
+- [BUG-016: two calls of one method on an inferred type get a single type](./archive/BUG-016-method-on-inferred-type-unified-across-calls/README.md)
 
 ## Adding a repro
 

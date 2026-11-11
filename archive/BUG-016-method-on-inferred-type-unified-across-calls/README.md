@@ -1,6 +1,6 @@
 # Two calls of one method on an inferred type get a single type
 
-> **Rechecked 2026-11-09:** still reproduces on nightly-2026-11-09-9e85de7, without a platform.
+> **Archived 2026-11-11:** the rejection is intended. Since [roc-lang/roc#12369](https://github.com/roc-lang/roc/pull/12369), calls of the same method on a receiver whose type is inferred share one type, as [roc-lang/roc#12553](https://github.com/roc-lang/roc/issues/12553) explains. Annotating `split`, or calling `List.keep_oks(...)`, checks.
 
 Found with Roc `nightly-2026-10-21-5349569`, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-016-method-on-inferred-type-unified-across-calls) pins.
 `nightly-2026-09-26-d6267b4` compiled the same code. Uses basic-cli 0.26.0
