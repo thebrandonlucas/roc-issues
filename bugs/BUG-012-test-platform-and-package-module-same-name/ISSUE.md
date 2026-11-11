@@ -1,8 +1,8 @@
 # `roc test` crashes when a platform and its package both have a module with the same name
 
-A platform has a module `S`, and the package it depends on has its own module `S`. `roc check` passes and `roc test` on the package alone passes, but `roc test App.roc` crashes with no diagnostic: SIGSEGV on the current nightly, SIGTRAP on the two before it.
+A platform has a module `S`, and the package it depends on has its own module `S`. `roc check` passes and `roc test` on the package alone passes, but `roc test App.roc` crashes: the process dies of SIGTRAP with no output at all.
 
-**Nightly:** `nightly-2026-11-09-9e85de7` (linux x86_64)
+**Nightly:** `nightly-2026-11-11-7679cc5` (linux x86_64)
 
 ### Repro
 
@@ -72,14 +72,14 @@ roc test App.roc
 
 ### Observed
 
+No output. The process dies of SIGTRAP (exit status 133). On `nightly-2026-11-09-9e85de7` it segfaults instead:
+
 ```
 Segmentation fault (SIGSEGV) in the Roc compiler.
 Fault address: 0x7c
 
 No compiler work was recorded on thread 1698942 (main).
 ```
-
-The exit status is 139. On `nightly-2026-11-01-48d3369` and `nightly-2026-11-02-847b82c` the process dies of SIGTRAP (exit status 133) with no output.
 
 ### Expected
 
@@ -92,9 +92,9 @@ All (3) tests passed
 ### Notes
 
 - `roc check App.roc` reports no errors, and `roc test lib/main.roc` passes.
-- Regression: passes on `nightly-2026-10-28-bad769b` and earlier back to `nightly-2026-10-21-5349569`; crashes since `nightly-2026-11-01-48d3369`. (On nightlies before 2026-10-21 it panicked with "compiled module plan contains duplicate source module".)
+- Regression: passes on `nightly-2026-10-28-bad769b` and earlier back to `nightly-2026-10-21-5349569`; crashes since `nightly-2026-10-29-a0a9fc2`. (On nightlies before 2026-10-21 it panicked with "compiled module plan contains duplicate source module".)
 - Related: roc-lang/roc#11065 (closed), the same kind of crash for two packages that expose a module with the same name.
 - A reproduction script, with the compiler it was found on pinned by Nix: [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-012-test-platform-and-package-module-same-name)
 
 ---
-*Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-09-9e85de7` before posting.*
+*Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-11-7679cc5` before posting.*

@@ -95,7 +95,7 @@ issue (see AGENTS.md, "Rechecking on the newest nightly").
 Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
 `flake.nix` and `flake.lock`, source, `README.md`, and executable `repro.sh`.
 
-- [BUG-012: `roc test` panics when a platform and its package both have a module with the same name](./bugs/BUG-012-test-platform-and-package-module-same-name/README.md) (crashes again on `nightly-2026-11-03-34bd006`)
+- [BUG-012: `roc test` panics when a platform and its package both have a module with the same name](./bugs/BUG-012-test-platform-and-package-module-same-name/README.md) (crashes since `nightly-2026-10-29-a0a9fc2`)
 - [BUG-018: intermittent SIGSEGV/SIGABRT in `roc check` on CI runners](./bugs/BUG-018-intermittent-check-crash-on-ci/README.md) (observed on CI only)
 
 ## Improvements
