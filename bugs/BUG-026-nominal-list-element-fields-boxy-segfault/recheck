@@ -1,0 +1,2 @@
+command: roc check Main.roc
+reproduced-if: boxy_lowering|exit=139
