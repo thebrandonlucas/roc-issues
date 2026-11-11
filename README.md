@@ -134,9 +134,10 @@ dated note at the top of each README explaining why.
 - [BUG-025: `roc test` segfaults when an expect reaches code with a check error](./archive/BUG-025-roc-test-segfault-on-any-check-error/README.md)
 
 - [BUG-024: A type mismatch on an interpolated string literal is reported at a different expression](./archive/BUG-024-interpolated-literal-mismatch-wrong-region/README.md)
-- [BUG-026: `roc check` segfaults in boxy_lowering when a nominal record's list elements miss a field](./bugs/BUG-026-nominal-list-element-fields-boxy-segfault/README.md)
 
 - [BUG-021: `roc check` segfaults on a record update whose list element misses a field](./archive/BUG-021-record-update-list-missing-field-segfault/README.md)
+
+- [BUG-026: `roc check` segfaults in boxy_lowering when a nominal record's list elements miss a field](./archive/BUG-026-nominal-list-element-fields-boxy-segfault/README.md)
 
 ## Adding a repro
 

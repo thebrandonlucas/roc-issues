@@ -1,6 +1,6 @@
 # `roc check` segfaults in boxy_lowering when a nominal record's list elements miss a field
 
-> **Rechecked 2026-11-11:** reproduces on nightly-2026-11-11-7679cc5; nightly-2026-11-10-f7d1f19 reports the missing field.
+> **Archived 2026-11-11:** posted as [a comment on roc-lang/roc#12968](https://github.com/roc-lang/roc/issues/12968) on 2026-11-11 (the same file without the record update); `ISSUE.md` is the unposted standalone version.
 
 Found with Roc `nightly-2026-11-11-7679cc5`, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-026-nominal-list-element-fields-boxy-segfault) pins.
 `nightly-2026-11-10-f7d1f19` reports the error correctly. No platform is needed.
