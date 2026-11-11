@@ -1,6 +1,6 @@
 # `roc check` segfaults on a record update whose list element misses a field
 
-> **Rechecked 2026-11-09:** still reproduces on nightly-2026-11-09-9e85de7, but the outcome depends on the setup: a segfault (this harness) or the wrong "does not have a field named files" error, deterministic per working-directory name and `XDG_CACHE_HOME`.
+> **Rechecked 2026-11-11:** on nightly-2026-11-11-7679cc5 the nominal-type file segfaults in type-check in every setup tried (three directory names, `XDG_CACHE_HOME` set and unset); a plain record type gets the wrong "does not have a field named files" error, as on every nightly since nightly-2026-10-21-5349569. `ISSUE.md` now shows both.
 
 Found with Roc `nightly-2026-10-21-5349569`, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-021-record-update-list-missing-field-segfault) pins.
 `nightly-2026-11-02-847b82c` crashes the same way. No platform is needed.
