@@ -1,2 +1,0 @@
-command: roc test Main.roc
-reproduced-if: 2 failed

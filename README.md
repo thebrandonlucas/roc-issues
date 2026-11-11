@@ -96,7 +96,6 @@ Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
 `flake.nix` and `flake.lock`, source, `README.md`, and executable `repro.sh`.
 
 - [BUG-012: `roc test` panics when a platform and its package both have a module with the same name](./bugs/BUG-012-test-platform-and-package-module-same-name/README.md) (crashes again on `nightly-2026-11-03-34bd006`)
-- [BUG-015: `Json.parse` rejects a `Dec` with more than 18 fraction digits](./bugs/BUG-015-json-dec-over-18-fraction-digits/README.md)
 - [BUG-018: intermittent SIGSEGV/SIGABRT in `roc check` on CI runners](./bugs/BUG-018-intermittent-check-crash-on-ci/README.md) (observed on CI only)
 - [BUG-021: `roc check` segfaults on a record update whose list element misses a field](./bugs/BUG-021-record-update-list-missing-field-segfault/README.md)
 - [BUG-024: A type mismatch on an interpolated string literal is reported at a different expression](./bugs/BUG-024-interpolated-literal-mismatch-wrong-region/README.md)
@@ -109,6 +108,7 @@ harness.
 - [IMPROVEMENT-004: Let basic-cli read a file without following symlinks and set its mode](./improvements/IMPROVEMENT-004-basic-cli-no-follow-open-and-chmod/README.md)
 - [IMPROVEMENT-005: Make a warm `roc app.roc` as fast as a warm cached build](./improvements/IMPROVEMENT-005-warm-roc-run-overhead/README.md)
 - [IMPROVEMENT-006: Let an app import modules from outside its own directory](./improvements/IMPROVEMENT-006-import-modules-outside-app-dir/README.md)
+- [IMPROVEMENT-007: Let `Dec.from_str` and JSON decoding accept more than 18 fraction digits](./improvements/IMPROVEMENT-007-dec-excess-fraction-digits/README.md)
 
 ## Archived
 
