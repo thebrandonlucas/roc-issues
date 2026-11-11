@@ -1,5 +1,7 @@
 # A type mismatch on an interpolated string literal is reported at a different expression
 
+> **Archived 2026-11-11:** fixed upstream, never filed: `nightly-2026-10-25-72704da` and later report the mismatch at the interpolated literal (`App.roc:6:9`); `nightly-2026-10-24-f6c6cfb` still pointed at `number`. On `nightly-2026-11-11-7679cc5` the variants under Observations point at the literals too.
+
 Found with Roc `nightly-2026-10-21-5349569`, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-024-interpolated-literal-mismatch-wrong-region) pins.
 Still reproduces on `nightly-2026-10-23-18478ff`, the newest nightly on
 2026-10-23. No platform is needed.
