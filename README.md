@@ -95,7 +95,6 @@ issue (see AGENTS.md, "Rechecking on the newest nightly").
 Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
 `flake.nix` and `flake.lock`, source, `README.md`, and executable `repro.sh`.
 
-- [BUG-012: `roc test` panics when a platform and its package both have a module with the same name](./bugs/BUG-012-test-platform-and-package-module-same-name/README.md) (crashes since `nightly-2026-10-29-a0a9fc2`)
 - [BUG-018: intermittent SIGSEGV/SIGABRT in `roc check` on CI runners](./bugs/BUG-018-intermittent-check-crash-on-ci/README.md) (observed on CI only)
 
 ## Improvements
@@ -138,6 +137,8 @@ dated note at the top of each README explaining why.
 - [BUG-021: `roc check` segfaults on a record update whose list element misses a field](./archive/BUG-021-record-update-list-missing-field-segfault/README.md)
 
 - [BUG-026: `roc check` segfaults in boxy_lowering when a nominal record's list elements miss a field](./archive/BUG-026-nominal-list-element-fields-boxy-segfault/README.md)
+
+- [BUG-012: `roc test` panics when a platform and its package both have a module with the same name](./archive/BUG-012-test-platform-and-package-module-same-name/README.md)
 
 ## Adding a repro
 

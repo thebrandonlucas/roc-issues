@@ -1,6 +1,6 @@
 # `roc test` panics when a platform and its package both have a module with the same name
 
-> **Rechecked 2026-11-11:** still crashes on nightly-2026-11-11-7679cc5 and nightly-2026-11-10-f7d1f19 with SIGTRAP and no output (nightly-2026-11-09-9e85de7 segfaults instead). nightly-2026-10-28-bad769b passes; nightly-2026-10-29-a0a9fc2 is the first that crashes. [roc-lang/roc#11065](https://github.com/roc-lang/roc/issues/11065) (closed) is related.
+> **Archived 2026-11-11:** filed as [roc-lang/roc#12969](https://github.com/roc-lang/roc/issues/12969) on 2026-11-11.
 
 Found with Roc `nightly-2026-09-26-d6267b4`, the newest nightly on
 2026-09-27, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-012-test-platform-and-package-module-same-name) pins. No host is needed.
