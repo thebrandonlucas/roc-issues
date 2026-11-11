@@ -133,6 +133,8 @@ dated note at the top of each README explaining why.
 
 - [BUG-016: two calls of one method on an inferred type get a single type](./archive/BUG-016-method-on-inferred-type-unified-across-calls/README.md)
 
+- [BUG-025: `roc test` segfaults when an expect reaches code with a check error](./archive/BUG-025-roc-test-segfault-on-any-check-error/README.md)
+
 ## Adding a repro
 
 1. `mkdir bugs/BUG-XXX-short-description`
