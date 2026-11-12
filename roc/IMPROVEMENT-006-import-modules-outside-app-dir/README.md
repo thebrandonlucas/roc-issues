@@ -1,6 +1,6 @@
 # Let an app import modules from outside its own directory
 
-> **Rechecked 2026-11-05:** still needed: the workaround moved with the passage pipeline from [Lyceum Study](https://github.com/lyceum-quest/study) (a Greek reading app, then called Aristos) to [Archeion](https://github.com/lyceum-quest/archeion) (its text pipeline), [`scripts/Passages.roc`](https://github.com/lyceum-quest/archeion/blob/master/scripts/Passages.roc) and [`scripts/passages.roc`](https://github.com/lyceum-quest/archeion/blob/master/scripts/passages.roc), on 2026-10-14.
+> **Rechecked 2026-11-12:** on nightly-2026-11-12-ce942d6, `import Shared` in `sub/app.roc` still looks for `sub/Shared.roc` (`FileNotFound`), and neither `import ..Shared` nor `import "../Shared.roc" as Shared` parses as a module import. The workaround is still in [Archeion](https://github.com/lyceum-quest/archeion) (the text pipeline of [Lyceum Study](https://github.com/lyceum-quest/study), a Greek reading app), [`scripts/Passages.roc`](https://github.com/lyceum-quest/archeion/blob/master/scripts/Passages.roc) and [`scripts/passages.roc`](https://github.com/lyceum-quest/archeion/blob/master/scripts/passages.roc).
 
 This is a capability gap, not a compiler bug. An app can import only modules
 that sit in its own directory: `import Shared` in `sub/app.roc` resolves to

@@ -1,6 +1,6 @@
 # Make a warm `roc app.roc` as fast as a warm cached build
 
-> **Rechecked 2026-11-05:** still relevant.
+> **Rechecked 2026-11-12:** on nightly-2026-11-12-ce942d6, a warm `roc app.roc` for a basic-cli `0.28.0` hello world takes 0.13–0.16 s against 0.11–0.14 s for a cached `roc build --opt=dev`, so the gap is small for a small app. Not re-measured on [Kai](https://github.com/thebrandonlucas/kai) (a CLI for Nix and Guix written in Roc): its platform `v0.0.12` fails to link on that nightly (`LinkFailed`).
 
 This is a performance gap, not a correctness bug. With a warm cache, running an
 app with `roc app.roc` costs about 0.5 s more than building it with

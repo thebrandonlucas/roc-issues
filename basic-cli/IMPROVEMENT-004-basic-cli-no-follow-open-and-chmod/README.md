@@ -1,6 +1,6 @@
 # Let basic-cli read a file without following symlinks and set its mode
 
-> **Rechecked 2026-11-05:** still needed: basic-cli 0.26.0 can choose permissions only when it creates a file (`create_permissions`); it still cannot open without following symlinks or chmod an existing file. [Kai](https://github.com/thebrandonlucas/kai) (a CLI for Nix and Guix written in Roc) still runs `cp -R -P` in [`cli/Snapshot.roc`](https://github.com/thebrandonlucas/kai/blob/master/cli/Snapshot.roc).
+> **Rechecked 2026-11-12:** partly addressed in basic-cli `0.28.0`: `Path.set_permissions!` sets `OwnerOnly` or `PublicRead` on an existing file, but it follows symlinks and cannot set other modes (no execute bits). There is still no read that refuses a symlink. [Kai](https://github.com/thebrandonlucas/kai) (a CLI for Nix and Guix written in Roc) still runs `cp -R -P` in [`cli/Snapshot.roc`](https://github.com/thebrandonlucas/kai/blob/master/cli/Snapshot.roc).
 
 This is a platform capability gap, not a compiler bug. basic-cli cannot open a
 file with `O_NOFOLLOW` or set a file's permission bits. `Path.read_bytes!` and
