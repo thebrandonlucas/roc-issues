@@ -144,6 +144,10 @@ it was last checked on (all on `0.5.0`, 2026-11-12).
 - [RS-005: Let an app measure elements and the viewport](./roc-signals/RS-005-layout-measurement/README.md)
 - [RS-006: Keep attributes whose value is the empty string](./roc-signals/RS-006-empty-attribute-values/README.md) (a defect)
 - [RS-008: Let an HTTP request include credentials](./roc-signals/RS-008-http-credentials/README.md)
+- [RS-009: Let an app show HTML it trusts](./roc-signals/RS-009-trusted-html/README.md)
+- [RS-010: Render an app's page to HTML when a site is built](./roc-signals/RS-010-render-views-to-html/README.md)
+- [RS-011: Scroll to the top, or to a fragment, after navigating in place](./roc-signals/RS-011-scroll-after-navigation/README.md) (a comment on lukewilliamboswell/roc-signals#204)
+- [RS-012: `--specialize=no` measured on a site built with roc-signals](./roc-signals/RS-012-specialize-no-for-a-site/README.md) (a comment on lukewilliamboswell/roc-signals#180)
 - [RS-013: Let a view draw a tree whose depth comes from data](./roc-signals/RS-013-data-depth-trees/README.md)
 
 ## Archived
@@ -173,6 +177,7 @@ flat `archive/` folder so links from filed issues keep working.
 - [RS-002: Let an app use IndexedDB (or another asynchronous host store)](./archive/RS-002-asynchronous-storage/README.md) (filed as lukewilliamboswell/roc-signals#201; addressed by ports in `0.4.0`)
 - [RS-001: Let an app read the wall-clock time](./archive/RS-001-wall-clock-time/README.md) (filed as lukewilliamboswell/roc-signals#200)
 - [RS-007: Let an app drag things with the pointer and animate the result](./archive/RS-007-pointer-drag-and-view-transitions/README.md) (filed as lukewilliamboswell/roc-signals#199)
+- [BUG-030: A condition on a local closure's result is warned about as known at compile time](./archive/BUG-030-closure-call-unconditional-condition-warning/README.md) (fixed in `nightly-2026-09-28-9927ba8`)
 
 ## Adding a repro
 
