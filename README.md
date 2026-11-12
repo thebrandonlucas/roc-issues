@@ -139,6 +139,7 @@ it was checked on.
 - [RS-004: Deliver key events that reach the document](./roc-signals/RS-004-document-key-events/README.md)
 - [RS-005: Let an app measure elements and the viewport](./roc-signals/RS-005-layout-measurement/README.md)
 - [RS-006: Keep attributes whose value is the empty string](./roc-signals/RS-006-empty-attribute-values/README.md) (a defect)
+- [RS-007: Let an app drag things with the pointer and animate the result](./roc-signals/RS-007-pointer-drag-and-view-transitions/README.md)
 
 ## Archived
 
