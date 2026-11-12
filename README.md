@@ -122,6 +122,7 @@ Improvements:
 - [IMPROVEMENT-007: Let `Dec.from_str` and JSON decoding accept more than 18 fraction digits](./roc/IMPROVEMENT-007-dec-excess-fraction-digits/README.md)
 - [IMPROVEMENT-008: Add natural logarithm and exponential functions for F64](./roc/IMPROVEMENT-008-f64-log-and-exp/README.md)
 - [IMPROVEMENT-009: Provide Unicode case mapping for Str](./roc/IMPROVEMENT-009-unicode-case-mapping/README.md)
+- [IMPROVEMENT-010: Keep lambda-set specialization from multiplying code in large apps](./roc/IMPROVEMENT-010-specialization-code-size/README.md)
 
 ## basic-cli
 
