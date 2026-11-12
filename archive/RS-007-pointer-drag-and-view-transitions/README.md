@@ -1,5 +1,7 @@
 # Let an app drag things with the pointer and animate the result
 
+> **Archived 2026-11-12:** filed as [lukewilliamboswell/roc-signals#199](https://github.com/lukewilliamboswell/roc-signals/issues/199).
+
 > **Rechecked 2026-11-12:** still missing in roc-signals `0.5.0` (protocol version 4): pointer payloads are empty, the only handler policies are `:prevent` and `:files`, and the spec language rejects `pointer-down`.
 
 This is a platform capability gap in [roc-signals](https://github.com/lukewilliamboswell/roc-signals)
@@ -56,7 +58,7 @@ Items 1 and 2 are the minimum for dragging; 6 is for animation.
    handlers otherwise both run for one event.
 5. **Modifiers on `keydown`/`keyup`.** Today the payload is `event.key` only.
    Shift-to-swap while dragging and Escape-to-cancel need the modifiers (see
-   also the draft on key events that reach the document, in this folder).
+   also the [draft on key events that reach the document](https://github.com/thebrandonlucas/roc-issues/tree/master/roc-signals/RS-004-document-key-events)).
 6. **Animated DOM updates.** A request such as `ViewTransition(Str)` that makes
    the runtime apply the next command batch inside
    `document.startViewTransition`, or directly where the browser lacks it. Apps
@@ -77,7 +79,7 @@ engine cannot decide during the event. Files are covered since 0.4.0: a
 `drop:files` handler receives them and makes the runtime prevent `dragover` on
 its element.
 
-The draft on layout measurement, in this folder, asks for element measurement and pointer coordinates for other reasons
+The [draft on layout measurement](https://github.com/thebrandonlucas/roc-issues/tree/master/roc-signals/RS-005-layout-measurement) asks for element measurement and pointer coordinates for other reasons
 (popups, scroll position, swipes). Item 1 covers its pointer coordinates; a
 `Measure(ref)` request would still serve FLIP-style animation where view
 transitions don't fit.

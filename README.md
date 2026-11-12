@@ -139,12 +139,10 @@ Found porting a browser app to roc-signals. They are platform gaps, not
 compiler bugs, so they have no harness; each says which roc-signals release
 it was last checked on (all on `0.5.0`, 2026-11-12).
 
-- [RS-001: Let an app read the wall-clock time](./roc-signals/RS-001-wall-clock-time/README.md)
 - [RS-003: Publish the browser spec runner with each release](./roc-signals/RS-003-browser-spec-runner-in-release/README.md)
 - [RS-004: Deliver key events that reach the document](./roc-signals/RS-004-document-key-events/README.md)
 - [RS-005: Let an app measure elements and the viewport](./roc-signals/RS-005-layout-measurement/README.md)
 - [RS-006: Keep attributes whose value is the empty string](./roc-signals/RS-006-empty-attribute-values/README.md) (a defect)
-- [RS-007: Let an app drag things with the pointer and animate the result](./roc-signals/RS-007-pointer-drag-and-view-transitions/README.md)
 - [RS-008: Let an HTTP request include credentials](./roc-signals/RS-008-http-credentials/README.md)
 
 ## Archived
@@ -171,7 +169,9 @@ flat `archive/` folder so links from filed issues keep working.
 - [BUG-021: `roc check` segfaults on a record update whose list element misses a field](./archive/BUG-021-record-update-list-missing-field-segfault/README.md)
 - [BUG-026: `roc check` segfaults in boxy_lowering when a nominal record's list elements miss a field](./archive/BUG-026-nominal-list-element-fields-boxy-segfault/README.md)
 - [BUG-012: `roc test` panics when a platform and its package both have a module with the same name](./archive/BUG-012-test-platform-and-package-module-same-name/README.md)
-- [RS-002: Let an app use IndexedDB (or another asynchronous host store)](./archive/RS-002-asynchronous-storage/README.md) (addressed by roc-signals ports in `0.4.0`)
+- [RS-002: Let an app use IndexedDB (or another asynchronous host store)](./archive/RS-002-asynchronous-storage/README.md) (filed as lukewilliamboswell/roc-signals#201; addressed by ports in `0.4.0`)
+- [RS-001: Let an app read the wall-clock time](./archive/RS-001-wall-clock-time/README.md) (filed as lukewilliamboswell/roc-signals#200)
+- [RS-007: Let an app drag things with the pointer and animate the result](./archive/RS-007-pointer-drag-and-view-transitions/README.md) (filed as lukewilliamboswell/roc-signals#199)
 
 ## Adding a repro
 

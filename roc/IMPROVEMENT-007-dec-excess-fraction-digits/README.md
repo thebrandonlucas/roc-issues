@@ -1,6 +1,6 @@
 # Let `Dec.from_str` and JSON decoding accept more than 18 fraction digits
 
-> **Rechecked 2026-11-11:** on nightly-2026-11-09-9e85de7, `Json.parse` into a `Dec` field and `Dec.from_str` still reject `0.0007735999999999999`, and a `Dec` literal with 19 fraction digits is a compile error ("This number literal does not fit in the inferred type").
+> **Rechecked 2026-11-12:** on nightly-2026-11-12-ce942d6, `Json.parse` into a `Dec` field and `Dec.from_str` still reject `0.0007735999999999999` (checked with `roc test` and no platform). `repro.sh` no longer gets that far: its basic-cli 0.22.2 platform fails to compile on that nightly.
 
 This is a design question, not a compiler bug: Roc treats a decimal with more
 than 18 fraction digits as not fitting in `Dec`, everywhere. The compiler

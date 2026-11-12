@@ -1,5 +1,7 @@
 # Unary minus directly before a `var` name is rejected as unexpected expression syntax
 
+> **Rechecked 2026-11-12:** still reproduces on `nightly-2026-11-12-ce942d6` (`repro.sh` prints BUG REPRODUCED).
+
 Found with Roc `nightly-2026-11-07-ad3a5d2`, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/roc/BUG-027-unary-minus-before-var-parse-error) pins.
 Still reproduces on `nightly-2026-11-11-7679cc5`, the newest nightly on
 2026-11-11. No platform is needed.
