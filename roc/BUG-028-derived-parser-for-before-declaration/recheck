@@ -1,0 +1,2 @@
+command: roc check Later/main.roc (package [Later] {})
+reproduced-if: Fields.parser_for does not exist

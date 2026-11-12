@@ -1,0 +1,2 @@
+command: roc check Var.roc
+reproduced-if: unexpected expression syntax
