@@ -144,6 +144,7 @@ it was last checked on (all on `0.5.0`, 2026-11-12).
 - [RS-005: Let an app measure elements and the viewport](./roc-signals/RS-005-layout-measurement/README.md)
 - [RS-006: Keep attributes whose value is the empty string](./roc-signals/RS-006-empty-attribute-values/README.md) (a defect)
 - [RS-008: Let an HTTP request include credentials](./roc-signals/RS-008-http-credentials/README.md)
+- [RS-013: Let a view draw a tree whose depth comes from data](./roc-signals/RS-013-data-depth-trees/README.md)
 
 ## Archived
 
