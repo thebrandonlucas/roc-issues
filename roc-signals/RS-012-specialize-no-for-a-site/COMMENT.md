@@ -34,7 +34,8 @@ With `--specialize=no`:
   source builds.
 
 So `--specialize=no` is what this app ships. On `nightly-2026-11-11-7679cc5`
-it is also the only optimized build: the specialized one crashes.
+it is also this app's only optimized build: its specialized build crashes
+(an app with a store; the second app below, which has none, does not).
 
 A second app of the same kind,
 [kai.blu.cx](https://github.com/thebrandonlucas/kai.blu.cx) (Kai's website,
