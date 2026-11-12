@@ -35,3 +35,24 @@ With `--specialize=no`:
 
 So `--specialize=no` is what this app ships. On `nightly-2026-11-11-7679cc5`
 it is also the only optimized build: the specialized one crashes.
+
+A second app of the same kind,
+[kai.blu.cx](https://github.com/thebrandonlucas/kai.blu.cx) (Kai's website,
+about 2,700 lines of Roc): a home page whose scroll and keys come through
+ports, guides with `Push` and `Popstate`, and a changelog read from GitHub,
+with local state (no store), `switch`, nested `each` and `remount_on`. On
+`nightly-2026-11-11-7679cc5`, `--target=wasm32` on linux x86_64:
+
+| Build | Raw / gzip -9 | Build time |
+|---|---|---|
+| `--opt=size` (specialized) | 4,076,358 / 1,366,540 | 2 m 7 s |
+| `--opt=size --specialize=no` | 978,793 / 384,292 | 24 s |
+| `--opt=dev` | 7,811,329 / 2,502,662 | 8 s |
+
+Here the specialized `--opt=size` build does not crash. In headless Chromium
+156, the `--specialize=no` module, loaded by the release's `runtime.mjs`,
+passes a scripted walk of every page: keys, scrolling and tabs on the home
+page, links, keys, back and the document title in the guides, and the
+changelog's two requests. Screenshots of four pages are pixel for pixel the
+same as the specialized module's and as the site's earlier Elm build.
+Nothing was timed. This app ships `--specialize=no` too.
