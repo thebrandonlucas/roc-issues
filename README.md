@@ -1,7 +1,20 @@
-# roc-issues-repro
+# roc-issues
 
-Self-contained reproductions of Roc compiler bugs, pinned to the exact
-compiler the bug was found on.
+Drafts of issues for [Roc](https://www.roc-lang.org) and projects built on
+it, each in a folder named for the project whose tracker it goes to. Bugs
+come with a self-contained reproduction pinned to the exact compiler they
+were found on.
+
+| Folder | Project | Filed at |
+|---|---|---|
+| [`roc/`](./roc) | The Roc compiler and its builtins | [roc-lang/roc](https://github.com/roc-lang/roc/issues) (ideas: Roc Zulip first) |
+| [`basic-cli/`](./basic-cli) | [basic-cli](https://github.com/roc-lang/basic-cli), Roc's platform for command-line apps | [roc-lang/basic-cli](https://github.com/roc-lang/basic-cli/issues) (ideas: Roc Zulip first) |
+| [`roc-signals/`](./roc-signals) | [roc-signals](https://github.com/lukewilliamboswell/roc-signals), a Roc platform for browser apps | [lukewilliamboswell/roc-signals](https://github.com/lukewilliamboswell/roc-signals/issues) |
+| [`archive/`](./archive) | Drafts that were filed, fixed or dropped, from every project | — |
+
+Within a folder, the prefix says what a draft is: `BUG-XXX` (a defect, with a
+harness where it can have one), `IMPROVEMENT-XXX` (a missing capability) or,
+for roc-signals, `RS-XXX`. Numbers are never reused, across folders too.
 
 ## Setup
 
@@ -84,33 +97,54 @@ against another compiler through `nix develop .#latest` from the repo root.
 
 ```sh
 nix develop .#latest          # a shell with that compiler
-cd bugs/BUG-022-*/            # then follow the issue's Command
+cd roc/BUG-027-*/             # then follow the issue's Command
 ```
 
 `scripts/recheck.sh` moves the pin to the newest nightly and reruns every
 issue (see AGENTS.md, "Rechecking on the newest nightly").
 
-## Bugs
+## Roc
 
-Each `bugs/BUG-XXX-*` directory is a self-contained repro with a pinned
+Each `roc/BUG-XXX-*` directory is a self-contained repro with a pinned
 `flake.nix` and `flake.lock`, source, `README.md`, and executable `repro.sh`.
+Improvements are design ideas and need not have a harness.
 
-- [BUG-018: intermittent SIGSEGV/SIGABRT in `roc check` on CI runners](./bugs/BUG-018-intermittent-check-crash-on-ci/README.md) (observed on CI only)
+Bugs:
 
-## Improvements
+- [BUG-018: intermittent SIGSEGV/SIGABRT in `roc check` on CI runners](./roc/BUG-018-intermittent-check-crash-on-ci/README.md) (observed on CI only)
+- [BUG-027: Unary minus directly before a `var` name is rejected as unexpected expression syntax](./roc/BUG-027-unary-minus-before-var-parse-error/README.md)
+- [BUG-028: A derived `parser_for` does not exist when used before its type's declaration](./roc/BUG-028-derived-parser-for-before-declaration/README.md)
 
-Ideas are documented separately from compiler defects and need not have a
-harness.
+Improvements:
 
-- [IMPROVEMENT-004: Let basic-cli read a file without following symlinks and set its mode](./improvements/IMPROVEMENT-004-basic-cli-no-follow-open-and-chmod/README.md)
-- [IMPROVEMENT-005: Make a warm `roc app.roc` as fast as a warm cached build](./improvements/IMPROVEMENT-005-warm-roc-run-overhead/README.md)
-- [IMPROVEMENT-006: Let an app import modules from outside its own directory](./improvements/IMPROVEMENT-006-import-modules-outside-app-dir/README.md)
-- [IMPROVEMENT-007: Let `Dec.from_str` and JSON decoding accept more than 18 fraction digits](./improvements/IMPROVEMENT-007-dec-excess-fraction-digits/README.md)
+- [IMPROVEMENT-005: Make a warm `roc app.roc` as fast as a warm cached build](./roc/IMPROVEMENT-005-warm-roc-run-overhead/README.md)
+- [IMPROVEMENT-006: Let an app import modules from outside its own directory](./roc/IMPROVEMENT-006-import-modules-outside-app-dir/README.md)
+- [IMPROVEMENT-007: Let `Dec.from_str` and JSON decoding accept more than 18 fraction digits](./roc/IMPROVEMENT-007-dec-excess-fraction-digits/README.md)
+- [IMPROVEMENT-008: Add natural logarithm and exponential functions for F64](./roc/IMPROVEMENT-008-f64-log-and-exp/README.md)
+- [IMPROVEMENT-009: Provide Unicode case mapping for Str](./roc/IMPROVEMENT-009-unicode-case-mapping/README.md)
+
+## basic-cli
+
+- [IMPROVEMENT-004: Let basic-cli read a file without following symlinks and set its mode](./basic-cli/IMPROVEMENT-004-basic-cli-no-follow-open-and-chmod/README.md)
+
+## roc-signals
+
+Found porting a browser app to roc-signals. They are platform gaps, not
+compiler bugs, so they have no harness; each says which roc-signals release
+it was checked on.
+
+- [RS-001: Let an app read the wall-clock time](./roc-signals/RS-001-wall-clock-time/README.md)
+- [RS-002: Let an app use IndexedDB (or another asynchronous host store)](./roc-signals/RS-002-asynchronous-storage/README.md)
+- [RS-003: Publish the browser spec runner with each release](./roc-signals/RS-003-browser-spec-runner-in-release/README.md)
+- [RS-004: Deliver key events that reach the document](./roc-signals/RS-004-document-key-events/README.md)
+- [RS-005: Let an app measure elements and the viewport](./roc-signals/RS-005-layout-measurement/README.md)
+- [RS-006: Keep attributes whose value is the empty string](./roc-signals/RS-006-empty-attribute-values/README.md) (a defect)
 
 ## Archived
 
-Drafts that no longer reproduce or are no longer needed, kept with a
-dated note at the top of each README explaining why.
+Drafts that were filed, no longer reproduce or are no longer needed, kept
+with a dated note at the top of each README explaining why. They stay in one
+flat `archive/` folder so links from filed issues keep working.
 
 - [BUG-009: A mistyped platform requirement segfaults when its nominal type holds a tag-union alias](./archive/BUG-009-mistyped-requirement-alias-segfault/README.md) (fixed in `nightly-2026-09-28-9927ba8`)
 - [BUG-010: A `..` in XDG_CACHE_HOME makes building a URL-platform app fail](./archive/BUG-010-dotdot-cache-path-outside-workspace/README.md)
@@ -121,28 +155,20 @@ dated note at the top of each README explaining why.
 - [BUG-023: a record `Json.parse` decoder passed to `List.map_try` panics `roc check`](./archive/BUG-023-json-record-decoder-through-map-try-panic/README.md) (fixed in `nightly-2026-09-28-9927ba8`)
 - [IMPROVEMENT-002: Let basic-cli apps handle SIGINT (Ctrl-C)](./archive/IMPROVEMENT-002-basic-cli-sigint-handling/README.md)
 - [IMPROVEMENT-003: Let `roc bundle` include files outside the entry file's directory](./archive/IMPROVEMENT-003-bundle-files-outside-entry-dir/README.md)
-
 - [BUG-020: `roc test` fails an expect because parsed rows hold garbage strings](./archive/BUG-020-test-after-build-wrong-constant/README.md)
-
 - [BUG-022: an unused `Str` statement is reported as an interpolation mismatch elsewhere](./archive/BUG-022-unused-statement-reported-as-interpolation-mismatch/README.md)
-
 - [BUG-019: `roc build` segfaults in lir_gen when a platform provides a value](./archive/BUG-019-cold-build-value-entrypoint-segfault/README.md)
-
 - [BUG-016: two calls of one method on an inferred type get a single type](./archive/BUG-016-method-on-inferred-type-unified-across-calls/README.md)
-
 - [BUG-025: `roc test` segfaults when an expect reaches code with a check error](./archive/BUG-025-roc-test-segfault-on-any-check-error/README.md)
-
 - [BUG-024: A type mismatch on an interpolated string literal is reported at a different expression](./archive/BUG-024-interpolated-literal-mismatch-wrong-region/README.md)
-
 - [BUG-021: `roc check` segfaults on a record update whose list element misses a field](./archive/BUG-021-record-update-list-missing-field-segfault/README.md)
-
 - [BUG-026: `roc check` segfaults in boxy_lowering when a nominal record's list elements miss a field](./archive/BUG-026-nominal-list-element-fields-boxy-segfault/README.md)
-
 - [BUG-012: `roc test` panics when a platform and its package both have a module with the same name](./archive/BUG-012-test-platform-and-package-module-same-name/README.md)
 
 ## Adding a repro
 
-1. `mkdir bugs/BUG-XXX-short-description`
+1. `mkdir roc/BUG-XXX-short-description` (or the folder of the project the
+   bug belongs to), with the next number not used anywhere in the repo
 2. Copy the smallest set of Roc sources that reproduces the issue. Keep each
    repro self-contained (no imports outside its directory except a pinned
    platform), even if that means duplicating support files between bugs.

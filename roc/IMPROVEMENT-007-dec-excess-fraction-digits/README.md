@@ -71,7 +71,7 @@ Decode the field as `F64` (or `Str`) and convert it afterwards.
 ## Reproduction
 
 From this directory in
-[roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/improvements/IMPROVEMENT-007-dec-excess-fraction-digits),
+[roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/roc/IMPROVEMENT-007-dec-excess-fraction-digits),
 `nix develop . --command bash repro.sh` runs `main.roc` on the nightly it was
 found with (`nightly-2026-09-19-d025939`, pinned by `flake.nix`), with
 basic-cli 0.22.2 for printing:

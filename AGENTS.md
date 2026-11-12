@@ -1,8 +1,20 @@
 # Rules for agents in roc-issues
 
-This repo holds reproductions of Roc compiler and basic-cli bugs, and the
-issues filed from them. Follow these rules every time you write or post an
+This repo holds issue drafts for Roc and projects built on it (the compiler,
+basic-cli, roc-signals, ...), with reproductions, and the issues filed from
+them. Follow these rules every time you write or post an
 upstream issue or comment.
+
+## Where a draft goes
+
+Put each draft in the folder of the project whose tracker it will be filed
+in: `roc/` (the compiler and builtins, roc-lang/roc), `basic-cli/`
+(roc-lang/basic-cli), `roc-signals/` (lukewilliamboswell/roc-signals). A
+project without a folder gets one, plus a section and a row in the README's
+table. The prefix says what it is (`BUG-XXX`, `IMPROVEMENT-XXX`, or the
+project's own, like `RS-XXX`); take the next number not used anywhere in the
+repo, `archive/` included. Filed, fixed and dropped drafts from every project
+go to the one flat `archive/`, so links from filed issues keep working.
 
 ## Before writing an issue
 
@@ -11,18 +23,18 @@ upstream issue or comment.
    (see "Archiving").
 2. If it is a regression, find the last nightly that worked and the first that
    fails, from the nightlies you can run.
-3. Search roc-lang/roc (and roc-lang/basic-cli for platform issues), open and
-   closed, for the same failure. Check each candidate's **author** before
+3. Search the project's tracker (roc-lang/roc for the compiler, and the
+   platform's own for platform issues), open and closed, for the same failure. Check each candidate's **author** before
    calling it ours: a link in a draft is often someone else's related issue.
    If an open issue is the same bug, comment there instead of filing.
 4. One bug per issue.
 
 ## Issue format
 
-Write the issue to `bugs/BUG-XXX-*/ISSUE.md`. The first line is the title as
+Write the issue to `<project>/BUG-XXX-*/ISSUE.md`. The first line is the title as
 `# <title>`; everything after it is the body, posted exactly as written. A
 comment on an existing issue goes to `COMMENT.md`, first line
-`# Comment on roc-lang/roc#N`.
+`# Comment on <owner>/<repo>#N`.
 
 The format follows the issues Roc's maintainers write themselves (for example
 roc-lang/roc#12851):
@@ -69,7 +81,7 @@ paths>
 - Regression: works on `<last good nightly>`, fails since `<first bad
   nightly>` (if known).
 - Related: roc-lang/roc#N, <one clause on how it relates> (only if checked).
-- Harness: https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/<dir>
+- Harness: https://github.com/thebrandonlucas/roc-issues/tree/master/<project>/<dir>
 
 ---
 *Drafted with Claude (Claude Code) and checked by me on `<nightly>` before
@@ -113,29 +125,31 @@ must make sense to someone who has never seen it:
   `IMPROVEMENT-XXX:`; just what is wrong, starting with a capital. The
   numbers live only in directory names and the README index.
 - **No filing status.** Never write "not filed upstream", "ready to file",
-  "searched upstream on ... found nothing" or the like: a draft in `bugs/` is
-  unfiled by definition, and a filed one is archived. Upstream issues that
+  "searched upstream on ... found nothing" or the like: a draft outside `archive/`
+  is unfiled by definition, and a filed one is archived. Upstream issues that
   are related go under a `## Related` heading, with a link and a clause on
   how they relate.
 - **Dated notes** (`> **Rechecked YYYY-MM-DD:** ...` on line 3) say only
   what was checked and what happened, on which nightly.
 - **Anything of this repo's** (the harness, the pinned shell, another
   draft) says where it lives: "From this bug's directory in
-  [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/<dir>)",
+  [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/<project>/<dir>)",
   "A reproduction script, with the compiler it was found on pinned by Nix:
   [roc-issues](<link>)". Never refer to another draft by its number.
 
 ## Improvements
 
-Feature ideas (`improvements/`) go to the Roc Zulip (#ideas, or #contributing
-for basic-cli) before any issue, as Roc's CONTRIBUTING asks. Use the same
+Feature ideas (`IMPROVEMENT-XXX`) for Roc and basic-cli go to the Roc Zulip
+(#ideas, or #contributing for basic-cli) before any issue, as Roc's
+CONTRIBUTING asks. Other projects' ideas go where that project asks (for
+roc-signals, its issue tracker). Use the same
 structure where it fits: what you want, the current workaround, and why.
 
 ## Posting
 
 - Never post without the user's explicit go for that specific issue or
   comment. Show the final `ISSUE.md` first.
-- Post with `gh issue create -R roc-lang/roc --title "<title>" --body-file
+- Post with `gh issue create -R <owner>/<repo> --title "<title>" --body-file
   <body>` (the body is `ISSUE.md` without its first line).
 - Afterwards, archive the draft (see "Archiving") with a note linking the
   issue, and commit.
@@ -156,8 +170,8 @@ scripts/recheck.sh            # or: scripts/recheck.sh nightly-YYYY-MM-DD-<hash>
 ```
 
 It pins the newest nightly in `nightly.json` (so `nix develop .#latest` gives
-anyone that exact compiler), runs each `bugs/*/ISSUE.md`'s code as written
-(`bugs/*/recheck` holds the command and what output means "still
+anyone that exact compiler), runs each `roc/BUG-*/ISSUE.md`'s code as written
+(`roc/BUG-*/recheck` holds the command and what output means "still
 reproduces"), prints a table, and names the new nightly in the issues that
 still reproduce. Then:
 
@@ -168,7 +182,7 @@ still reproduce. Then:
 3. Refresh line 3 of each kept draft's README (the dated recheck note).
 4. Commit and push, and report the table.
 
-A new bug added to `bugs/` needs a `recheck` file:
+A new compiler bug added to `roc/` needs a `recheck` file:
 
 ```
 command: roc check Main.roc

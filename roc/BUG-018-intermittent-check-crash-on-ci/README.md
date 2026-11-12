@@ -2,7 +2,7 @@
 
 > **Rechecked 2026-11-09:** still seen on the CI of [Kai](https://github.com/thebrandonlucas/kai) (a CLI for Nix and Guix written in Roc) with nightly-2026-10-21-5349569: two runs on 2026-11-05 (42027788988, 42032621297) had `roc check` segfault. Not checked on newer compilers, and never reproduced locally.
 
-Found with Roc `nightly-2026-10-21-5349569`, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-018-intermittent-check-crash-on-ci) pins.
+Found with Roc `nightly-2026-10-21-5349569`, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/roc/BUG-018-intermittent-check-crash-on-ci) pins.
 Observed on CI only, not reproduced locally. The programs are the roots of
 [Kai](https://github.com/thebrandonlucas/kai) at commit `3fd862f`.
 
@@ -49,7 +49,7 @@ Cannot print stack trace: stack tracing is disabled
 
 ### Shell with the exact compiler
 
-From this bug's directory in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-018-intermittent-check-crash-on-ci), enter a shell with Roc `nightly-2026-10-21-5349569`,
+From this bug's directory in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/roc/BUG-018-intermittent-check-crash-on-ci), enter a shell with Roc `nightly-2026-10-21-5349569`,
 pinned by its `flake.nix` (Linux), which also provides Zig 0.16 for
 Kai's platform host:
 
@@ -74,7 +74,7 @@ wait
 
 ### Automated harness
 
-From the same directory of [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-018-intermittent-check-crash-on-ci):
+From the same directory of [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/roc/BUG-018-intermittent-check-crash-on-ci):
 
 ```sh
 nix develop . --command bash repro.sh       # 10 rounds

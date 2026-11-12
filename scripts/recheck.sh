@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Rechecks every ready issue (bugs/*/ISSUE.md) on the newest Roc nightly:
+# Rechecks every ready issue (roc/BUG-*/ISSUE.md) on the newest Roc nightly:
 #
 #   1. pins the nightly in nightly.json (its download for each platform, by
 #      hash), so `nix develop .#latest` gives everyone exactly that compiler;
@@ -52,7 +52,7 @@ echo
 
 printf '%-9s %-12s %s\n' bug result "exit, command"
 still=()
-for dir in bugs/*/; do
+for dir in roc/BUG-*/; do
   [ -f "$dir/recheck" ] && [ -f "$dir/ISSUE.md" ] || continue
   bug=$(basename "$dir" | cut -d- -f1-2)
   command=$(sed -n 's/^command: //p' "$dir/recheck")
@@ -94,4 +94,4 @@ for dir in "${still[@]}"; do
 done
 echo
 echo "${#still[@]} still reproduce on $tag; their ISSUE.md now name it. For any NOT FOUND,"
-echo "bugs/<dir>/recheck.last-output has the end of what the compiler printed."
+echo "roc/<dir>/recheck.last-output has the end of what the compiler printed."
