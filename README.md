@@ -9,6 +9,7 @@ were found on.
 |---|---|---|
 | [`roc/`](./roc) | The Roc compiler and its builtins | [roc-lang/roc](https://github.com/roc-lang/roc/issues) (ideas: Roc Zulip first) |
 | [`basic-cli/`](./basic-cli) | [basic-cli](https://github.com/roc-lang/basic-cli), Roc's platform for command-line apps | [roc-lang/basic-cli](https://github.com/roc-lang/basic-cli/issues) (ideas: Roc Zulip first) |
+| [`basic-webserver/`](./basic-webserver) | [basic-webserver](https://github.com/roc-lang/basic-webserver), Roc's platform for web servers | [roc-lang/basic-webserver](https://github.com/roc-lang/basic-webserver/issues) (ideas: Roc Zulip first) |
 | [`roc-signals/`](./roc-signals) | [roc-signals](https://github.com/lukewilliamboswell/roc-signals), a Roc platform for browser apps | [lukewilliamboswell/roc-signals](https://github.com/lukewilliamboswell/roc-signals/issues) |
 | [`archive/`](./archive) | Drafts that were filed, fixed or dropped, from every project | — |
 
@@ -127,6 +128,10 @@ Improvements:
 ## basic-cli
 
 - [IMPROVEMENT-004: Let basic-cli read a file without following symlinks and set its mode](./basic-cli/IMPROVEMENT-004-basic-cli-no-follow-open-and-chmod/README.md)
+
+## basic-webserver
+
+- [IMPROVEMENT-011: Let a server keep a client connection open across requests and replace it when it drops](./basic-webserver/IMPROVEMENT-011-long-lived-client-connections/README.md)
 
 ## roc-signals
 
