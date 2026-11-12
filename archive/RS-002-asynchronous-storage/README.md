@@ -1,5 +1,7 @@
 # Let an app use IndexedDB (or another asynchronous host store)
 
+> **Archived 2026-11-12:** addressed by roc-signals `0.4.0`, whose typed ports (`Port.call`, `Port.command`, `Port.subscription`, registered with `Program.with_ports` and answered by JavaScript passed to `mountRocEngineApp`) are the generic host request proposed below, with spec steps (`expect-port-call`, `answer-port`). The release's Reading List example keeps its records in IndexedDB this way. Still so in `0.5.0`.
+
 This is a platform capability gap in [roc-signals](https://github.com/lukewilliamboswell/roc-signals)
 (a Roc platform for browser apps), not a compiler bug. Checked on roc-signals
 `0.3.0` with Roc `nightly-2026-11-07-ad3a5d2`.

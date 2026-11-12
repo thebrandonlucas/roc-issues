@@ -1,8 +1,10 @@
 # Let an app measure elements and the viewport
 
+> **Rechecked 2026-11-12:** still missing in roc-signals `0.5.0`: no measurement or scroll request, and pointer events still have an empty payload.
+
 This is a platform capability gap in [roc-signals](https://github.com/lukewilliamboswell/roc-signals)
 (a Roc platform for browser apps), not a compiler bug. Checked on roc-signals
-`0.3.0` with Roc `nightly-2026-11-07-ad3a5d2`.
+`0.5.0` (first found on `0.3.0` with Roc `nightly-2026-11-07-ad3a5d2`).
 
 An app cannot read an element's position and size, the viewport, or the
 scroll position, and cannot scroll. Elm's `Browser.Dom.getElement`,

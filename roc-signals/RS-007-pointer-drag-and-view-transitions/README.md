@@ -1,9 +1,12 @@
 # Let an app drag things with the pointer and animate the result
 
+> **Rechecked 2026-11-12:** still missing in roc-signals `0.5.0` (protocol version 4): pointer payloads are empty, the only handler policies are `:prevent` and `:files`, and the spec language rejects `pointer-down`.
+
 This is a platform capability gap in [roc-signals](https://github.com/lukewilliamboswell/roc-signals)
-(a Roc platform for browser apps), not a compiler bug. Checked at roc-signals
-commit `6aee90cbc3d9d39a80d9a41e6666ff75c2aa0e0f` (protocol version 3) with
-Roc `nightly-2026-11-07-ad3a5d2`.
+(a Roc platform for browser apps), not a compiler bug. Checked on roc-signals
+`0.5.0` (protocol version 4; first found at commit
+`6aee90cbc3d9d39a80d9a41e6666ff75c2aa0e0f`, protocol version 3, with Roc
+`nightly-2026-11-07-ad3a5d2`).
 
 An app can listen for `pointerdown`, `pointermove` and `pointerup`: the
 runtime adds one delegated listener per event type on the mount root
@@ -53,7 +56,7 @@ Items 1 and 2 are the minimum for dragging; 6 is for animation.
    handlers otherwise both run for one event.
 5. **Modifiers on `keydown`/`keyup`.** Today the payload is `event.key` only.
    Shift-to-swap while dragging and Escape-to-cancel need the modifiers (see
-   also RS-004 for key events that reach the document).
+   also the draft on key events that reach the document, in this folder).
 6. **Animated DOM updates.** A request such as `ViewTransition(Str)` that makes
    the runtime apply the next command batch inside
    `document.startViewTransition`, or directly where the browser lacks it. Apps
@@ -67,12 +70,14 @@ Items 1 and 2 are the minimum for dragging; 6 is for animation.
    document `pointerover`/`pointerout` as the way, or map them as the runtime
    already does for focus and blur.
 
-Optional, for files or text dragged in from outside the page: HTML drag and
-drop payloads (`dataTransfer.types` on `dragenter`/`dragover`, the text on
-`drop`) and a `dragover` prevent decided from an attribute already rendered,
-since the engine cannot decide during the event.
+Optional, for text dragged in from outside the page: HTML drag and drop
+payloads (`dataTransfer.types` on `dragenter`/`dragover`, the text on `drop`)
+and a `dragover` prevent decided from an attribute already rendered, since the
+engine cannot decide during the event. Files are covered since 0.4.0: a
+`drop:files` handler receives them and makes the runtime prevent `dragover` on
+its element.
 
-RS-005 asks for element measurement and pointer coordinates for other reasons
+The draft on layout measurement, in this folder, asks for element measurement and pointer coordinates for other reasons
 (popups, scroll position, swipes). Item 1 covers its pointer coordinates; a
 `Measure(ref)` request would still serve FLIP-style animation where view
 transitions don't fit.

@@ -1,8 +1,10 @@
 # Deliver key events that reach the document
 
+> **Rechecked 2026-11-12:** still missing in roc-signals `0.5.0`: listeners are on the mount root and the `keydown` payload is `event.key` only.
+
 This is a platform capability gap in [roc-signals](https://github.com/lukewilliamboswell/roc-signals)
 (a Roc platform for browser apps), not a compiler bug. Checked on roc-signals
-`0.3.0` with Roc `nightly-2026-11-07-ad3a5d2`.
+`0.5.0` (first found on `0.3.0` with Roc `nightly-2026-11-07-ad3a5d2`).
 
 The runtime listens for events on the mount root and dispatches each to the
 nearest element with a handler. A key pressed while nothing in the app has
