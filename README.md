@@ -129,6 +129,13 @@ Improvements:
 
 ## basic-webserver
 
+Bugs:
+
+- [BUG-031: Every basic-webserver 0.21.0 app segfaults at startup when built with Roc nightly-2026-11-11-7679cc5 or later](./basic-webserver/BUG-031-apps-segfault-at-startup-on-pie-nightlies/README.md)
+- [BUG-032: Sqlite queries whose row is a record fail `roc check` on Roc nightly-2026-11-10-f7d1f19 and later: `Sqlite.RowEncoding` has no `missing_field`](./basic-webserver/BUG-032-sqlite-record-rows-need-missing-field/README.md)
+
+Improvements:
+
 - [IMPROVEMENT-011: Let a server keep a client connection open across requests and replace it when it drops](./basic-webserver/IMPROVEMENT-011-long-lived-client-connections/README.md)
 
 ## roc-signals
