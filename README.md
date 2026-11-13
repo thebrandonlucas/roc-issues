@@ -116,7 +116,6 @@ Bugs:
 
 Improvements:
 
-- [IMPROVEMENT-005: Make a warm `roc app.roc` as fast as a warm cached build](./roc/IMPROVEMENT-005-warm-roc-run-overhead/README.md)
 - [IMPROVEMENT-006: Let an app import modules from outside its own directory](./roc/IMPROVEMENT-006-import-modules-outside-app-dir/README.md)
 - [IMPROVEMENT-007: Let `Dec.from_str` and JSON decoding accept more than 18 fraction digits](./roc/IMPROVEMENT-007-dec-excess-fraction-digits/README.md)
 - [IMPROVEMENT-008: Add natural logarithm and exponential functions for F64](./roc/IMPROVEMENT-008-f64-log-and-exp/README.md)
@@ -190,6 +189,7 @@ flat `archive/` folder so links from filed issues keep working.
 - [BUG-027: Unary minus directly before a `var` name is rejected as unexpected expression syntax](./archive/BUG-027-unary-minus-before-var-parse-error/README.md) (filed as roc-lang/roc#12993)
 - [BUG-028: A derived `parser_for` does not exist when used before its type's declaration](./archive/BUG-028-derived-parser-for-before-declaration/README.md) (filed as roc-lang/roc#12994)
 - [BUG-029: A second `roc check` crashes when the cache has an app's canonicalization entries but not its module entries](./archive/BUG-029-check-segfault-without-cached-module-entry/README.md) (no longer applies on `nightly-2026-11-12-ce942d6`)
+- [IMPROVEMENT-005: Make a warm `roc app.roc` as fast as a warm cached build](./archive/IMPROVEMENT-005-warm-roc-run-overhead/README.md) (gap no longer shown on `nightly-2026-11-12-ce942d6`)
 
 ## Adding a repro
 
