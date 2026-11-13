@@ -71,12 +71,7 @@ specs cannot see any of it (a spec can't check that a post's text or its
 links are there), and each app writes the same element again.
 
 Used by [blu.cx](https://github.com/thebrandonlucas/blu) (a personal site and
-blog, whose pages are Markdown rendered to HTML when the site is built), and
-by [kai.blu.cx](https://github.com/thebrandonlucas/kai.blu.cx) (Kai's
-website), which renders its tour, guides and changelog from Markdown to HTML
-in Roc as the page runs, since a view cannot draw a tree whose depth comes
-from data (a draft in
-[roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/roc-signals/RS-013-data-depth-trees)).
+blog, whose pages are Markdown rendered to HTML when the site is built).
 
 ## Related
 
