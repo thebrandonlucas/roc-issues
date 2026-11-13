@@ -2,6 +2,8 @@
 
 > **Archived 2026-11-11:** filed as [roc-lang/roc#12961](https://github.com/roc-lang/roc/issues/12961) on 2026-11-11.
 
+> **Closed 2026-11-13:** roc-lang/roc#12961 closed as completed ("No longer reproduces").
+
 Found with Roc `nightly-2026-10-23-18478ff`, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-019-cold-build-value-entrypoint-segfault) pins.
 `nightly-2026-10-21-5349569` builds the same app. No real host is needed.
 

@@ -1,5 +1,7 @@
 # Deliver key events that reach the document
 
+> **Archived 2026-11-13:** filed as [lukewilliamboswell/roc-signals#203](https://github.com/lukewilliamboswell/roc-signals/issues/203) on 2026-11-12; closed in favour of [#212](https://github.com/lukewilliamboswell/roc-signals/issues/212), which delivers keys at the document and their modifiers, with a declared keymap in place of a `KeyDowns` subscription.
+
 > **Rechecked 2026-11-12:** still missing in roc-signals `0.5.0`: listeners are on the mount root and the `keydown` payload is `event.key` only.
 
 This is a platform capability gap in [roc-signals](https://github.com/lukewilliamboswell/roc-signals)

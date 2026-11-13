@@ -1,5 +1,7 @@
 # Scroll to the top, or to a fragment, after navigating in place
 
+> **Archived 2026-11-13:** not filed: [lukewilliamboswell/roc-signals#213](https://github.com/lukewilliamboswell/roc-signals/issues/213) adds `ScrollTo` and `ScrollIntoView` requests, which an app issues after navigating in place.
+
 > **Checked 2026-11-12:** roc-signals `0.5.0` has no scroll request; the
 > workaround below works there.
 

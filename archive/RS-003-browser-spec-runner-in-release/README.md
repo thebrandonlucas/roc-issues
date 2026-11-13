@@ -1,5 +1,7 @@
 # Publish the browser spec runner with each release
 
+> **Archived 2026-11-13:** filed as [lukewilliamboswell/roc-signals#202](https://github.com/lukewilliamboswell/roc-signals/issues/202) on 2026-11-12 (open).
+
 > **Rechecked 2026-11-12:** still missing in roc-signals `0.5.0`: its assets are the platform bundle, `signals.roc` with its bundle, `runtime.mjs`, `worker.mjs`, the docs and the examples archive; `signals.roc test` runs the native runner only.
 
 This is a release-packaging gap in [roc-signals](https://github.com/lukewilliamboswell/roc-signals)

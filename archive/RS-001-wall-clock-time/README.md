@@ -2,6 +2,8 @@
 
 > **Archived 2026-11-12:** filed as [lukewilliamboswell/roc-signals#200](https://github.com/lukewilliamboswell/roc-signals/issues/200) (posted with the `0.3.0` text, whose workaround predates ports).
 
+> **Closed 2026-11-13:** roc-signals#200 closed in favour of [#216](https://github.com/lukewilliamboswell/roc-signals/issues/216): `Boot` gains the time at mount and `Fired` the time it fired.
+
 > **Rechecked 2026-11-12:** still missing in roc-signals `0.5.0` (`Engine.Boot` has no time; no request answers one).
 
 This is a platform capability gap in [roc-signals](https://github.com/lukewilliamboswell/roc-signals)

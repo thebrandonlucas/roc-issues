@@ -1,5 +1,7 @@
 # Let an app measure elements and the viewport
 
+> **Archived 2026-11-13:** filed as [lukewilliamboswell/roc-signals#204](https://github.com/lukewilliamboswell/roc-signals/issues/204) on 2026-11-12; closed in favour of [#211](https://github.com/lukewilliamboswell/roc-signals/issues/211) (pointer positions within a declared zone), [#213](https://github.com/lukewilliamboswell/roc-signals/issues/213) (scroll requests) and [#214](https://github.com/lukewilliamboswell/roc-signals/issues/214) (sizes, visibility and scroll offsets reported as they change). Measuring a box on demand (`Measure(ref)`) is declined: the native spec runner has no layout.
+
 > **Rechecked 2026-11-12:** still missing in roc-signals `0.5.0`: no measurement or scroll request, and pointer events still have an empty payload.
 
 This is a platform capability gap in [roc-signals](https://github.com/lukewilliamboswell/roc-signals)

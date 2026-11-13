@@ -1,5 +1,7 @@
 # Let an HTTP request include credentials
 
+> **Archived 2026-11-13:** filed as [lukewilliamboswell/roc-signals#206](https://github.com/lukewilliamboswell/roc-signals/issues/206) on 2026-11-12; closed in favour of [#218](https://github.com/lukewilliamboswell/roc-signals/issues/218), which adds a `credentials` field (`SameOrigin` or `Include`) to `Engine.http`, `File.fetch` and `File.upload`.
+
 > **Rechecked 2026-11-12:** still missing in roc-signals `0.5.0`: `Http` has no credentials field and `runtime.mjs` builds `{ method, headers, signal }` (plus a body); the `fetch` mount option still works.
 
 This is a platform capability gap in [roc-signals](https://github.com/lukewilliamboswell/roc-signals)

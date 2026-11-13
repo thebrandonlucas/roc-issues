@@ -98,7 +98,7 @@ against another compiler through `nix develop .#latest` from the repo root.
 
 ```sh
 nix develop .#latest          # a shell with that compiler
-cd roc/BUG-027-*/             # then follow the issue's Command
+cd archive/BUG-027-*/         # then follow the issue's Command
 ```
 
 `scripts/recheck.sh` moves the pin to the newest nightly and reruns every
@@ -113,8 +113,6 @@ Improvements are design ideas and need not have a harness.
 Bugs:
 
 - [BUG-018: intermittent SIGSEGV/SIGABRT in `roc check` on CI runners](./roc/BUG-018-intermittent-check-crash-on-ci/README.md) (observed on CI only)
-- [BUG-027: Unary minus directly before a `var` name is rejected as unexpected expression syntax](./roc/BUG-027-unary-minus-before-var-parse-error/README.md)
-- [BUG-028: A derived `parser_for` does not exist when used before its type's declaration](./roc/BUG-028-derived-parser-for-before-declaration/README.md)
 
 Improvements:
 
@@ -139,14 +137,7 @@ Found porting a browser app to roc-signals. They are platform gaps, not
 compiler bugs, so they have no harness; each says which roc-signals release
 it was last checked on (all on `0.5.0`, 2026-11-12).
 
-- [RS-003: Publish the browser spec runner with each release](./roc-signals/RS-003-browser-spec-runner-in-release/README.md)
-- [RS-004: Deliver key events that reach the document](./roc-signals/RS-004-document-key-events/README.md)
-- [RS-005: Let an app measure elements and the viewport](./roc-signals/RS-005-layout-measurement/README.md)
-- [RS-006: Keep attributes whose value is the empty string](./roc-signals/RS-006-empty-attribute-values/README.md) (a defect)
-- [RS-008: Let an HTTP request include credentials](./roc-signals/RS-008-http-credentials/README.md)
 - [RS-009: Let an app show HTML it trusts](./roc-signals/RS-009-trusted-html/README.md)
-- [RS-010: Render an app's page to HTML when a site is built](./roc-signals/RS-010-render-views-to-html/README.md)
-- [RS-011: Scroll to the top, or to a fragment, after navigating in place](./roc-signals/RS-011-scroll-after-navigation/README.md) (a comment on lukewilliamboswell/roc-signals#204)
 - [RS-012: `--specialize=no` measured on a site built with roc-signals](./roc-signals/RS-012-specialize-no-for-a-site/README.md) (a comment on lukewilliamboswell/roc-signals#180)
 - [RS-013: Let a view draw a tree whose depth comes from data](./roc-signals/RS-013-data-depth-trees/README.md)
 
@@ -167,7 +158,7 @@ flat `archive/` folder so links from filed issues keep working.
 - [IMPROVEMENT-003: Let `roc bundle` include files outside the entry file's directory](./archive/IMPROVEMENT-003-bundle-files-outside-entry-dir/README.md)
 - [BUG-020: `roc test` fails an expect because parsed rows hold garbage strings](./archive/BUG-020-test-after-build-wrong-constant/README.md)
 - [BUG-022: an unused `Str` statement is reported as an interpolation mismatch elsewhere](./archive/BUG-022-unused-statement-reported-as-interpolation-mismatch/README.md)
-- [BUG-019: `roc build` segfaults in lir_gen when a platform provides a value](./archive/BUG-019-cold-build-value-entrypoint-segfault/README.md)
+- [BUG-019: `roc build` segfaults in lir_gen when a platform provides a value](./archive/BUG-019-cold-build-value-entrypoint-segfault/README.md) (closed as completed 2026-11-13)
 - [BUG-016: two calls of one method on an inferred type get a single type](./archive/BUG-016-method-on-inferred-type-unified-across-calls/README.md)
 - [BUG-025: `roc test` segfaults when an expect reaches code with a check error](./archive/BUG-025-roc-test-segfault-on-any-check-error/README.md)
 - [BUG-024: A type mismatch on an interpolated string literal is reported at a different expression](./archive/BUG-024-interpolated-literal-mismatch-wrong-region/README.md)
@@ -175,9 +166,19 @@ flat `archive/` folder so links from filed issues keep working.
 - [BUG-026: `roc check` segfaults in boxy_lowering when a nominal record's list elements miss a field](./archive/BUG-026-nominal-list-element-fields-boxy-segfault/README.md)
 - [BUG-012: `roc test` panics when a platform and its package both have a module with the same name](./archive/BUG-012-test-platform-and-package-module-same-name/README.md)
 - [RS-002: Let an app use IndexedDB (or another asynchronous host store)](./archive/RS-002-asynchronous-storage/README.md) (filed as lukewilliamboswell/roc-signals#201; addressed by ports in `0.4.0`)
-- [RS-001: Let an app read the wall-clock time](./archive/RS-001-wall-clock-time/README.md) (filed as lukewilliamboswell/roc-signals#200)
-- [RS-007: Let an app drag things with the pointer and animate the result](./archive/RS-007-pointer-drag-and-view-transitions/README.md) (filed as lukewilliamboswell/roc-signals#199)
+- [RS-001: Let an app read the wall-clock time](./archive/RS-001-wall-clock-time/README.md) (filed as lukewilliamboswell/roc-signals#200; closed in favour of #216)
+- [RS-007: Let an app drag things with the pointer and animate the result](./archive/RS-007-pointer-drag-and-view-transitions/README.md) (filed as lukewilliamboswell/roc-signals#199; closed in favour of #211 and others)
 - [BUG-030: A condition on a local closure's result is warned about as known at compile time](./archive/BUG-030-closure-call-unconditional-condition-warning/README.md) (fixed in `nightly-2026-09-28-9927ba8`)
+- [RS-003: Publish the browser spec runner with each release](./archive/RS-003-browser-spec-runner-in-release/README.md) (filed as lukewilliamboswell/roc-signals#202)
+- [RS-004: Deliver key events that reach the document](./archive/RS-004-document-key-events/README.md) (filed as lukewilliamboswell/roc-signals#203; delivered by #212)
+- [RS-005: Let an app measure elements and the viewport](./archive/RS-005-layout-measurement/README.md) (filed as lukewilliamboswell/roc-signals#204; answered by #211, #213, #214)
+- [RS-006: Keep attributes whose value is the empty string](./archive/RS-006-empty-attribute-values/README.md) (filed as lukewilliamboswell/roc-signals#205)
+- [RS-008: Let an HTTP request include credentials](./archive/RS-008-http-credentials/README.md) (filed as lukewilliamboswell/roc-signals#206; delivered by #218)
+- [RS-010: Render an app's page to HTML when a site is built](./archive/RS-010-render-views-to-html/README.md) (covered by lukewilliamboswell/roc-signals#247)
+- [RS-011: Scroll to the top, or to a fragment, after navigating in place](./archive/RS-011-scroll-after-navigation/README.md) (covered by lukewilliamboswell/roc-signals#213)
+- [BUG-027: Unary minus directly before a `var` name is rejected as unexpected expression syntax](./archive/BUG-027-unary-minus-before-var-parse-error/README.md) (filed as roc-lang/roc#12993)
+- [BUG-028: A derived `parser_for` does not exist when used before its type's declaration](./archive/BUG-028-derived-parser-for-before-declaration/README.md) (filed as roc-lang/roc#12994)
+- [BUG-029: A second `roc check` crashes when the cache has an app's canonicalization entries but not its module entries](./archive/BUG-029-check-segfault-without-cached-module-entry/README.md) (no longer applies on `nightly-2026-11-12-ce942d6`)
 
 ## Adding a repro
 

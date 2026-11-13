@@ -2,6 +2,8 @@
 
 > **Archived 2026-11-12:** filed as [lukewilliamboswell/roc-signals#199](https://github.com/lukewilliamboswell/roc-signals/issues/199).
 
+> **Closed 2026-11-13:** roc-signals#199 closed in favour of [#211](https://github.com/lukewilliamboswell/roc-signals/issues/211) (dragging), [#207](https://github.com/lukewilliamboswell/roc-signals/issues/207), [#208](https://github.com/lukewilliamboswell/roc-signals/issues/208), [#212](https://github.com/lukewilliamboswell/roc-signals/issues/212) and [#215](https://github.com/lukewilliamboswell/roc-signals/issues/215) (animating a turn's changes).
+
 > **Rechecked 2026-11-12:** still missing in roc-signals `0.5.0` (protocol version 4): pointer payloads are empty, the only handler policies are `:prevent` and `:files`, and the spec language rejects `pointer-down`.
 
 This is a platform capability gap in [roc-signals](https://github.com/lukewilliamboswell/roc-signals)

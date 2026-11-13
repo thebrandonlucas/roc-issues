@@ -1,5 +1,7 @@
 # Render an app's page to HTML when a site is built
 
+> **Archived 2026-11-13:** not filed: [lukewilliamboswell/roc-signals#247](https://github.com/lukewilliamboswell/roc-signals/issues/247) (the build paints a page's first frame, and the engine adopts it at mount) covers it.
+
 > **Checked 2026-11-12:** missing in roc-signals `0.5.0`: the only render output is the command stream the browser runtime applies.
 
 This is a platform capability gap in [roc-signals](https://github.com/lukewilliamboswell/roc-signals)

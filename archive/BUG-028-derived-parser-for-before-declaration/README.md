@@ -1,5 +1,7 @@
 # A derived `parser_for` does not exist when used before its type's declaration
 
+> **Archived 2026-11-13:** filed as [roc-lang/roc#12994](https://github.com/roc-lang/roc/issues/12994) on 2026-11-12.
+
 > **Rechecked 2026-11-12:** still reproduces on `nightly-2026-11-12-ce942d6` (`repro.sh` prints BUG REPRODUCED).
 
 Found with Roc `nightly-2026-11-07-ad3a5d2` (pinned by this directory's
