@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Rechecks every ready issue (roc/BUG-*/ISSUE.md) on the newest Roc nightly:
+# Rechecks every ready bug (<project>/BUG-*/ISSUE.md, outside archive/) on the newest Roc nightly:
 #
 #   1. pins the nightly in nightly.json (its download for each platform, by
 #      hash), so `nix develop .#latest` gives everyone exactly that compiler;
@@ -52,7 +52,8 @@ echo
 
 printf '%-9s %-12s %s\n' bug result "exit, command"
 still=()
-for dir in roc/BUG-*/; do
+for dir in */BUG-*/; do
+  case "$dir" in archive/*) continue;; esac
   [ -f "$dir/recheck" ] && [ -f "$dir/ISSUE.md" ] || continue
   bug=$(basename "$dir" | cut -d- -f1-2)
   command=$(sed -n 's/^command: //p' "$dir/recheck")
@@ -88,10 +89,13 @@ for dir in roc/BUG-*/; do
   rm -rf "$work"
 done
 
-# 3. Name the new nightly in the issues that still reproduce.
+# 3. Name the new nightly in the bugs that still reproduce: their ISSUE.md and
+#    README, in place (drafts carry no dated recheck notes).
 for dir in "${still[@]}"; do
-  sed -E -i "s/nightly-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9a-f]{7}([\`)]?) before posting/$tag\1 before posting/; s/^\*\*Nightly:\*\* \`nightly-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9a-f]{7}\`/**Nightly:** \`$tag\`/; s/through \`nightly-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9a-f]{7}\`/through \`$tag\`/g; s/to \`nightly-2026-1[01]-[0-9]{2}-[0-9a-f]{7}\`\./to \`$tag\`./g" "$dir/ISSUE.md"
+  for f in "$dir/ISSUE.md" "$dir/README.md"; do
+    [ -f "$f" ] || continue; sed -E -i "s/nightly-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9a-f]{7}([\`)]?) before posting/$tag\1 before posting/; s/^\*\*Nightly:\*\* \`nightly-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9a-f]{7}\`/**Nightly:** \`$tag\`/; s/through \`nightly-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9a-f]{7}\`/through \`$tag\`/g; s/to \`nightly-2026-1[01]-[0-9]{2}-[0-9a-f]{7}\`\./to \`$tag\`./g" "$f"
+  done
 done
 echo
-echo "${#still[@]} still reproduce on $tag; their ISSUE.md now name it. For any NOT FOUND,"
-echo "roc/<dir>/recheck.last-output has the end of what the compiler printed."
+echo "${#still[@]} still reproduce on $tag; their ISSUE.md and README now name it. For any NOT FOUND,"
+echo "<project>/<dir>/recheck.last-output has the end of what the compiler printed."
