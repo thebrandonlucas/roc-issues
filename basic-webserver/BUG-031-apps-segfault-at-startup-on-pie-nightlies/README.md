@@ -83,6 +83,10 @@ nightly that runs the app.
 - `readelf -r` finds no `R_X86_64_32`/`R_X86_64_32S` relocations outside
   debug sections in the x64musl `libhost.a` or `libc.a`.
 - `arm64musl` also lists `crt1.o`; it was not run.
+- [basic-cli](https://github.com/roc-lang/basic-cli) `0.27.0`, whose
+  `x64musl` also lists `crt1.o`, fails the same way: a hello-world app
+  builds and then segfaults (exit status 139) on `nightly-2026-11-12-ce942d6`.
+  basic-cli `0.28.0`, which lists `rcrt1.o`, runs it.
 - [roc-signals](https://github.com/lukewilliamboswell/roc-signals) (a Roc
   platform for browser apps) `0.5.0` lists `rcrt1.o` for its `x64musl`
   target.

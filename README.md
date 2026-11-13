@@ -122,6 +122,10 @@ Improvements:
 - [IMPROVEMENT-008: Add natural logarithm and exponential functions for F64](./roc/IMPROVEMENT-008-f64-log-and-exp/README.md)
 - [IMPROVEMENT-009: Provide Unicode case mapping for Str](./roc/IMPROVEMENT-009-unicode-case-mapping/README.md)
 - [IMPROVEMENT-010: Keep lambda-set specialization from multiplying code in large apps](./roc/IMPROVEMENT-010-specialization-code-size/README.md)
+- [IMPROVEMENT-012: Give `Str` an order by its UTF-8 bytes](./roc/IMPROVEMENT-012-str-ordering/README.md)
+- [IMPROVEMENT-013: Encode an integral `Dec` in JSON without a fraction](./roc/IMPROVEMENT-013-json-integral-dec/README.md)
+- [IMPROVEMENT-014: Point at `{ name }` when a one-name block is used where a record is expected](./roc/IMPROVEMENT-014-one-field-shorthand-hint/README.md)
+- [IMPROVEMENT-015: Json: a camelCase encoder to match `parser_camel`, and a hint for optional-field tags](./roc/IMPROVEMENT-015-json-camel-encoder-and-optional-tags/README.md)
 
 ## basic-cli
 
