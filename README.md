@@ -143,12 +143,11 @@ Improvements:
 
 ## roc-signals
 
-Found porting a browser app to roc-signals. They are platform gaps, not
-compiler bugs, so they have no harness; each says which roc-signals release
-it was last checked on (all on `0.5.0`, 2026-11-12).
+Platform gaps, not compiler bugs, so they have no harness; each names the
+roc-signals release and nightly it applies to.
 
 - [RS-009: Let an app show HTML it trusts](./roc-signals/RS-009-trusted-html/README.md)
-- [RS-012: `--specialize=no` measured on a site built with roc-signals](./roc-signals/RS-012-specialize-no-for-a-site/README.md) (a comment on lukewilliamboswell/roc-signals#180)
+- [RS-012: `--specialize=no` measured on two sites built with roc-signals](./roc-signals/RS-012-specialize-no-for-a-site/README.md) (a comment on lukewilliamboswell/roc-signals#180)
 - [RS-013: Let a view draw a tree whose depth comes from data](./roc-signals/RS-013-data-depth-trees/README.md)
 
 ## Archived

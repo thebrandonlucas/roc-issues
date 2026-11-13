@@ -70,6 +70,12 @@ This use passes changing types to a recursion.
 Engine.element("ul", [], [Engine.each(row.field(children), key, |child| node_view(child))]),
                                                                         ^^^^^^^^^
 
+Hint: A function that reaches itself again, directly or through other
+functions, must pass each of its type variables through unchanged, or use types
+with no type variables. An argument that wraps a type variable, like f([x])
+inside f : a -> U64 would use the function at a different type at every level
+of the recursion.
+
 ── 1 error and 0 warnings ───────────────────────────────────────────── main.roc
 ```
 

@@ -1,6 +1,6 @@
 # `Sqlite.query!` and `Sqlite.query_many!` into a record fail `roc check` on Roc nightly-2026-11-10-f7d1f19 and later: `RowEncoding` has no `missing_field`
 
-On basic-webserver 0.21.0, `roc check` rejects a `Sqlite.query!` or `Sqlite.query_many!` call whose row type is a record with required fields, saying `Sqlite.RowEncoding` has no `missing_field` method. Since roc-lang/roc#12933 (first in `nightly-2026-11-10-f7d1f19`), Roc's [parser docs](https://github.com/roc-lang/roc/blob/main/docs/langref/parsers.md) say "A format that supports required record fields also defines `missing_field : encoding, Str -> err`", and `RowEncoding` doesn't define it (on `main` either). The app should check, as it does on `nightly-2026-11-09-9e85de7`.
+On basic-webserver 0.21.0, `roc check` rejects a `Sqlite.query!` or `Sqlite.query_many!` call whose row type is a record, saying `Sqlite.RowEncoding` has no `missing_field` method. The app should check, as it does on `nightly-2026-11-09-9e85de7`.
 
 **Nightly:** `nightly-2026-11-12-ce942d6` (linux x86_64)
 
@@ -70,7 +70,7 @@ No errors, as on `nightly-2026-11-09-9e85de7`.
 ### Notes
 
 - A single-column scalar row (`rows : List(Str)`) checks. `Sqlite.query!` into `{ name : Str }` and a two-field record row fail the same way.
-- Adding this to `RowEncoding` in a local copy of the 0.21.0 platform makes the repro check and build on `nightly-2026-11-12-ce942d6` (`QueryError` already has `MissingRequiredField(Str)`):
+- Since roc-lang/roc#12933 (first in `nightly-2026-11-10-f7d1f19`), Roc's [parser docs](https://github.com/roc-lang/roc/blob/main/docs/langref/parsers.md) say "A format that supports required record fields also defines `missing_field : encoding, Str -> err`"; `RowEncoding` doesn't define it, on `main` either. Adding this to `RowEncoding` in a local copy of the 0.21.0 platform makes the repro check and build (`QueryError` already has `MissingRequiredField(Str)`):
 
   ```roc
   missing_field : RowEncoding, Str -> QueryError

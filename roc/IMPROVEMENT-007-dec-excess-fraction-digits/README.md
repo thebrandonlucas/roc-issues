@@ -1,89 +1,86 @@
 # Let `Dec.from_str` and JSON decoding accept more than 18 fraction digits
 
-> **Rechecked 2026-11-12:** on nightly-2026-11-12-ce942d6, `Json.parse` into a `Dec` field and `Dec.from_str` still reject `0.0007735999999999999` (checked with `roc test` and no platform). `repro.sh` no longer gets that far: its basic-cli 0.22.2 platform fails to compile on that nightly.
+`Dec.from_str` and `Json.parse` into a `Dec` field reject a decimal with
+more than 18 fraction digits, such as `0.0007735999999999999`: the first
+returns `Err(BadNumStr)`, the second fails the whole document with
+`InvalidJson("Invalid JSON")`, naming neither the field nor the reason.
+Numbers printed from a float often have 19 or more fraction digits, so such
+a document is valid JSON that cannot be decoded into `Dec`.
 
-This is a design question, not a compiler bug: Roc treats a decimal with more
-than 18 fraction digits as not fitting in `Dec`, everywhere. The compiler
-rejects such a literal, `Dec.from_str` returns `Err(BadNumStr)`, and
-`Json.parse` fails the whole document with `InvalidJson("Invalid JSON")`.
+**Nightly:** `nightly-2026-11-12-ce942d6` (linux x86_64)
 
-That last case hurts in practice. Numbers printed from a float often have 19
-or more fraction digits: [Claude Code](https://claude.com/claude-code) (a
-coding agent CLI) writes `total_cost_usd` values like `0.0007735999999999999`
-in its `--output-format json`. A record decoder with a `Dec` field for that
-output succeeds on some runs and fails on others, and the error names neither
-the field nor the reason.
+### Repro
 
-## Proposed improvement
+`Main.roc`:
+
+```roc
+Main := [].{}
+
+# 18 fraction digits: decodes.
+expect {
+	parsed : Try({ c : Dec }, _)
+	parsed = Json.parse("{\"c\":0.011101999999999999}")
+	parsed.is_ok()
+}
+
+# 19 fraction digits.
+expect {
+	parsed : Try({ c : Dec }, _)
+	parsed = Json.parse("{\"c\":0.0007735999999999999}")
+	dbg parsed
+	parsed.is_ok()
+}
+
+expect {
+	d = Dec.from_str("0.0007735999999999999")
+	dbg d
+	d.is_ok()
+}
+```
+
+### Command
+
+```
+roc test Main.roc
+```
+
+### Observed
+
+```
+[dbg] Err(InvalidJson("Invalid JSON"))
+
+── ✗ fail ───────────────────────────────────────────────────────── Main.roc:11:1
+...
+[dbg] Err(BadNumStr)
+
+── ✗ fail ──────────────────────────────────────────────────────── Main.roc:18:1
+...
+Ran 3 tests in 180.9 ms.:
+    1 passed
+    2 failed
+    0 compiler errors
+```
+
+### Proposed
 
 Either or both:
 
 - When parsing text (`Dec.from_str`, JSON decoding into `Dec`), round a
-  decimal with more than 18 fraction digits to 18 instead of rejecting it,
-  e.g. `0.0007735999999999999` to `0.000773600000000000`.
+  decimal with more than 18 fraction digits to 18, e.g.
+  `0.0007735999999999999` to `0.000773600000000000`.
 - Make the JSON error say which field failed and why (too many fraction
-  digits for `Dec`), instead of `InvalidJson("Invalid JSON")`.
+  digits for `Dec`).
 
-## Current workaround
+Decoding the field as `F64` and converting it works today.
 
-Decode the field as `F64` (or `Str`) and convert it afterwards.
+### Notes
 
-## Zulip post (#ideas)
-
-> **Rounding extra fraction digits when parsing `Dec`**
->
-> `Dec` holds 18 fraction digits, and anything longer is rejected: as a
-> literal ("does not fit in the inferred type"), by `Dec.from_str`
-> (`Err(BadNumStr)`), and by JSON decoding, which fails the whole document
-> with `InvalidJson("Invalid JSON")`:
->
-> ```roc
-> Main := [].{}
->
-> # 18 fraction digits: decodes.
-> expect {
-> 	parsed : Try({ c : Dec }, _)
-> 	parsed = Json.parse("{\"c\":0.011101999999999999}")
-> 	parsed.is_ok()
-> }
->
-> # 19 fraction digits: Err(InvalidJson("Invalid JSON")).
-> expect {
-> 	parsed : Try({ c : Dec }, _)
-> 	parsed = Json.parse("{\"c\":0.0007735999999999999}")
-> 	parsed.is_ok()
-> }
->
-> # Err(BadNumStr).
-> expect Dec.from_str("0.0007735999999999999").is_ok()
-> ```
->
-> For literals the error makes sense: the author can fix the source. For
-> parsed input it's harder, because float-formatted numbers routinely have
-> 17 significant digits, so a JSON field like `0.0007735999999999999` makes
-> an otherwise valid document undecodable, and the error doesn't say which
-> field or why. Would it make sense for `Dec.from_str` and JSON decoding to
-> round to 18 fraction digits, or at least for the JSON error to name the
-> field? Today's workaround is decoding as `F64` and converting.
->
-> (Checked on `nightly-2026-11-09-9e85de7`.)
-
-## Reproduction
-
-From this directory in
-[roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/roc/IMPROVEMENT-007-dec-excess-fraction-digits),
-`nix develop . --command bash repro.sh` runs `main.roc` on the nightly it was
-found with (`nightly-2026-09-19-d025939`, pinned by `flake.nix`), with
-basic-cli 0.22.2 for printing:
-
-```text
-18 places: Ok({ c: 0.011101999999999999 })
-19 places: Err(InvalidJson("Invalid JSON"))
-Dec.from_str: Err(BadNumStr)
-```
-
-The `expect`s in the Zulip post need no platform; run them with
-`roc test Main.roc`. On `nightly-2026-11-09-9e85de7`, 1 passes and 2 fail.
+- A `Dec` literal with 19 fraction digits is rejected at compile time
+  ("does not fit in the inferred type"), which the author can fix.
+- From this directory in
+  [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/roc/IMPROVEMENT-007-dec-excess-fraction-digits),
+  `nix develop . --command bash repro.sh` runs `Main.roc` on the nightly
+  above.
 
 ## Related
 
@@ -91,5 +88,5 @@ The `expect`s in the Zulip post need no platform; run them with
   (closed): another `Dec.from_str` `Err(BadNumStr)` case, exponential
   notation such as `"2e5"`.
 - [roc-lang/roc#12098](https://github.com/roc-lang/roc/issues/12098)
-  (closed): Dec JSON exponent arithmetic now saturates instead of
-  overflowing, another edge case of decoding JSON numbers into `Dec`.
+  (closed): Dec JSON exponent arithmetic saturates instead of overflowing,
+  another edge case of decoding JSON numbers into `Dec`.

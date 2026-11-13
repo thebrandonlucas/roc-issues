@@ -1,29 +1,44 @@
 # Let basic-cli read a file without following symlinks and set its mode
 
-> **Rechecked 2026-11-12:** partly addressed in basic-cli `0.28.0`: `Path.set_permissions!` sets `OwnerOnly` or `PublicRead` on an existing file, but it follows symlinks and cannot set other modes (no execute bits). There is still no read that refuses a symlink. [Kai](https://github.com/thebrandonlucas/kai) (a CLI for Nix and Guix written in Roc) still runs `cp -R -P` in [`cli/Snapshot.roc`](https://github.com/thebrandonlucas/kai/blob/master/cli/Snapshot.roc).
+basic-cli cannot open a file with `O_NOFOLLOW` or set a file's permission
+bits. `Path.read_bytes!` follows a final-component symlink, so code that
+checks an entry with `Path.type!` and then reads it has a race: a file
+replaced by a symlink between the two calls leaks the link target's bytes.
+`Path.set_permissions!` sets only `OwnerOnly` or `PublicRead`, follows
+symlinks, and cannot set execute bits.
 
-This is a platform capability gap, not a compiler bug. basic-cli cannot open a
-file with `O_NOFOLLOW` or set a file's permission bits. `Path.read_bytes!` and
-`Path.copy!` follow a final-component symlink, so copying a tree by checking
-each entry with `Path.type!` and then reading it has a race: a file replaced by
-a symlink between the two calls leaks the link target's bytes into the copy.
+**Nightly:** `nightly-2026-11-12-ce942d6` (linux x86_64), basic-cli `0.28.0`
 
-Found with a basic-cli source build of PR #499. basic-cli `main` (checked
-2026-09-26, after `0.23.0-rc1`) adds `Path.copy_dir_with!` with
-`symlinks: Preserve`, which covers copying a whole directory, but still has no
-no-follow read of a single file and no way to set a mode.
+### What it takes today
 
-## Proposed improvement
+```roc
+app [main!] { pf: platform "https://github.com/roc-lang/basic-cli/releases/download/0.28.0/2yhxoR7cZPSYbyUzPWULFw8AA6QEcdsgFNRmzu7pZbst.tar.zst" }
 
-Add, for example:
+import pf.Path
 
-- `Path.read_bytes_no_follow! : Path => Try(List(U8), ...)`, which opens with
-  `O_NOFOLLOW` and fails on a symlink;
+## Copies `src` to `dst` if `src` is a regular file.
+copy_file! : Path, Path => Try({}, _)
+copy_file! = |src, dst|
+	match Path.type!(src)? {
+		IsFile => {
+			# If src is replaced by a symlink here, this reads the link's target.
+			bytes = Path.read_bytes!(src)?
+			Path.write_bytes!(dst, bytes)
+		}
+		_ => Ok({})
+	}
+
+main! = |_args| copy_file!(Path.unix("a"), Path.unix("b"))
+```
+
+The safe alternative is running `cp -P` and `chmod` as child processes.
+`Path.copy_dir_with!` with `symlinks: Preserve` covers copying a whole
+directory, but not a single file.
+
+### Proposed
+
+For example:
+
+- `Path.read_bytes_no_follow! : Path => Try(List(U8), ...)`, which opens
+  with `O_NOFOLLOW` and fails on a symlink;
 - `Path.set_mode! : Path, U32 => Try({}, ...)` (Unix permission bits).
-
-## Current workaround
-
-Run GNU `cp -R -P --parents` (which opens with `O_NOFOLLOW` and checks the
-inode it inspected) and `chmod` as child processes, in batches.
-
-Used by: the project snapshot of [Kai](https://github.com/thebrandonlucas/kai) (a CLI for Nix and Guix written in Roc), [`cli/Snapshot.roc`](https://github.com/thebrandonlucas/kai/blob/master/cli/Snapshot.roc).

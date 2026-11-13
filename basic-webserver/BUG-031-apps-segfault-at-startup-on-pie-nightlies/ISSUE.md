@@ -1,6 +1,6 @@
 # Every 0.21.0 app segfaults at startup when built with Roc nightly-2026-11-11-7679cc5 or later
 
-Any app on basic-webserver 0.21.0 builds without errors with `roc build` on `nightly-2026-11-11-7679cc5` or later, then dies with SIGSEGV before `init!` runs. Since that nightly, which contains roc-lang/roc#12949, `roc build` links a static-pie executable, and that PR asks static musl platforms to ship the self-relocating `rcrt1.o` in place of `crt1.o`. 0.21.0's `main.roc` lists `crt1.o` for `x64musl` and `arm64musl`. The app should start and listen, as it does when built with `nightly-2026-11-10-f7d1f19`.
+Any app on basic-webserver 0.21.0 builds without errors with `roc build` on `nightly-2026-11-11-7679cc5` or later, then dies with SIGSEGV before `init!` runs. It should start and listen, as it does when built with `nightly-2026-11-10-f7d1f19`.
 
 **Nightly:** `nightly-2026-11-12-ce942d6` (linux x86_64)
 
@@ -55,15 +55,13 @@ The exit status is 139. `file app` reports `ELF 64-bit LSB pie executable, x86-6
 Listening on <http://127.0.0.1:18979>
 ```
 
-as with `nightly-2026-11-10-f7d1f19`.
-
 ### Notes
 
-- In a local copy of the 0.21.0 platform, listing musl 1.2.6's `rcrt1.o` in place of `crt1.o` in `x64musl`'s inputs, with `libhost.a`, `libunwind.a` and `libc.a` unchanged, makes the app start and listen on `nightly-2026-11-12-ce942d6`. The bundled `libc.a` is musl 1.2.4, so the matching `rcrt1.o` is that version's.
-- `readelf -r` finds no `R_X86_64_32`/`R_X86_64_32S` relocations outside debug sections in the x64musl `libhost.a`. roc-lang/roc#12949 also asks Rust hosts to be built with `-C relocation-model=pic`.
-- `arm64musl` lists `crt1.o` too; I haven't run it. [roc-signals](https://github.com/lukewilliamboswell/roc-signals) (a Roc platform for browser apps) 0.5.0 lists `rcrt1.o` for `x64musl`.
+- 0.21.0's `main.roc` lists `crt1.o` for `x64musl` and `arm64musl`. roc-lang/roc#12949, first in `nightly-2026-11-11-7679cc5`, links static-pie executables and asks static musl platforms to ship `rcrt1.o` instead. In a local copy of the 0.21.0 platform, listing musl 1.2.6's `rcrt1.o` in place of `crt1.o` in `x64musl`'s inputs, with everything else unchanged, makes the app start and listen (the bundled `libc.a` is musl 1.2.4, so the matching `rcrt1.o` is that version's).
+- basic-cli 0.27.0, whose `x64musl` lists `crt1.o`, fails the same way; basic-cli 0.28.0, which lists `rcrt1.o`, runs.
+- `arm64musl` was not run.
 - Regression: works on `nightly-2026-11-10-f7d1f19`, fails since `nightly-2026-11-11-7679cc5`.
-- Related: #264, the automated bump of the nightly pin to `nightly-2026-11-12-ce942d6`, changes `.roc-version`, the examples and the generated glue, not the musl startup inputs.
+- Related: #264, the automated bump of the nightly pin to `nightly-2026-11-12-ce942d6`, does not change the musl startup inputs.
 - A reproduction script, with the compiler pinned by Nix: [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/basic-webserver/BUG-031-apps-segfault-at-startup-on-pie-nightlies)
 
 ---

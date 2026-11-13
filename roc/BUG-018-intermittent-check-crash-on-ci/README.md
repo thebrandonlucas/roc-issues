@@ -1,37 +1,36 @@
 # Intermittent SIGSEGV/SIGABRT in `roc check` on CI runners
 
-> **Rechecked 2026-11-09:** still seen on the CI of [Kai](https://github.com/thebrandonlucas/kai) (a CLI for Nix and Guix written in Roc) with nightly-2026-10-21-5349569: two runs on 2026-11-05 (42027788988, 42032621297) had `roc check` segfault. Not checked on newer compilers, and never reproduced locally.
+Run in parallel on about 30 roots on a GitHub-hosted `ubuntu-24.04` runner
+(4 vCPU, 16 GB), `roc check` sometimes dies by SIGSEGV or SIGABRT, on
+different files each time; a rerun of the same commit passes. Every check
+should succeed.
 
-Found with Roc `nightly-2026-10-21-5349569`, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/roc/BUG-018-intermittent-check-crash-on-ci) pins.
-Observed on CI only, not reproduced locally. The programs are the roots of
-[Kai](https://github.com/thebrandonlucas/kai) at commit `3fd862f`.
+**Nightly:** `nightly-2026-10-21-5349569` (linux x86_64)
 
-## Description
+### Repro
 
-Kai's CI runs `zig build`, which starts about 30 `roc check` processes in
-parallel, one for each Kaifile and package root. On GitHub-hosted
-`ubuntu-24.04` runners (4 vCPU, 16 GB), several runs on 2026-10-24 had
-`roc check` crash, each time on different, unrelated files. Reruns of the
-same commit passed.
+The package and app roots of
+[thebrandonlucas/kai](https://github.com/thebrandonlucas/kai) at commit
+`3fd862f28fc86e0ac0daca6a48bbf6d6f71960d3`, checked in parallel on a fresh
+runner, with Zig 0.16 for the platform host:
 
-One crash was a SIGABRT (`roc check plugins/std/main.roc`); the others were
-SIGSEGV (exit 139). One run crashed on 5 files at once:
+```sh
+git clone https://github.com/thebrandonlucas/kai && cd kai
+git checkout 3fd862f28fc86e0ac0daca6a48bbf6d6f71960d3
+(cd platform && zig build --release)
+for root in $(git ls-files '*Kaifile.roc' 'plugins/*/main.roc' \
+    'examples/plugins/*/main.roc' cli/main.roc | grep -v /fuzz/); do
+  roc check "$root" &
+done
+wait
+```
 
-- `examples/agenix/Kaifile.roc`
-- `devtool/fixtures/overlays/Kaifile.roc`
-- `plugins/std/main.roc`
-- `examples/plugins/deploy/main.roc`
-- `examples/path-source/Kaifile.roc`
+### Observed
 
-## Expected behavior
+Some checks crash, up to 5 in one run; one was a SIGABRT, the others
+SIGSEGV (exit 139):
 
-Every `roc check` succeeds, as it does on reruns of the same commit.
-
-## Actual behavior
-
-Some `roc check` processes crash, with a report such as:
-
-```text
+```
 Segmentation fault (SIGSEGV) in the Roc compiler.
 Fault address: 0x7fffe0250000
 
@@ -45,61 +44,15 @@ Stack trace:
 Cannot print stack trace: stack tracing is disabled
 ```
 
-## Reproduction
+### Expected
 
-### Shell with the exact compiler
+Every `roc check` succeeds, as on a rerun.
 
-From this bug's directory in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/roc/BUG-018-intermittent-check-crash-on-ci), enter a shell with Roc `nightly-2026-10-21-5349569`,
-pinned by its `flake.nix` (Linux), which also provides Zig 0.16 for
-Kai's platform host:
+### Notes
 
-```sh
-nix develop .
-roc version
-# Roc compiler version nightly-2026-10-21-5349569
-```
-
-Inside that shell, from a checkout of Kai at
-`3fd862f28fc86e0ac0daca6a48bbf6d6f71960d3`, build the platform host and run
-the checks in parallel, as CI does:
-
-```sh
-(cd platform && zig build --release)
-for root in $(git ls-files '*Kaifile.roc' 'plugins/*/main.roc' \
-    'examples/plugins/*/main.roc' cli/main.roc | grep -v /fuzz/); do
-  roc check "$root" &
-done
-wait
-```
-
-### Automated harness
-
-From the same directory of [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/roc/BUG-018-intermittent-check-crash-on-ci):
-
-```sh
-nix develop . --command bash repro.sh       # 10 rounds
-nix develop . --command bash repro.sh 50    # 50 rounds
-```
-
-This is a best-effort harness. It fetches Kai's source tree at the pinned
-commit into a temporary directory, builds its platform host, then runs
-`roc check` on every root in parallel for the given number of rounds, each
-round with an empty Roc cache. It needs network access for Kai's source, the
-host's link inputs and basic-cli. It reports success only when a `roc check`
-process dies by signal or prints the compiler's crash report; otherwise it
-reports that the bug was not reproduced in that many rounds.
-
-## Observations
-
-- **CI only:** not reproduced on an 8-core x86_64 Linux host, by 20 sequential
-  runs, 20 runs each with `--jobs 4` and `--jobs 2`, 18 parallel runs
-  (6 files, 3 rounds) with an empty `XDG_CACHE_HOME`, and runs with stack
-  limits down to 1 MiB with 1 or 2 workers.
-- **Not memory exhaustion:** each check uses about 0.5 GB of resident memory,
-  well within the runners' 16 GB for the processes that run at once.
-- **Not file-specific:** each failing run crashed on different files, and
-  reruns of the same commit passed; the crash report names the `lir_gen`
-  phase after checking.
-- **Harness:** on the 8-core host above, the harness runs end to end (27
-  roots, 3 rounds, every check succeeding) and reports that the bug was not
-  reproduced; that is the expected result there.
+- Not reproduced on an 8-core x86_64 Linux host: sequential runs, runs
+  with `--jobs 4` and `--jobs 2`, parallel runs with an empty cache, and
+  stack limits down to 1 MiB all pass. Each check uses about 0.5 GB.
+- A reproduction script, with the compiler pinned by Nix (`nix develop .
+  --command bash repro.sh [ROUNDS]`; it reports success only on a crash):
+  [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/roc/BUG-018-intermittent-check-crash-on-ci)
