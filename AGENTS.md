@@ -98,15 +98,15 @@ Rules for the body:
 - **Check the exact text.** Extract the code from `ISSUE.md` into a fresh
   directory and run the command on the stated nightly (and the last good one
   for a regression) before calling it ready.
-- **Roc only, or a link.** This repo, and everything posted from it, is read
-  by people who know Roc and nothing of the projects these bugs were found
-  in. Name another project (Kai, Lyceum Study, Archeion, Claude Code, ...)
-  only with a link to it and a few words on what it is, on its first mention
-  in each file, e.g. "[Kai](https://github.com/thebrandonlucas/kai) (a CLI
-  for Nix and Guix written in Roc)", and link any file of it you cite.
-  Better still, describe the code without the project when the name adds
-  nothing. Applies to READMEs, notes and issues alike; never cite a private
-  repository.
+- **The reproduction only.** Never say where an issue came from: no "Found
+  in/while ...", no "Used by", no names of the projects it was hit in (Kai,
+  Lyceum Study, liton, ...), no workarounds in our own code. A draft is the
+  problem and its reproduction, nothing else. (A bug that only shows in
+  another project's code, e.g. its CI, names that code only as the repro.)
+- **Short and plain.** Title, one or two sentences on what happens and what
+  should, the minimal repro, the command, the observed output, the expected
+  result. Notes only for facts that change the result, a regression range,
+  or a related upstream issue. Cut anything else.
 - **Facts only.** No guesses about the cause in the compiler. Observations
   (what changes the result) are welcome.
 - **Smallest dependencies.** Drop basic-cli when the bug doesn't need it; when
@@ -129,8 +129,10 @@ must make sense to someone who has never seen it:
   is unfiled by definition, and a filed one is archived. Upstream issues that
   are related go under a `## Related` heading, with a link and a clause on
   how they relate.
-- **Dated notes** (`> **Rechecked YYYY-MM-DD:** ...` on line 3) say only
-  what was checked and what happened, on which nightly.
+- **No recheck notes.** A draft names one compiler: the newest nightly it
+  reproduces on (`**Nightly:**` in the README and ISSUE.md, and the pinned
+  shell). A recheck updates that in place; it never adds a dated note. The
+  only dated notes are the `Archived` and `Closed` lines in `archive/`.
 - **Anything of this repo's** (the harness, the pinned shell, another
   draft) says where it lives: "From this bug's directory in
   [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/<project>/<dir>)",
@@ -143,7 +145,8 @@ Feature ideas (`IMPROVEMENT-XXX`) for Roc and basic-cli go to the Roc Zulip
 (#ideas, or #contributing for basic-cli) before any issue, as Roc's
 CONTRIBUTING asks. Other projects' ideas go where that project asks (for
 roc-signals, its issue tracker). Use the same
-structure where it fits: what you want, the current workaround, and why.
+structure where it fits: what you want, a short example of what it takes
+today in plain Roc, and why it matters, without naming where it came up.
 
 ## Posting
 
@@ -170,19 +173,20 @@ scripts/recheck.sh            # or: scripts/recheck.sh nightly-YYYY-MM-DD-<hash>
 ```
 
 It pins the newest nightly in `nightly.json` (so `nix develop .#latest` gives
-anyone that exact compiler), runs each `roc/BUG-*/ISSUE.md`'s code as written
-(`roc/BUG-*/recheck` holds the command and what output means "still
-reproduces"), prints a table, and names the new nightly in the issues that
-still reproduce. Then:
+anyone that exact compiler), runs each bug draft's `ISSUE.md` code as written
+(`<project>/BUG-*/recheck` holds the command and what output means "still
+reproduces"), prints a table, and names the new nightly in the README and
+ISSUE.md of the bugs that still reproduce. Then:
 
 1. For each `NOT FOUND`, read `recheck.last-output`, confirm by hand (it may
    be fixed, or the compiler's wording changed), find the nightly that fixed
    it if you can, and archive it (see "Archiving") or fix its `recheck`.
 2. If an issue's Observed output changed (line numbers, wording), update it.
-3. Refresh line 3 of each kept draft's README (the dated recheck note).
+3. Improvements and drafts without a `recheck` file: check them by hand and
+   update their `**Nightly:**` (or platform version) in place.
 4. Commit and push, and report the table.
 
-A new compiler bug added to `roc/` needs a `recheck` file:
+A new bug draft needs a `recheck` file:
 
 ```
 command: roc check Main.roc
