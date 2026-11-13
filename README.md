@@ -150,6 +150,7 @@ roc-signals release and nightly it applies to.
 - [RS-012: `--specialize=no` measured on two sites built with roc-signals](./roc-signals/RS-012-specialize-no-for-a-site/README.md) (a comment on lukewilliamboswell/roc-signals#180)
 - [RS-013: Let a view draw a tree whose depth comes from data](./roc-signals/RS-013-data-depth-trees/README.md)
 - [RS-014: The 0.5.0 Linux spec runner segfaults when built with the nightly the release pins](./roc-signals/RS-014-linux-spec-runner-needs-nightly-11-11/README.md)
+- [RS-015: Let an app replace the value of a text input that has focus](./roc-signals/RS-015-replace-a-focused-inputs-value/README.md)
 
 ## Archived
 
