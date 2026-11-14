@@ -2,6 +2,8 @@
 
 > **Archived 2026-11-11:** filed as [roc-lang/roc#12968](https://github.com/roc-lang/roc/issues/12968) on 2026-11-11.
 
+> **Closed 2026-11-13:** roc-lang/roc#12968 closed as completed.
+
 Found with Roc `nightly-2026-10-21-5349569`, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-021-record-update-list-missing-field-segfault) pins.
 `nightly-2026-11-02-847b82c` crashes the same way. No platform is needed.
 

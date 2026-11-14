@@ -2,6 +2,8 @@
 
 > **Archived 2026-11-11:** filed as [roc-lang/roc#12942](https://github.com/roc-lang/roc/issues/12942) on 2026-11-09.
 
+> **Closed 2026-11-13:** roc-lang/roc#12942 closed as completed.
+
 Found with Roc `nightly-2026-10-21-5349569`, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-022-unused-statement-reported-as-interpolation-mismatch) pins.
 `nightly-2026-11-02-847b82c` reports the same. No platform is needed.
 
