@@ -2,6 +2,8 @@
 
 > **Archived 2026-11-13:** filed as [roc-lang/roc#12993](https://github.com/roc-lang/roc/issues/12993) on 2026-11-12.
 
+> **Closed 2026-11-14:** roc-lang/roc#12993 closed as completed.
+
 > **Rechecked 2026-11-12:** still reproduces on `nightly-2026-11-12-ce942d6` (`repro.sh` prints BUG REPRODUCED).
 
 Found with Roc `nightly-2026-11-07-ad3a5d2`, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/roc/BUG-027-unary-minus-before-var-parse-error) pins.

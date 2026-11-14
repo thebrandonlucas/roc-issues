@@ -189,8 +189,8 @@ flat `archive/` folder so links from filed issues keep working.
 - [RS-008: Let an HTTP request include credentials](./archive/RS-008-http-credentials/README.md) (filed as lukewilliamboswell/roc-signals#206; delivered by #218)
 - [RS-010: Render an app's page to HTML when a site is built](./archive/RS-010-render-views-to-html/README.md) (covered by lukewilliamboswell/roc-signals#247)
 - [RS-011: Scroll to the top, or to a fragment, after navigating in place](./archive/RS-011-scroll-after-navigation/README.md) (covered by lukewilliamboswell/roc-signals#213)
-- [BUG-027: Unary minus directly before a `var` name is rejected as unexpected expression syntax](./archive/BUG-027-unary-minus-before-var-parse-error/README.md) (filed as roc-lang/roc#12993)
-- [BUG-028: A derived `parser_for` does not exist when used before its type's declaration](./archive/BUG-028-derived-parser-for-before-declaration/README.md) (filed as roc-lang/roc#12994)
+- [BUG-027: Unary minus directly before a `var` name is rejected as unexpected expression syntax](./archive/BUG-027-unary-minus-before-var-parse-error/README.md) (filed as roc-lang/roc#12993; closed as completed 2026-11-14)
+- [BUG-028: A derived `parser_for` does not exist when used before its type's declaration](./archive/BUG-028-derived-parser-for-before-declaration/README.md) (filed as roc-lang/roc#12994; closed as completed 2026-11-14)
 - [BUG-029: A second `roc check` crashes when the cache has an app's canonicalization entries but not its module entries](./archive/BUG-029-check-segfault-without-cached-module-entry/README.md) (no longer applies on `nightly-2026-11-12-ce942d6`)
 - [IMPROVEMENT-005: Make a warm `roc app.roc` as fast as a warm cached build](./archive/IMPROVEMENT-005-warm-roc-run-overhead/README.md) (gap no longer shown on `nightly-2026-11-12-ce942d6`)
 
