@@ -1,0 +1,2 @@
+command: roc docs main.roc
+reproduced-if: unreported error

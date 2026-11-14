@@ -113,6 +113,8 @@ Improvements are design ideas and need not have a harness.
 Bugs:
 
 - [BUG-018: intermittent SIGSEGV/SIGABRT in `roc check` on CI runners](./roc/BUG-018-intermittent-check-crash-on-ci/README.md) (observed on CI only)
+- [BUG-033: `roc docs` reports its own broken-link error as an unreported compiler error](./roc/BUG-033-docs-broken-links-unreported-error/README.md)
+- [BUG-034: `roc check` segfaults on a record update of an imported nominal record whose new list's element has an extra field](./roc/BUG-034-record-update-list-extra-field-segfault/README.md)
 
 Improvements:
 
