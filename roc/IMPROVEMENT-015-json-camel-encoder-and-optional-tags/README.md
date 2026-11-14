@@ -11,7 +11,7 @@ Two gaps in the builtin `Json` codec:
    `Try(a, [Absent])`, has no `parser_for`, and the error does not say which
    tags are accepted.
 
-**Nightly:** `nightly-2026-11-12-ce942d6` (linux x86_64)
+**Nightly:** `nightly-2026-11-13-03dce41` (linux x86_64)
 
 ### Repro
 

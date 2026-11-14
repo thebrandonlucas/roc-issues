@@ -6,7 +6,7 @@ with headings, lists, code blocks, tables and links; to show it, an app must
 parse it in Roc and rebuild every node with `Engine.element` and
 `Engine.text`, or hand it to a custom element.
 
-**roc-signals:** `0.5.0` · **Nightly:** `nightly-2026-11-12-ce942d6` (linux x86_64)
+**roc-signals:** `0.5.0` · **Nightly:** `nightly-2026-11-13-03dce41` (linux x86_64)
 
 ### What it takes today
 

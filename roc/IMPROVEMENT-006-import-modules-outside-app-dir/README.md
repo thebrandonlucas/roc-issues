@@ -5,7 +5,7 @@ An app can import only modules in its own directory: `import Shared` in
 `Shared.roc` one level up. Two apps in different directories cannot share a
 module without copying it.
 
-**Nightly:** `nightly-2026-11-12-ce942d6` (linux x86_64), basic-cli `0.28.0`
+**Nightly:** `nightly-2026-11-13-03dce41` (linux x86_64), basic-cli `0.28.1`
 
 ### Repro
 
@@ -21,7 +21,7 @@ Shared := {}.{
 `sub/app.roc`:
 
 ```roc
-app [main!] { pf: platform "https://github.com/roc-lang/basic-cli/releases/download/0.28.0/2yhxoR7cZPSYbyUzPWULFw8AA6QEcdsgFNRmzu7pZbst.tar.zst" }
+app [main!] { pf: platform "https://github.com/roc-lang/basic-cli/releases/download/0.28.1/7brgwR8YUqfeGrkdfF1V4GPPN7DnP7ftqub9KcrTEZtr.tar.zst" }
 
 import pf.Stdout
 import Shared

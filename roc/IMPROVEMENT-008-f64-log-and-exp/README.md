@@ -6,7 +6,7 @@ code such as statistics and decay curves needs both; today each program
 must port them (fdlibm's `e_log.c` and `e_exp.c`, about 150 lines of Roc
 over `F64.to_bits` and `F64.from_bits`).
 
-**Nightly:** `nightly-2026-11-12-ce942d6` (linux x86_64)
+**Nightly:** `nightly-2026-11-13-03dce41` (linux x86_64)
 
 ### Repro
 

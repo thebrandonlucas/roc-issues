@@ -5,7 +5,7 @@ On basic-webserver 0.21.0, `roc check` rejects a `Sqlite.query!` or
 `Sqlite.RowEncoding` has no `missing_field` method. The app should check,
 as it does on `nightly-2026-11-09-9e85de7`.
 
-**Nightly:** `nightly-2026-11-12-ce942d6` (linux x86_64), basic-webserver `0.21.0`
+**Nightly:** `nightly-2026-11-13-03dce41` (linux x86_64), basic-webserver `0.21.0`
 
 The issue to file, with the repro inline, is [`ISSUE.md`](./ISSUE.md).
 
@@ -38,7 +38,7 @@ The value's type, which does not have a method named missing_field, is:
 Hint: For this to work, the type would need to have a method named
 missing_field associated with it in the type's declaration.
 
-── 1 error and 0 warnings ───────────────────────────────────────────── main.roc
+── 1 error and 10 warnings ──────────────────────────────────────────── main.roc
 ```
 
 ### Expected
@@ -51,6 +51,9 @@ No errors.
 - Adding `missing_field = |_, name| MissingRequiredField(name)` to
   `RowEncoding` in a local copy of the platform makes `main.roc` check and
   build.
+- The 10 warnings, duplicate definitions in the platform's `Attribute.roc`,
+  `Server.roc` and `Sqlite.roc`, are new in `nightly-2026-11-13-03dce41`;
+  the error was the same before they appeared.
 - Regression: works on `nightly-2026-11-09-9e85de7`, fails since
   `nightly-2026-11-10-f7d1f19`.
 
@@ -58,12 +61,12 @@ No errors.
 
 From this directory in
 [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/basic-webserver/BUG-032-sqlite-record-rows-need-missing-field),
-whose `flake.nix` pins the nightly above (and the last good one as
-`last-good`):
+with the nightly above from the repo's root flake and the last good one
+from this directory's `flake.nix`:
 
 ```sh
-nix develop . --command bash repro.sh            # BUG REPRODUCED
-nix develop .#last-good --command bash repro.sh  # BUG NOT REPRODUCED
+nix develop ../..#latest --command bash repro.sh   # BUG REPRODUCED
+nix develop .#last-good --command bash repro.sh    # BUG NOT REPRODUCED
 ```
 
 The script first checks the same app with `rows : List(Str)`, which must

@@ -19,7 +19,10 @@ sed 's/rows : List({ name : Str })/rows : List(Str)/' main.roc >"$HOME/scalar/ma
 grep -q 'rows : List(Str)' "$HOME/scalar/main.roc"
 
 echo "--- control: rows : List(Str) ---"
-if ! (cd "$HOME/scalar" && roc check --no-cache main.roc) >"$log" 2>&1; then
+# Warnings alone (exit status 2) count as checking.
+control=0
+(cd "$HOME/scalar" && roc check --no-cache main.roc) >"$log" 2>&1 || control=$?
+if [ "$control" -ne 0 ] && ! { [ "$control" -eq 2 ] && grep -q '── 0 errors and' "$log"; }; then
     cat "$log"
     echo "unexpected control result: the scalar row fails to check"
     exit 1

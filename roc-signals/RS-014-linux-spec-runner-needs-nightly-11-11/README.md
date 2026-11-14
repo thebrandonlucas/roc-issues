@@ -10,9 +10,9 @@ A native spec runner (`--target=x64musl`) built against the released platform
 bundle with `nightly-2026-11-10-f7d1f19` segfaults at startup, before reading
 any spec, with any arguments or none. The same build with
 `nightly-2026-11-11-7679cc5` (`--opt=dev`, as `signals.roc test` builds it) runs
-every spec. The likely cause is the PIC/PIE link change in that nightly
-([roc-lang/roc#12949](https://github.com/roc-lang/roc/pull/12949)): the bundle's
-Linux host is built for it.
+every spec. That nightly is the first with
+[roc-lang/roc#12949](https://github.com/roc-lang/roc/pull/12949), which links
+Linux executables as static PIE.
 
 ## Reproduce
 
@@ -42,6 +42,4 @@ crashes).
 
 ## Current workaround
 
-Build the spec runner with `nightly-2026-11-11-7679cc5` and `--opt=dev`. Used
-by [Lyceum Study](https://github.com/lyceum-quest/study) (`Kaifile.roc`,
-`scripts/signals.roc`).
+Build the spec runner with `nightly-2026-11-11-7679cc5` and `--opt=dev`.

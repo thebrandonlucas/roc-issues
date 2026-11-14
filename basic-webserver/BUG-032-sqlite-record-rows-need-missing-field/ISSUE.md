@@ -2,7 +2,7 @@
 
 On basic-webserver 0.21.0, `roc check` rejects a `Sqlite.query!` or `Sqlite.query_many!` call whose row type is a record, saying `Sqlite.RowEncoding` has no `missing_field` method. The app should check, as it does on `nightly-2026-11-09-9e85de7`.
 
-**Nightly:** `nightly-2026-11-12-ce942d6` (linux x86_64)
+**Nightly:** `nightly-2026-11-13-03dce41` (linux x86_64)
 
 ### Repro
 
@@ -60,7 +60,7 @@ The value's type, which does not have a method named missing_field, is:
 Hint: For this to work, the type would need to have a method named
 missing_field associated with it in the type's declaration.
 
-── 1 error and 0 warnings ───────────────────────────────────────────── main.roc
+── 1 error and 10 warnings ──────────────────────────────────────────── main.roc
 ```
 
 ### Expected
@@ -76,9 +76,10 @@ No errors, as on `nightly-2026-11-09-9e85de7`.
   missing_field : RowEncoding, Str -> QueryError
   missing_field = |_, name| MissingRequiredField(name)
   ```
+- The 10 warnings, duplicate definitions in the platform's `Attribute.roc`, `Server.roc` and `Sqlite.roc`, are new in `nightly-2026-11-13-03dce41`; the error was the same before they appeared.
 - Regression: works on `nightly-2026-11-09-9e85de7`, fails since `nightly-2026-11-10-f7d1f19`.
-- Related: #264, the automated bump of the nightly pin to `nightly-2026-11-12-ce942d6`; its "Linux examples under Memcheck" job fails with this error on `examples/sqlite.roc`.
+- Related: #264, the automated bump of the nightly pin to `nightly-2026-11-13-03dce41`, does not add `missing_field`.
 - A reproduction script, with the compiler pinned by Nix: [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/basic-webserver/BUG-032-sqlite-record-rows-need-missing-field)
 
 ---
-*Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-12-ce942d6` before posting.*
+*Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-13-03dce41` before posting.*

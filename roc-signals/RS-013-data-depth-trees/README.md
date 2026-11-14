@@ -1,6 +1,6 @@
 # Let a view draw a tree whose depth comes from data
 
-**roc-signals:** `0.5.0` · **Nightly:** `nightly-2026-11-12-ce942d6` (linux x86_64)
+**roc-signals:** `0.5.0` · **Nightly:** `nightly-2026-11-13-03dce41` (linux x86_64)
 
 `Engine.each` hands its template a `RowRef(ctx, item)` and wants an
 `Elem(Row(ctx, item))`, so a template that draws its children with `each`
@@ -76,7 +76,7 @@ with no type variables. An argument that wraps a type variable, like f([x])
 inside f : a -> U64 would use the function at a different type at every level
 of the recursion.
 
-── 1 error and 0 warnings ───────────────────────────────────────────── main.roc
+── 1 error and 12 warnings ──────────────────────────────────────────── main.roc
 ```
 
 ### What would help

@@ -1,6 +1,6 @@
 # Let an app replace the value of a text input that has focus
 
-**roc-signals:** `0.5.0` · **Nightly:** `nightly-2026-11-11-7679cc5` (linux x86_64)
+**roc-signals:** `0.5.0` · **Nightly:** `nightly-2026-11-13-03dce41` (linux x86_64)
 
 A controlled text input never shows a value the app writes while the input has
 focus. `setValue` in `platform/runtime.mjs` (lines 316–332 of the 0.5.0 bundle)
@@ -53,6 +53,3 @@ counter the submit increments (both branches the same input), then send
 `Focus(ref)` so the fresh, empty input has focus. `Blur(ref)` followed by
 `Focus(ref)` also works, but a ref name is a fixed string, so with several
 composers on one page it can focus the wrong one.
-[liton](https://github.com/thebrandonlucas/liton) uses the remount
-(`ui/Liton.roc`, `composer_input`); remove it once the platform can replace a
-focused value.

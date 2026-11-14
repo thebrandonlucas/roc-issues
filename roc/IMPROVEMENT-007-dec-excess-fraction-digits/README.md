@@ -7,7 +7,7 @@ returns `Err(BadNumStr)`, the second fails the whole document with
 Numbers printed from a float often have 19 or more fraction digits, so such
 a document is valid JSON that cannot be decoded into `Dec`.
 
-**Nightly:** `nightly-2026-11-12-ce942d6` (linux x86_64)
+**Nightly:** `nightly-2026-11-13-03dce41` (linux x86_64)
 
 ### Repro
 
@@ -79,8 +79,8 @@ Decoding the field as `F64` and converting it works today.
   ("does not fit in the inferred type"), which the author can fix.
 - From this directory in
   [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/roc/IMPROVEMENT-007-dec-excess-fraction-digits),
-  `nix develop . --command bash repro.sh` runs `Main.roc` on the nightly
-  above.
+  `nix develop ../..#latest --command bash repro.sh` runs `Main.roc` on the
+  nightly above.
 
 ## Related
 

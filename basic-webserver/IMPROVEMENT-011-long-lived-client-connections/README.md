@@ -8,7 +8,7 @@ host-owned slot can hold a new one (`Server.Readiness` holds only a fixed
 state). There is also no background work, so nothing reads what the other
 service pushes between requests.
 
-**Nightly:** `nightly-2026-11-12-ce942d6` (linux x86_64), basic-webserver `0.21.0`
+**Nightly:** `nightly-2026-11-13-03dce41` (linux x86_64), basic-webserver `0.21.0`
 
 So an app must open a connection, and often a session on the other service,
 for each request that needs it; with every client polling, that load

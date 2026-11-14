@@ -15,7 +15,10 @@ cp main.roc "$HOME/"
 cd "$HOME"
 
 echo "--- roc build main.roc --output=app ---"
-if ! roc build --no-cache main.roc --output=app >build.log 2>&1; then
+# Warnings alone (exit status 2) still produce the app.
+build_status=0
+roc build --no-cache main.roc --output=app >build.log 2>&1 || build_status=$?
+if [ "$build_status" -ne 0 ] && ! { [ "$build_status" -eq 2 ] && grep -q '^0 errors .* successfully building' build.log; }; then
     cat build.log
     echo "unexpected: the build failed"
     exit 1

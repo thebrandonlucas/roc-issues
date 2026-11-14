@@ -7,12 +7,12 @@ replaced by a symlink between the two calls leaks the link target's bytes.
 `Path.set_permissions!` sets only `OwnerOnly` or `PublicRead`, follows
 symlinks, and cannot set execute bits.
 
-**Nightly:** `nightly-2026-11-12-ce942d6` (linux x86_64), basic-cli `0.28.0`
+**Nightly:** `nightly-2026-11-13-03dce41` (linux x86_64), basic-cli `0.28.1`
 
 ### What it takes today
 
 ```roc
-app [main!] { pf: platform "https://github.com/roc-lang/basic-cli/releases/download/0.28.0/2yhxoR7cZPSYbyUzPWULFw8AA6QEcdsgFNRmzu7pZbst.tar.zst" }
+app [main!] { pf: platform "https://github.com/roc-lang/basic-cli/releases/download/0.28.1/7brgwR8YUqfeGrkdfF1V4GPPN7DnP7ftqub9KcrTEZtr.tar.zst" }
 
 import pf.Path
 

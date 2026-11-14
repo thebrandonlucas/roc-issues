@@ -5,7 +5,7 @@
 only, so `"ΛΌΓΟΣ"` cannot be lowercased to `"λόγος"`. Case-insensitive
 search over text in any other script needs Unicode case mapping.
 
-**Nightly:** `nightly-2026-11-12-ce942d6` (linux x86_64)
+**Nightly:** `nightly-2026-11-13-03dce41` (linux x86_64)
 
 ### Repro
 
