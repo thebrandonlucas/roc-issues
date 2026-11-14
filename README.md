@@ -113,8 +113,6 @@ Improvements are design ideas and need not have a harness.
 Bugs:
 
 - [BUG-018: intermittent SIGSEGV/SIGABRT in `roc check` on CI runners](./roc/BUG-018-intermittent-check-crash-on-ci/README.md) (observed on CI only)
-- [BUG-033: `roc docs` reports its own broken-link error as an unreported compiler error](./roc/BUG-033-docs-broken-links-unreported-error/README.md)
-- [BUG-034: `roc check` segfaults on a record update of an imported nominal record whose new list's element has an extra field](./roc/BUG-034-record-update-list-extra-field-segfault/README.md)
 
 Improvements:
 
@@ -136,8 +134,6 @@ Improvements:
 
 Bugs:
 
-- [BUG-031: Every basic-webserver 0.21.0 app segfaults at startup when built with Roc nightly-2026-11-11-7679cc5 or later](./basic-webserver/BUG-031-apps-segfault-at-startup-on-pie-nightlies/README.md)
-- [BUG-032: Sqlite queries whose row is a record fail `roc check` on Roc nightly-2026-11-10-f7d1f19 and later: `Sqlite.RowEncoding` has no `missing_field`](./basic-webserver/BUG-032-sqlite-record-rows-need-missing-field/README.md)
 
 Improvements:
 
@@ -148,11 +144,7 @@ Improvements:
 Platform gaps, not compiler bugs, so they have no harness; each names the
 roc-signals release and nightly it applies to.
 
-- [RS-009: Let an app show HTML it trusts](./roc-signals/RS-009-trusted-html/README.md)
 - [RS-012: `--specialize=no` measured on two sites built with roc-signals](./roc-signals/RS-012-specialize-no-for-a-site/README.md) (a comment on lukewilliamboswell/roc-signals#180)
-- [RS-013: Let a view draw a tree whose depth comes from data](./roc-signals/RS-013-data-depth-trees/README.md)
-- [RS-014: The 0.5.0 Linux spec runner segfaults when built with the nightly the release pins](./roc-signals/RS-014-linux-spec-runner-needs-nightly-11-11/README.md)
-- [RS-015: Let an app replace the value of a text input that has focus](./roc-signals/RS-015-replace-a-focused-inputs-value/README.md)
 
 ## Archived
 
@@ -193,6 +185,14 @@ flat `archive/` folder so links from filed issues keep working.
 - [BUG-028: A derived `parser_for` does not exist when used before its type's declaration](./archive/BUG-028-derived-parser-for-before-declaration/README.md) (filed as roc-lang/roc#12994; closed as completed 2026-11-14)
 - [BUG-029: A second `roc check` crashes when the cache has an app's canonicalization entries but not its module entries](./archive/BUG-029-check-segfault-without-cached-module-entry/README.md) (no longer applies on `nightly-2026-11-12-ce942d6`)
 - [IMPROVEMENT-005: Make a warm `roc app.roc` as fast as a warm cached build](./archive/IMPROVEMENT-005-warm-roc-run-overhead/README.md) (gap no longer shown on `nightly-2026-11-12-ce942d6`)
+- [BUG-033: `roc docs` reports its own broken-link error as an unreported compiler error](./archive/BUG-033-docs-broken-links-unreported-error/README.md) (filed as roc-lang/roc#13068)
+- [BUG-034: `roc check` segfaults on a record update of an imported nominal record whose new list's element has an extra field](./archive/BUG-034-record-update-list-extra-field-segfault/README.md) (filed as roc-lang/roc#13067)
+- [BUG-031: Every basic-webserver 0.21.0 app segfaults at startup when built with Roc nightly-2026-11-11-7679cc5 or later](./archive/BUG-031-apps-segfault-at-startup-on-pie-nightlies/README.md) (filed as roc-lang/basic-webserver#267)
+- [BUG-032: Sqlite queries whose row is a record fail `roc check` on Roc nightly-2026-11-10-f7d1f19 and later: `Sqlite.RowEncoding` has no `missing_field`](./archive/BUG-032-sqlite-record-rows-need-missing-field/README.md) (filed as roc-lang/basic-webserver#268)
+- [RS-009: Let an app show HTML it trusts](./archive/RS-009-trusted-html/README.md) (filed as lukewilliamboswell/roc-signals#269)
+- [RS-013: Let a view draw a tree whose depth comes from data](./archive/RS-013-data-depth-trees/README.md) (filed as lukewilliamboswell/roc-signals#270)
+- [RS-014: The 0.5.0 Linux spec runner segfaults when built with the nightly the release pins](./archive/RS-014-linux-spec-runner-needs-nightly-11-11/README.md) (filed as lukewilliamboswell/roc-signals#271)
+- [RS-015: Let an app replace the value of a text input that has focus](./archive/RS-015-replace-a-focused-inputs-value/README.md) (filed as lukewilliamboswell/roc-signals#272)
 
 ## Adding a repro
 

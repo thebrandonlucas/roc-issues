@@ -1,5 +1,7 @@
 # Sqlite queries whose row is a record fail `roc check` on Roc nightly-2026-11-10-f7d1f19 and later: `Sqlite.RowEncoding` has no `missing_field`
 
+> **Archived 2026-11-14:** filed as [roc-lang/basic-webserver#268](https://github.com/roc-lang/basic-webserver/issues/268) on 2026-11-14.
+
 On basic-webserver 0.21.0, `roc check` rejects a `Sqlite.query!` or
 `Sqlite.query_many!` whose row type is a record, saying
 `Sqlite.RowEncoding` has no `missing_field` method. The app should check,

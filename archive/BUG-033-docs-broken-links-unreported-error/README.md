@@ -1,5 +1,7 @@
 # `roc docs` reports its own broken-link error as an unreported compiler error
 
+> **Archived 2026-11-14:** filed as [roc-lang/roc#13068](https://github.com/roc-lang/roc/issues/13068) on 2026-11-14.
+
 When a doc comment links to a name that does not exist, `roc docs main.roc`
 lists the broken link and exits 1, but then also prints an "unreported
 error" box saying the compiler stopped with `BrokenDocLinks` without saying

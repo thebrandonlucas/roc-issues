@@ -1,5 +1,7 @@
 # The 0.5.0 Linux spec runner segfaults when built with the nightly the release pins
 
+> **Archived 2026-11-14:** filed as [lukewilliamboswell/roc-signals#271](https://github.com/lukewilliamboswell/roc-signals/issues/271) on 2026-11-14.
+
 This is a defect in [roc-signals](https://github.com/lukewilliamboswell/roc-signals)
 (a Roc platform for browser apps). Checked on roc-signals `0.5.0`, x86-64 Linux.
 

@@ -1,5 +1,7 @@
 # Let an app replace the value of a text input that has focus
 
+> **Archived 2026-11-14:** filed as [lukewilliamboswell/roc-signals#272](https://github.com/lukewilliamboswell/roc-signals/issues/272) on 2026-11-14.
+
 **roc-signals:** `0.5.0` · **Nightly:** `nightly-2026-11-13-03dce41` (linux x86_64)
 
 A controlled text input never shows a value the app writes while the input has

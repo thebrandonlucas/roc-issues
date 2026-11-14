@@ -1,5 +1,7 @@
 # `roc check` segfaults on a record update of an imported nominal record whose new list's element has an extra field
 
+> **Archived 2026-11-14:** filed as [roc-lang/roc#13067](https://github.com/roc-lang/roc/issues/13067) on 2026-11-14.
+
 A record update of a value of a nominal record type from another module
 replaces a `List` field with a list whose element record has a field the
 element type lacks. This is a type error, but `roc check Project.roc`

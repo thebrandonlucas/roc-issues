@@ -1,5 +1,7 @@
 # Let a view draw a tree whose depth comes from data
 
+> **Archived 2026-11-14:** filed as [lukewilliamboswell/roc-signals#270](https://github.com/lukewilliamboswell/roc-signals/issues/270) on 2026-11-14.
+
 **roc-signals:** `0.5.0` · **Nightly:** `nightly-2026-11-13-03dce41` (linux x86_64)
 
 `Engine.each` hands its template a `RowRef(ctx, item)` and wants an

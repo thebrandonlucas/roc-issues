@@ -1,5 +1,7 @@
 # Let an app show HTML it trusts
 
+> **Archived 2026-11-14:** filed as [lukewilliamboswell/roc-signals#269](https://github.com/lukewilliamboswell/roc-signals/issues/269) on 2026-11-14.
+
 An app cannot put a fragment of HTML it already has into the page. Text
 rendered from Markdown ahead of time (a post, an article, a README) is HTML
 with headings, lists, code blocks, tables and links; to show it, an app must

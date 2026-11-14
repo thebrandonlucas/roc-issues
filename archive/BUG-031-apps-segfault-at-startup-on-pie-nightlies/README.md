@@ -1,5 +1,7 @@
 # Every basic-webserver 0.21.0 app segfaults at startup when built with Roc nightly-2026-11-11-7679cc5 or later
 
+> **Archived 2026-11-14:** filed as [roc-lang/basic-webserver#267](https://github.com/roc-lang/basic-webserver/issues/267) on 2026-11-14.
+
 Any basic-webserver 0.21.0 app builds without errors with `roc build`, then
 dies with SIGSEGV (exit status 139) before it prints anything. It should
 start and listen, as it does when built with `nightly-2026-11-10-f7d1f19`.
