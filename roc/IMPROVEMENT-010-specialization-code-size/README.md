@@ -34,6 +34,17 @@ loops.
   parsing a 432-item document took 6.5 s instead of 0.33 s, and typing 15
   characters into a field 0.33 s instead of 0.16 s (measured on
   `nightly-2026-11-07-ad3a5d2`).
+- In a second roc-signals 0.5.0 app (about 4,000 lines, `nightly-2026-11-11-7679cc5`),
+  the `--specialize=no` module (2.3 MB against 10.3 MB) is slow in reference
+  counting rather than in the app's own work. Opening a list of 200 rich
+  rows takes 2.6 s instead of 0.31 s, and replacing it with a 6-row list
+  6.9 s instead of 0.05 s. A CPU profile of the `--debug` module puts about
+  95% of that in `.Lwalk.incref` (57%), `roc_builtins_list_decref_with`,
+  `RocList.makeUnique` and `roc_llvm_rc_decref`, under the engine's list
+  operations: they seem to find their lists shared, so each copies its list
+  and increfs every element deeply. The same app's native spec runner
+  (`--target=x64musl`) rebuilds after a one-line change in 595 s specialized
+  and 73 s without.
 
 ## Related
 
