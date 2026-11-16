@@ -6,7 +6,7 @@ error and `List.sort_with` has nothing to sort strings with. The FAQ points to
 UTF-8 is code-point order) is well defined without any locale, and is what
 sorting identifiers, ISO-8601 timestamps or keys for stable output needs.
 
-**Nightly:** `nightly-2026-11-14-a87808d` (linux x86_64)
+**Nightly:** `nightly-2026-11-15-f25da45` (linux x86_64)
 
 ### Repro
 

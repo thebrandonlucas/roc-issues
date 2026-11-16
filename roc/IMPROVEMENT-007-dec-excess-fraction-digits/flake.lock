@@ -54,17 +54,17 @@
         "nixpkgs-darwin": "nixpkgs-darwin"
       },
       "locked": {
-        "lastModified": 1794554775,
-        "narHash": "sha256-ZB7yiDEs11sNrCjT2O73hyGSbfbwEGJz1jqfhLPc7l0=",
+        "lastModified": 1794832586,
+        "narHash": "sha256-+8lMcjJUKtmTiV8dsTDCWBUI7CfkRwZnwJB4VZC/df8=",
         "owner": "roc-lang",
         "repo": "roc-overlay",
-        "rev": "67491987eb6ef2423d9a6e5901f6a8e439d8566c",
+        "rev": "1181a21dee94818725b9ecfa5ed54e7d9219cd0e",
         "type": "github"
       },
       "original": {
         "owner": "roc-lang",
         "repo": "roc-overlay",
-        "rev": "67491987eb6ef2423d9a6e5901f6a8e439d8566c",
+        "rev": "1181a21dee94818725b9ecfa5ed54e7d9219cd0e",
         "type": "github"
       }
     },

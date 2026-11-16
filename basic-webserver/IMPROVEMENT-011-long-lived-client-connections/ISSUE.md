@@ -8,7 +8,7 @@ host-owned slot can hold a new one (`Server.Readiness` holds only a fixed
 state). There is also no background work, so nothing reads what the other
 service pushes between requests.
 
-**Nightly:** `nightly-2026-11-14-a87808d` (linux x86_64), basic-webserver `0.21.0`
+**Nightly:** `nightly-2026-11-15-f25da45` (linux x86_64), basic-webserver `0.22.0`
 
 So an app must open a connection, and often a session on the other service,
 for each request that needs it; with every client polling, that load
@@ -32,3 +32,9 @@ Any one of these would do, from least to most platform work:
 
 A WebSocket client in the platform would make reconnecting and framing
 simpler still, but apps can already frame WebSocket messages on `Tcp`.
+
+## Related
+
+- [roc-lang/basic-webserver#108](https://github.com/roc-lang/basic-webserver/issues/108)
+  (closed): a background processing queue, closed as out of scope; detached
+  work is meant to live in a separately supervised worker.

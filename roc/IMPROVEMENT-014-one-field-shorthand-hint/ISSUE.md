@@ -6,7 +6,7 @@ the mismatch surfaces, which can be far from the braces and does not mention
 them. A hint at the block (write `{ a: a }` for a one-field record) would make
 the cause plain.
 
-**Nightly:** `nightly-2026-11-14-a87808d` (linux x86_64)
+**Nightly:** `nightly-2026-11-15-f25da45` (linux x86_64)
 
 ### Repro
 
@@ -49,10 +49,17 @@ The type was determined to be:
 When a type mismatch involves a block that is a single name in braces, and the
 expected type is a record with a field of that name, add a hint at the block:
 `{ text }` is a block that evaluates to `text`; a one-field record is written
-`{ text: text }`. A warning on every such block would also do.
+`{ text, }` or `{ text: text }`. A warning on every such block would also do.
 
 ### Notes
 
 - With an annotation (`user : Str -> Message`) the error is at
   `User({ text })`, with `User(Str)` in the type it shows; it still does not
   point at the braces.
+- With `User({ text, })` (a trailing comma) the file checks.
+
+## Related
+
+- [roc-lang/roc#13107](https://github.com/roc-lang/roc/issues/13107) (open):
+  `roc fmt` expands the one-field shorthand record `{ single, }` onto several
+  lines; it notes that `{ single }` is a block.

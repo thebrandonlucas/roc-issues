@@ -1,9 +1,9 @@
 {
-  "tag": "nightly-2026-11-14-a87808d",
+  "tag": "nightly-2026-11-15-f25da45",
   "assets": {
-    "x86_64-linux": { "url": "https://github.com/roc-lang/nightlies/releases/download/nightly-2026-11-14-a87808d/roc_nightly-linux_x86_64-2026-11-14-a87808d.tar.gz", "hash": "sha256-qkx4RtrwakLTKkYK5giA8tiWh7KBIfx5ij1w6N751p8=" },
-    "aarch64-linux": { "url": "https://github.com/roc-lang/nightlies/releases/download/nightly-2026-11-14-a87808d/roc_nightly-linux_arm64-2026-11-14-a87808d.tar.gz", "hash": "sha256-rDkVaqCiGPQRTgxZorXH79JlgmnvlR2PK42Dr80ZKCo=" },
-    "aarch64-darwin": { "url": "https://github.com/roc-lang/nightlies/releases/download/nightly-2026-11-14-a87808d/roc_nightly-macos_apple_silicon-2026-11-14-a87808d.tar.gz", "hash": "sha256-ytCVQ/USZqDz0MtYItCITmI2De+luy15OhN/DWm/kqg=" },
-    "x86_64-darwin": { "url": "https://github.com/roc-lang/nightlies/releases/download/nightly-2026-11-14-a87808d/roc_nightly-macos_x86_64-2026-11-14-a87808d.tar.gz", "hash": "sha256-Wk+Uxh4eh8Qtg8JgA5UCBGyZd8F1KBTi7WRyUPkP3u0=" }
+    "x86_64-linux": { "url": "https://github.com/roc-lang/nightlies/releases/download/nightly-2026-11-15-f25da45/roc_nightly-linux_x86_64-2026-11-15-f25da45.tar.gz", "hash": "sha256-mGNgNIprv08naW9rPXPwJgKTgTNGcSo/cuc2RSZx6ZQ=" },
+    "aarch64-linux": { "url": "https://github.com/roc-lang/nightlies/releases/download/nightly-2026-11-15-f25da45/roc_nightly-linux_arm64-2026-11-15-f25da45.tar.gz", "hash": "sha256-38l8bd+JfXcXy5WhngwKmNHUr65PJZ5pH4lZhw83kXY=" },
+    "aarch64-darwin": { "url": "https://github.com/roc-lang/nightlies/releases/download/nightly-2026-11-15-f25da45/roc_nightly-macos_apple_silicon-2026-11-15-f25da45.tar.gz", "hash": "sha256-O73E1McMNEb25ZUEx/DhIsrh3ifW+UvnTEHtchj+CJY=" },
+    "x86_64-darwin": { "url": "https://github.com/roc-lang/nightlies/releases/download/nightly-2026-11-15-f25da45/roc_nightly-macos_x86_64-2026-11-15-f25da45.tar.gz", "hash": "sha256-gEUQ9f0lImHCFj0uYQXGmhkggHXTWSbuIrWeBPnACvs=" }
   }
 }

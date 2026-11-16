@@ -5,7 +5,7 @@ An app can import only modules in its own directory: `import Shared` in
 `Shared.roc` one level up. Two apps in different directories cannot share a
 module without copying it.
 
-**Nightly:** `nightly-2026-11-14-a87808d` (linux x86_64), basic-cli `0.28.1`
+**Nightly:** `nightly-2026-11-15-f25da45` (linux x86_64), basic-cli `0.28.1`
 
 ### Repro
 
