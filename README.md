@@ -168,7 +168,7 @@ flat `archive/` folder so links from filed issues keep working.
 - [BUG-024: A type mismatch on an interpolated string literal is reported at a different expression](./archive/BUG-024-interpolated-literal-mismatch-wrong-region/README.md)
 - [BUG-021: `roc check` segfaults on a record update whose list element misses a field](./archive/BUG-021-record-update-list-missing-field-segfault/README.md) (filed as roc-lang/roc#12968; closed as completed 2026-11-13)
 - [BUG-026: `roc check` segfaults in boxy_lowering when a nominal record's list elements miss a field](./archive/BUG-026-nominal-list-element-fields-boxy-segfault/README.md) (a comment on roc-lang/roc#12968; closed as completed 2026-11-13)
-- [BUG-012: `roc test` panics when a platform and its package both have a module with the same name](./archive/BUG-012-test-platform-and-package-module-same-name/README.md; closed as completed 2026-11-16)
+- [BUG-012: `roc test` panics when a platform and its package both have a module with the same name](./archive/BUG-012-test-platform-and-package-module-same-name/README.md) (filed as roc-lang/roc#12969; closed as completed 2026-11-16)
 - [RS-002: Let an app use IndexedDB (or another asynchronous host store)](./archive/RS-002-asynchronous-storage/README.md) (filed as lukewilliamboswell/roc-signals#201; addressed by ports in `0.4.0`)
 - [RS-001: Let an app read the wall-clock time](./archive/RS-001-wall-clock-time/README.md) (filed as lukewilliamboswell/roc-signals#200; closed in favour of #216)
 - [RS-007: Let an app drag things with the pointer and animate the result](./archive/RS-007-pointer-drag-and-view-transitions/README.md) (filed as lukewilliamboswell/roc-signals#199; closed in favour of #211 and others)
