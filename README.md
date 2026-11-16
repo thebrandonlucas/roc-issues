@@ -113,6 +113,9 @@ Improvements are design ideas and need not have a harness.
 Bugs:
 
 - [BUG-018: intermittent SIGSEGV/SIGABRT in `roc check` on CI runners](./roc/BUG-018-intermittent-check-crash-on-ci/README.md) (observed on CI only)
+- [BUG-035: A nominal tag union value is accepted where a structural tag union of the same shape is annotated](./roc/BUG-035-nominal-value-accepted-as-structural-union/README.md)
+- [BUG-036: A package dependency whose path is a type module, not a package, is accepted, and its values "do not exist"](./roc/BUG-036-package-path-to-type-module-accepted/README.md)
+- [BUG-037: `Json.to_str` and `Json.parse` say the builtin `Try` has no `encoder_for` or `parser_for`](./roc/BUG-037-try-encoder-for-and-parser-for-missing/README.md)
 
 Improvements:
 

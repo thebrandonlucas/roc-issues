@@ -1,0 +1,2 @@
+command: roc check Color.roc
+reproduced-if: No errors found

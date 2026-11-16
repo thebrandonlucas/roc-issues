@@ -1,0 +1,2 @@
+command: roc check Probe.roc
+reproduced-if: missing method .* Probe\.roc:14:

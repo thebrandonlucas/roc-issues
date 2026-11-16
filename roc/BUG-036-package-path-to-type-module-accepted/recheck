@@ -1,0 +1,2 @@
+command: roc check sub/main.roc
+reproduced-if: Shared\.value does not exist
