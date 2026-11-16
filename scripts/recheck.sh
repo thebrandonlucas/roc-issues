@@ -89,13 +89,13 @@ for dir in */BUG-*/; do
   rm -rf "$work"
 done
 
-# 3. Name the new nightly in the bugs that still reproduce: their ISSUE.md and
-#    README, in place (drafts carry no dated recheck notes).
+# 3. Name the new nightly in the ISSUE.md of the bugs that still reproduce, in
+#    place (drafts carry no dated recheck notes).
 for dir in "${still[@]}"; do
-  for f in "$dir/ISSUE.md" "$dir/README.md"; do
+  for f in "$dir/ISSUE.md"; do
     [ -f "$f" ] || continue; sed -E -i "s/nightly-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9a-f]{7}([\`)]?) before posting/$tag\1 before posting/; s/^\*\*Nightly:\*\* \`nightly-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9a-f]{7}\`/**Nightly:** \`$tag\`/; s/through \`nightly-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9a-f]{7}\`/through \`$tag\`/g; s/to \`nightly-2026-1[01]-[0-9]{2}-[0-9a-f]{7}\`\./to \`$tag\`./g" "$f"
   done
 done
 echo
-echo "${#still[@]} still reproduce on $tag; their ISSUE.md and README now name it. For any NOT FOUND,"
+echo "${#still[@]} still reproduce on $tag; their ISSUE.md now names it. For any NOT FOUND,"
 echo "<project>/<dir>/recheck.last-output has the end of what the compiler printed."

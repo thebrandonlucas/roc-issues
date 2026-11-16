@@ -36,10 +36,9 @@ roc version
 ## Running reproductions
 
 Each bug directory has a `flake.nix` and `flake.lock` that pin its exact
-environment independently of the root flake catalog. Each repro's README
-includes a **Shell with the exact compiler** section with the shell command,
-compiler release, and version check. Use that shell rather than the root
-`nix develop` default, which may select a different compiler.
+environment independently of the root flake catalog. Use that shell rather
+than the root `nix develop` default, which may select a different compiler;
+`nix develop .#latest` from the root gives the newest nightly the issues name.
 
 From that bug's directory, use Nix directly (current repro shells support
 x86_64 and aarch64 Linux):
@@ -107,30 +106,31 @@ issue (see AGENTS.md, "Rechecking on the newest nightly").
 ## Roc
 
 Each `roc/BUG-XXX-*` directory is a self-contained repro with a pinned
-`flake.nix` and `flake.lock`, source, `README.md`, and executable `repro.sh`.
+`flake.nix` and `flake.lock`, source, an `ISSUE.md` (the issue to post: its
+first line is the title), and an executable `repro.sh`.
 Improvements are design ideas and need not have a harness.
 
 Bugs:
 
-- [BUG-035: A nominal tag union value is accepted where a structural tag union of the same shape is annotated](./roc/BUG-035-nominal-value-accepted-as-structural-union/README.md)
-- [BUG-036: A package dependency whose path is a type module, not a package, is accepted, and its values "do not exist"](./roc/BUG-036-package-path-to-type-module-accepted/README.md)
-- [BUG-037: `Json.to_str` and `Json.parse` say the builtin `Try` has no `encoder_for` or `parser_for`](./roc/BUG-037-try-encoder-for-and-parser-for-missing/README.md)
+- [BUG-035: A nominal tag union value is accepted where a structural tag union of the same shape is annotated](./roc/BUG-035-nominal-value-accepted-as-structural-union/ISSUE.md)
+- [BUG-036: A package dependency whose path is a type module, not a package, is accepted, and its values "do not exist"](./roc/BUG-036-package-path-to-type-module-accepted/ISSUE.md)
+- [BUG-037: `Json.to_str` and `Json.parse` say the builtin `Try` has no `encoder_for` or `parser_for`](./roc/BUG-037-try-encoder-for-and-parser-for-missing/ISSUE.md)
 
 Improvements:
 
-- [IMPROVEMENT-006: Let an app import modules from outside its own directory](./roc/IMPROVEMENT-006-import-modules-outside-app-dir/README.md)
-- [IMPROVEMENT-007: Let `Dec.from_str` and JSON decoding accept more than 18 fraction digits](./roc/IMPROVEMENT-007-dec-excess-fraction-digits/README.md)
-- [IMPROVEMENT-008: Add natural logarithm and exponential functions for F64](./roc/IMPROVEMENT-008-f64-log-and-exp/README.md)
-- [IMPROVEMENT-009: Provide Unicode case mapping for Str](./roc/IMPROVEMENT-009-unicode-case-mapping/README.md)
-- [IMPROVEMENT-010: Keep lambda-set specialization from multiplying code in large apps](./roc/IMPROVEMENT-010-specialization-code-size/README.md)
-- [IMPROVEMENT-012: Give `Str` an order by its UTF-8 bytes](./roc/IMPROVEMENT-012-str-ordering/README.md)
-- [IMPROVEMENT-013: Encode an integral `Dec` in JSON without a fraction](./roc/IMPROVEMENT-013-json-integral-dec/README.md)
-- [IMPROVEMENT-014: Point at `{ name }` when a one-name block is used where a record is expected](./roc/IMPROVEMENT-014-one-field-shorthand-hint/README.md)
-- [IMPROVEMENT-015: Json: a camelCase encoder to match `parser_camel`, and a hint for optional-field tags](./roc/IMPROVEMENT-015-json-camel-encoder-and-optional-tags/README.md)
+- [IMPROVEMENT-006: Let an app import modules from outside its own directory](./roc/IMPROVEMENT-006-import-modules-outside-app-dir/ISSUE.md)
+- [IMPROVEMENT-007: Let `Dec.from_str` and JSON decoding accept more than 18 fraction digits](./roc/IMPROVEMENT-007-dec-excess-fraction-digits/ISSUE.md)
+- [IMPROVEMENT-008: Add natural logarithm and exponential functions for F64](./roc/IMPROVEMENT-008-f64-log-and-exp/ISSUE.md)
+- [IMPROVEMENT-009: Provide Unicode case mapping for Str](./roc/IMPROVEMENT-009-unicode-case-mapping/ISSUE.md)
+- [IMPROVEMENT-010: Keep lambda-set specialization from multiplying code in large apps](./roc/IMPROVEMENT-010-specialization-code-size/ISSUE.md)
+- [IMPROVEMENT-012: Give `Str` an order by its UTF-8 bytes](./roc/IMPROVEMENT-012-str-ordering/ISSUE.md)
+- [IMPROVEMENT-013: Encode an integral `Dec` in JSON without a fraction](./roc/IMPROVEMENT-013-json-integral-dec/ISSUE.md)
+- [IMPROVEMENT-014: Point at `{ name }` when a one-name block is used where a record is expected](./roc/IMPROVEMENT-014-one-field-shorthand-hint/ISSUE.md)
+- [IMPROVEMENT-015: Json: a camelCase encoder to match `parser_camel`, and a hint for optional-field tags](./roc/IMPROVEMENT-015-json-camel-encoder-and-optional-tags/ISSUE.md)
 
 ## basic-cli
 
-- [IMPROVEMENT-004: Let basic-cli read a file without following symlinks and set its mode](./basic-cli/IMPROVEMENT-004-basic-cli-no-follow-open-and-chmod/README.md)
+- [IMPROVEMENT-004: Let basic-cli read a file without following symlinks and set its mode](./basic-cli/IMPROVEMENT-004-basic-cli-no-follow-open-and-chmod/ISSUE.md)
 
 ## basic-webserver
 
@@ -139,19 +139,20 @@ Bugs:
 
 Improvements:
 
-- [IMPROVEMENT-011: Let a server keep a client connection open across requests and replace it when it drops](./basic-webserver/IMPROVEMENT-011-long-lived-client-connections/README.md)
+- [IMPROVEMENT-011: Let a server keep a client connection open across requests and replace it when it drops](./basic-webserver/IMPROVEMENT-011-long-lived-client-connections/ISSUE.md)
 
 ## roc-signals
 
 Platform gaps, not compiler bugs, so they have no harness; each names the
 roc-signals release and nightly it applies to.
 
-- [RS-012: `--specialize=no` measured on two sites built with roc-signals](./roc-signals/RS-012-specialize-no-for-a-site/README.md) (a comment on lukewilliamboswell/roc-signals#180)
+- [RS-012: `--specialize=no` measured on two sites built with roc-signals](./roc-signals/RS-012-specialize-no-for-a-site/COMMENT.md) (a comment on lukewilliamboswell/roc-signals#180)
 
 ## Archived
 
 Drafts that were filed, no longer reproduce or are no longer needed, kept
-with a dated note at the top of each README explaining why. They stay in one
+with a dated note at the top explaining why (in `ISSUE.md`, or `README.md`
+for older drafts). They stay in one
 flat `archive/` folder so links from filed issues keep working.
 
 - [BUG-009: A mistyped platform requirement segfaults when its nominal type holds a tag-union alias](./archive/BUG-009-mistyped-requirement-alias-segfault/README.md) (fixed in `nightly-2026-09-28-9927ba8`)
@@ -205,12 +206,9 @@ flat `archive/` folder so links from filed issues keep working.
 2. Copy the smallest set of Roc sources that reproduces the issue. Keep each
    repro self-contained (no imports outside its directory except a pinned
    platform), even if that means duplicating support files between bugs.
-3. Add a `README.md` with a description, expected behavior, actual behavior
-   (including the exact panic/crash output), and the repro commands. Include a
-   **Shell with the exact compiler** section naming the pinned release and
-   showing `nix develop .` from the bug's directory and `roc version` with
-   the expected compiler build. Document the harness command:
-   `nix develop . --command bash repro.sh`.
+3. Write `ISSUE.md` as AGENTS.md describes: the title, what happens, the
+   repro inline, the command, the observed output (the exact panic or crash)
+   and what should happen. It is the only prose file; there is no `README.md`.
 4. Add an executable `repro.sh` that accepts only the expected failure as
    success and leaves no local build artifacts behind.
 5. Add a `flake.nix` whose default dev shell selects the affected compiler

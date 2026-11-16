@@ -113,10 +113,12 @@ Rules for the body:
 
 ## Drafts stand on their own
 
-A draft's README and ISSUE.md are pasted, or read, outside this repo, so they
+A draft is one file, `ISSUE.md` (or `COMMENT.md` for a comment on an existing
+issue): its first line is the title and the rest is the body, exactly as
+posted. No `README.md`. It is pasted, or read, outside this repo, so it
 must make sense to someone who has never seen it:
 
-- **Titles** (the README's and the issue's): no `BUG-XXX:` or
+- **Titles:** no `BUG-XXX:` or
   `IMPROVEMENT-XXX:`; just what is wrong, starting with a capital. The
   numbers live only in directory names and the README index.
 - **No filing status.** Never write "not filed upstream", "ready to file",
@@ -125,7 +127,7 @@ must make sense to someone who has never seen it:
   are related go under a `## Related` heading, with a link and a clause on
   how they relate.
 - **No recheck notes.** A draft names one compiler: the newest nightly it
-  reproduces on (`**Nightly:**` in the README and ISSUE.md, and the pinned
+  reproduces on (`**Nightly:**` in `ISSUE.md`, and the pinned
   shell). A recheck updates that in place; it never adds a dated note. The
   only dated notes are the `Archived` and `Closed` lines in `archive/`.
 - **Anything of this repo's** (the harness, the pinned shell, another
@@ -156,7 +158,8 @@ today in plain Roc, and why it matters, without naming where it came up.
 
 Don't delete drafts. Move one that no longer reproduces, is fixed upstream or
 is no longer needed to `archive/` with `git mv`, add a dated
-`> **Archived YYYY-MM-DD:** <why>` line under its title, and move its index
+`> **Archived YYYY-MM-DD:** <why>` line under its title (in `ISSUE.md`, or
+`README.md` for older drafts), and move its index
 entry to the README's "Archived" section.
 
 ## Rechecking on the newest nightly
@@ -170,8 +173,8 @@ scripts/recheck.sh            # or: scripts/recheck.sh nightly-YYYY-MM-DD-<hash>
 It pins the newest nightly in `nightly.json` (so `nix develop .#latest` gives
 anyone that exact compiler), runs each bug draft's `ISSUE.md` code as written
 (`<project>/BUG-*/recheck` holds the command and what output means "still
-reproduces"), prints a table, and names the new nightly in the README and
-ISSUE.md of the bugs that still reproduce. Then:
+reproduces"), prints a table, and names the new nightly in the `ISSUE.md`
+of the bugs that still reproduce. Then:
 
 1. For each `NOT FOUND`, read `recheck.last-output`, confirm by hand (it may
    be fixed, or the compiler's wording changed), find the nightly that fixed
