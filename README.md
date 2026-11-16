@@ -196,6 +196,7 @@ flat `archive/` folder so links from filed issues keep working.
 - [RS-013: Let a view draw a tree whose depth comes from data](./archive/RS-013-data-depth-trees/README.md) (filed as lukewilliamboswell/roc-signals#270)
 - [RS-014: The 0.5.0 Linux spec runner segfaults when built with the nightly the release pins](./archive/RS-014-linux-spec-runner-needs-nightly-11-11/README.md) (filed as lukewilliamboswell/roc-signals#271)
 - [RS-015: Let an app replace the value of a text input that has focus](./archive/RS-015-replace-a-focused-inputs-value/README.md) (filed as lukewilliamboswell/roc-signals#272)
+- [BUG-038: `roc check` segfaults in lambda_solve on nested recursive effects whose inner one returns a computed tuple](./archive/BUG-038-recursive-effect-tuple-lambda-solve-segfault/README.md) (fixed by `nightly-2026-11-14-a87808d` before it was filed)
 
 ## Adding a repro
 
