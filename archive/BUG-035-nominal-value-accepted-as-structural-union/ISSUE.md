@@ -1,5 +1,7 @@
 # A nominal tag union value is accepted where a structural tag union of the same shape is annotated
 
+> **Archived 2026-11-16:** filed as [roc-lang/roc#13110](https://github.com/roc-lang/roc/issues/13110) on 2026-11-16.
+
 A value of a nominal tag union type is accepted where an annotation asks for a structural tag union with the same tags, and it keeps the nominal type there: in `Color.roc` below, `plain` is annotated `[Red, Green]` but holds `Color.Red`, and `Color.plain.name()` calls `Color`'s method on it. `roc check Color.roc` reports no errors and `roc test Color.roc` passes. The langref says no other tag union is equivalent to a nominal one, even with the same shape, so this should be a type mismatch at `plain = Color.Red`.
 
 **Nightly:** `nightly-2026-11-14-a87808d` (linux x86_64)

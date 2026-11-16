@@ -1,5 +1,7 @@
 # Comment on lukewilliamboswell/roc-signals#180
 
+> **Archived 2026-11-16:** posted as [a comment on lukewilliamboswell/roc-signals#180](https://github.com/lukewilliamboswell/roc-signals/issues/180#issuecomment-6880690140) on 2026-11-14.
+
 Measurements from two apps on roc-signals `0.5.0`, built with
 `nightly-2026-11-12-ce942d6` (`roc build --no-cache --target=wasm32`, linux
 x86_64, one build at a time). Sizes are raw / gzip -9 bytes.

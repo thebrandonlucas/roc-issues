@@ -1,5 +1,7 @@
 # A package dependency whose path is a type module, not a package, is accepted, and its values "do not exist"
 
+> **Archived 2026-11-16:** filed as [roc-lang/roc#13111](https://github.com/roc-lang/roc/issues/13111) on 2026-11-16.
+
 A package header names a dependency by the path of a type module (`base: "../Shared.roc"`) instead of a package's header file. `roc check sub/main.roc` accepts the dependency and `import base.Shared`, then reports `Shared.value does not exist` at its use, with nothing about the path. It should say at the header that `../Shared.roc` is not a package.
 
 **Nightly:** `nightly-2026-11-14-a87808d` (linux x86_64)

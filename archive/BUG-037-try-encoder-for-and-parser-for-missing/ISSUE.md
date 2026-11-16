@@ -1,5 +1,7 @@
 # `Json.to_str` and `Json.parse` say the builtin `Try` has no `encoder_for` or `parser_for`
 
+> **Archived 2026-11-16:** filed as [roc-lang/roc#13112](https://github.com/roc-lang/roc/issues/13112) on 2026-11-16.
+
 The builtin `Try(ok, err) := [Ok(ok), Err(err)]` declares `parser_for : _` and `encoder_for : _` in `Builtin.roc`, but `Json.to_str` of a `Try(Str, Str)` fails `roc check` with "missing method", saying the type has no `encoder_for`. A nominal tag union of the same shape declared in the app, with `encoder_for : _`, encodes as `{"Ok":"x"}`. `Try` should encode the same way.
 
 **Nightly:** `nightly-2026-11-14-a87808d` (linux x86_64)
