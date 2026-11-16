@@ -62,6 +62,3 @@ An error at the dependency in `sub/main.roc` saying that `../Shared.roc` is not 
 - With `import base.Missing` in `sub/Uses.roc` (and no use of `Shared`), `roc check sub/main.roc` reports no errors. With `base` pointing at a real package (`package [Shared] {}` beside the same `Shared.roc`), the same import is reported as "The package import `base.Missing` does not name a public module declared by that package", and `Shared.value` checks.
 - A path to a file that does not exist is reported at the header: "Could not load the package at Nope.roc: FileNotFound."
 - Harness: https://github.com/thebrandonlucas/roc-issues/tree/master/roc/BUG-036-package-path-to-type-module-accepted
-
----
-*Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-14-a87808d` before posting.*

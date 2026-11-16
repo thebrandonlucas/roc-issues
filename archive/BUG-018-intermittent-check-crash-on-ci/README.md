@@ -1,5 +1,7 @@
 # Intermittent SIGSEGV/SIGABRT in `roc check` on CI runners
 
+> **Archived 2026-11-16:** never reproduced outside CI, and not seen since; dropped unfiled.
+
 Run in parallel on about 30 roots on a GitHub-hosted `ubuntu-24.04` runner
 (4 vCPU, 16 GB), `roc check` sometimes dies by SIGSEGV or SIGABRT, on
 different files each time; a rerun of the same commit passes. Every check

@@ -63,6 +63,3 @@ No errors, and both expects pass: `Try(Str, Str)` uses the `encoder_for` it decl
 - A record field of type `Try(a, [Missing])` does parse and encode (an absent field), as docs/langref/parsers.md describes.
 - `nightly-2026-10-21-5349569` behaves the same.
 - Harness: https://github.com/thebrandonlucas/roc-issues/tree/master/roc/BUG-037-try-encoder-for-and-parser-for-missing
-
----
-*Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-14-a87808d` before posting.*

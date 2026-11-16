@@ -49,6 +49,3 @@ A type mismatch at `plain = Color.Red`: it has the type `Color`, but the annotat
 - The builtin `Try` behaves the same: a function annotated `Try(U64, Str) -> [Ok(U64), Err(Str)]` with body `|t| t` checks, and its result is still a `Try(U64, Str)`, so `Json.to_str` of it asks `Try` for `encoder_for`.
 - `nightly-2026-10-21-5349569` behaves the same.
 - Harness: https://github.com/thebrandonlucas/roc-issues/tree/master/roc/BUG-035-nominal-value-accepted-as-structural-union
-
----
-*Drafted with Claude (Claude Code) and checked by me on `nightly-2026-11-14-a87808d` before posting.*

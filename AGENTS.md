@@ -83,9 +83,6 @@ paths>
 - Related: roc-lang/roc#N, <one clause on how it relates> (only if checked).
 - Harness: https://github.com/thebrandonlucas/roc-issues/tree/master/<project>/<dir>
 
----
-*Drafted with Claude (Claude Code) and checked by me on `<nightly>` before
-posting.*
 ````
 
 Rules for the body:
@@ -111,8 +108,6 @@ Rules for the body:
   (what changes the result) are welcome.
 - **Smallest dependencies.** Drop basic-cli when the bug doesn't need it; when
   it does, use the current release, not the one the draft pinned.
-- **The disclosure line is always the last line,** exactly as in the
-  template, with the nightly filled in.
 - Keep the title free of "Bug:" or "[BUG-XXX]" prefixes and of the repo's
   numbering.
 

@@ -112,7 +112,6 @@ Improvements are design ideas and need not have a harness.
 
 Bugs:
 
-- [BUG-018: intermittent SIGSEGV/SIGABRT in `roc check` on CI runners](./roc/BUG-018-intermittent-check-crash-on-ci/README.md) (observed on CI only)
 - [BUG-035: A nominal tag union value is accepted where a structural tag union of the same shape is annotated](./roc/BUG-035-nominal-value-accepted-as-structural-union/README.md)
 - [BUG-036: A package dependency whose path is a type module, not a package, is accepted, and its values "do not exist"](./roc/BUG-036-package-path-to-type-module-accepted/README.md)
 - [BUG-037: `Json.to_str` and `Json.parse` say the builtin `Try` has no `encoder_for` or `parser_for`](./roc/BUG-037-try-encoder-for-and-parser-for-missing/README.md)
@@ -197,6 +196,7 @@ flat `archive/` folder so links from filed issues keep working.
 - [RS-014: The 0.5.0 Linux spec runner segfaults when built with the nightly the release pins](./archive/RS-014-linux-spec-runner-needs-nightly-11-11/README.md) (filed as lukewilliamboswell/roc-signals#271)
 - [RS-015: Let an app replace the value of a text input that has focus](./archive/RS-015-replace-a-focused-inputs-value/README.md) (filed as lukewilliamboswell/roc-signals#272)
 - [BUG-038: `roc check` segfaults in lambda_solve on nested recursive effects whose inner one returns a computed tuple](./archive/BUG-038-recursive-effect-tuple-lambda-solve-segfault/README.md) (fixed by `nightly-2026-11-14-a87808d` before it was filed)
+- [BUG-018: intermittent SIGSEGV/SIGABRT in `roc check` on CI runners](./archive/BUG-018-intermittent-check-crash-on-ci/README.md) (never reproduced outside CI; dropped unfiled)
 
 ## Adding a repro
 
