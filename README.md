@@ -112,9 +112,6 @@ Improvements are design ideas and need not have a harness.
 
 Bugs:
 
-- [BUG-035: A nominal tag union value is accepted where a structural tag union of the same shape is annotated](./roc/BUG-035-nominal-value-accepted-as-structural-union/ISSUE.md)
-- [BUG-036: A package dependency whose path is a type module, not a package, is accepted, and its values "do not exist"](./roc/BUG-036-package-path-to-type-module-accepted/ISSUE.md)
-- [BUG-037: `Json.to_str` and `Json.parse` say the builtin `Try` has no `encoder_for` or `parser_for`](./roc/BUG-037-try-encoder-for-and-parser-for-missing/ISSUE.md)
 
 Improvements:
 
@@ -146,7 +143,6 @@ Improvements:
 Platform gaps, not compiler bugs, so they have no harness; each names the
 roc-signals release and nightly it applies to.
 
-- [RS-012: `--specialize=no` measured on two sites built with roc-signals](./roc-signals/RS-012-specialize-no-for-a-site/COMMENT.md) (a comment on lukewilliamboswell/roc-signals#180)
 
 ## Archived
 
@@ -172,7 +168,7 @@ flat `archive/` folder so links from filed issues keep working.
 - [BUG-024: A type mismatch on an interpolated string literal is reported at a different expression](./archive/BUG-024-interpolated-literal-mismatch-wrong-region/README.md)
 - [BUG-021: `roc check` segfaults on a record update whose list element misses a field](./archive/BUG-021-record-update-list-missing-field-segfault/README.md) (filed as roc-lang/roc#12968; closed as completed 2026-11-13)
 - [BUG-026: `roc check` segfaults in boxy_lowering when a nominal record's list elements miss a field](./archive/BUG-026-nominal-list-element-fields-boxy-segfault/README.md) (a comment on roc-lang/roc#12968; closed as completed 2026-11-13)
-- [BUG-012: `roc test` panics when a platform and its package both have a module with the same name](./archive/BUG-012-test-platform-and-package-module-same-name/README.md)
+- [BUG-012: `roc test` panics when a platform and its package both have a module with the same name](./archive/BUG-012-test-platform-and-package-module-same-name/README.md; closed as completed 2026-11-16)
 - [RS-002: Let an app use IndexedDB (or another asynchronous host store)](./archive/RS-002-asynchronous-storage/README.md) (filed as lukewilliamboswell/roc-signals#201; addressed by ports in `0.4.0`)
 - [RS-001: Let an app read the wall-clock time](./archive/RS-001-wall-clock-time/README.md) (filed as lukewilliamboswell/roc-signals#200; closed in favour of #216)
 - [RS-007: Let an app drag things with the pointer and animate the result](./archive/RS-007-pointer-drag-and-view-transitions/README.md) (filed as lukewilliamboswell/roc-signals#199; closed in favour of #211 and others)
@@ -180,7 +176,7 @@ flat `archive/` folder so links from filed issues keep working.
 - [RS-003: Publish the browser spec runner with each release](./archive/RS-003-browser-spec-runner-in-release/README.md) (filed as lukewilliamboswell/roc-signals#202)
 - [RS-004: Deliver key events that reach the document](./archive/RS-004-document-key-events/README.md) (filed as lukewilliamboswell/roc-signals#203; delivered by #212)
 - [RS-005: Let an app measure elements and the viewport](./archive/RS-005-layout-measurement/README.md) (filed as lukewilliamboswell/roc-signals#204; answered by #211, #213, #214)
-- [RS-006: Keep attributes whose value is the empty string](./archive/RS-006-empty-attribute-values/README.md) (filed as lukewilliamboswell/roc-signals#205)
+- [RS-006: Keep attributes whose value is the empty string](./archive/RS-006-empty-attribute-values/README.md) (filed as lukewilliamboswell/roc-signals#205; closed as completed 2026-11-16)
 - [RS-008: Let an HTTP request include credentials](./archive/RS-008-http-credentials/README.md) (filed as lukewilliamboswell/roc-signals#206; delivered by #218)
 - [RS-010: Render an app's page to HTML when a site is built](./archive/RS-010-render-views-to-html/README.md) (covered by lukewilliamboswell/roc-signals#247)
 - [RS-011: Scroll to the top, or to a fragment, after navigating in place](./archive/RS-011-scroll-after-navigation/README.md) (covered by lukewilliamboswell/roc-signals#213)
@@ -198,6 +194,10 @@ flat `archive/` folder so links from filed issues keep working.
 - [RS-015: Let an app replace the value of a text input that has focus](./archive/RS-015-replace-a-focused-inputs-value/README.md) (filed as lukewilliamboswell/roc-signals#272)
 - [BUG-038: `roc check` segfaults in lambda_solve on nested recursive effects whose inner one returns a computed tuple](./archive/BUG-038-recursive-effect-tuple-lambda-solve-segfault/README.md) (fixed by `nightly-2026-11-14-a87808d` before it was filed)
 - [BUG-018: intermittent SIGSEGV/SIGABRT in `roc check` on CI runners](./archive/BUG-018-intermittent-check-crash-on-ci/README.md) (never reproduced outside CI; dropped unfiled)
+- [BUG-035: A nominal tag union value is accepted where a structural tag union of the same shape is annotated](./archive/BUG-035-nominal-value-accepted-as-structural-union/ISSUE.md) (filed as roc-lang/roc#13110)
+- [BUG-036: A package dependency whose path is a type module, not a package, is accepted, and its values "do not exist"](./archive/BUG-036-package-path-to-type-module-accepted/ISSUE.md) (filed as roc-lang/roc#13111)
+- [BUG-037: `Json.to_str` and `Json.parse` say the builtin `Try` has no `encoder_for` or `parser_for`](./archive/BUG-037-try-encoder-for-and-parser-for-missing/ISSUE.md) (filed as roc-lang/roc#13112)
+- [RS-012: `--specialize=no` measured on two sites built with roc-signals](./archive/RS-012-specialize-no-for-a-site/COMMENT.md) (posted as a comment on lukewilliamboswell/roc-signals#180)
 
 ## Adding a repro
 

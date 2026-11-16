@@ -2,6 +2,8 @@
 
 > **Archived 2026-11-13:** filed as [lukewilliamboswell/roc-signals#205](https://github.com/lukewilliamboswell/roc-signals/issues/205) on 2026-11-12 (open; [#246](https://github.com/lukewilliamboswell/roc-signals/issues/246) puts an attribute's presence, the empty string included, on the wire).
 
+> **Closed 2026-11-16:** lukewilliamboswell/roc-signals#205 closed as completed.
+
 > **Rechecked 2026-11-12:** still present in roc-signals `0.5.0`: `runtime.mjs` `setAttr` removes `value=""` and any other non-boolean attribute set to `""`.
 
 This is a defect in [roc-signals](https://github.com/lukewilliamboswell/roc-signals)

@@ -2,6 +2,8 @@
 
 > **Archived 2026-11-11:** filed as [roc-lang/roc#12969](https://github.com/roc-lang/roc/issues/12969) on 2026-11-11.
 
+> **Closed 2026-11-16:** roc-lang/roc#12969 closed as completed.
+
 Found with Roc `nightly-2026-09-26-d6267b4`, the newest nightly on
 2026-09-27, which this bug's shell in [roc-issues](https://github.com/thebrandonlucas/roc-issues/tree/master/bugs/BUG-012-test-platform-and-package-module-same-name) pins. No host is needed.
 
