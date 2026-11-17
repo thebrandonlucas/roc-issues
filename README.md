@@ -145,6 +145,9 @@ Improvements:
 Platform gaps, not compiler bugs, so they have no harness; each names the
 roc-signals release and nightly it applies to.
 
+- [RS-016: Let an app bind Cmd on macOS and Ctrl elsewhere](./roc-signals/RS-016-platform-primary-shortcut/ISSUE.md)
+- [RS-017: Let `Html.icon_button` take extra attributes](./roc-signals/RS-017-icon-button-attributes/ISSUE.md)
+- [RS-018: Spec steps for a right-click, a request's body, and Enter in a textarea](./roc-signals/RS-018-spec-context-menu-request-body-textarea-enter/ISSUE.md)
 
 ## Archived
 
