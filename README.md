@@ -125,6 +125,7 @@ Improvements:
 - [IMPROVEMENT-013: Encode an integral `Dec` in JSON without a fraction](./roc/IMPROVEMENT-013-json-integral-dec/ISSUE.md)
 - [IMPROVEMENT-014: Point at `{ name }` when a one-name block is used where a record is expected](./roc/IMPROVEMENT-014-one-field-shorthand-hint/ISSUE.md)
 - [IMPROVEMENT-015: Json: a camelCase encoder to match `parser_camel`, and a hint for optional-field tags](./roc/IMPROVEMENT-015-json-camel-encoder-and-optional-tags/ISSUE.md)
+- [IMPROVEMENT-016: Point at `Try` when a `Try` method is called on bare `Ok`/`Err` tags](./roc/IMPROVEMENT-016-try-method-on-structural-tags-hint/ISSUE.md)
 
 ## basic-cli
 
