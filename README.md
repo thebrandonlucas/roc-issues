@@ -112,6 +112,7 @@ Improvements are design ideas and need not have a harness.
 
 Bugs:
 
+- [BUG-039: A fold's literal seed is reported as "literal defaulted" when the step is `sum + x`](./roc/BUG-039-fold-seed-literal-defaulted-warning/ISSUE.md)
 
 Improvements:
 

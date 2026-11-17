@@ -1,0 +1,2 @@
+command: roc check Fold.roc
+reproduced-if: literal defaulted .* Fold\.roc:4:25
