@@ -7,7 +7,7 @@ integral `Dec` with a fraction: `{ version: 2 }` becomes `{"version":2.0}`.
 integer. JSON has one number type, so `2` would be the same value and would
 read back into any integer field.
 
-**Nightly:** `nightly-2026-11-15-f25da45` (linux x86_64)
+**Nightly:** `nightly-2026-11-18-a520eed` (linux x86_64)
 
 ### Repro
 

@@ -1,6 +1,6 @@
 # Let a drag show what it carries under the pointer, and find its target in the layout it started from
 
-**roc-signals:** `0.6.0` (unchanged in `0.7.0-rc1`) · **Nightly:** `nightly-2026-11-15-f25da45` (linux x86_64)
+**roc-signals:** `0.6.0` (unchanged in `0.7.0-rc1`) · **Nightly:** `nightly-2026-11-18-a520eed` (linux x86_64)
 
 A pointer drag gets zones and fractions (`on_pointer_capture`,
 `on_pointer_paced`, `Prop.pointer_zone`), which keep the drop target pure

@@ -1,6 +1,6 @@
 # Let an app bind Cmd on macOS and Ctrl elsewhere
 
-**roc-signals:** `0.6.0` · **Nightly:** `nightly-2026-11-15-f25da45` (linux x86_64)
+**roc-signals:** `0.6.0` (unchanged in `0.7.0-rc1`) · **Nightly:** `nightly-2026-11-18-a520eed` (linux x86_64)
 
 `Chord.primary(chord)` is `[chord.with_ctrl(), chord.with_meta()]` on every
 system, and an app cannot tell which system it runs on: `Boot` has the URL,

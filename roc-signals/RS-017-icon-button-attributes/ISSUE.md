@@ -1,6 +1,6 @@
 # Let `Html.icon_button` take extra attributes
 
-**roc-signals:** `0.6.0` · **Nightly:** `nightly-2026-11-15-f25da45` (linux x86_64)
+**roc-signals:** `0.6.0` (unchanged in `0.7.0-rc1`) · **Nightly:** `nightly-2026-11-18-a520eed` (linux x86_64)
 
 `Html.icon_button : Str, Signal(ctx, Str), Str, Handler(ctx) -> Elem(ctx)`
 takes a glyph, an accessible name, a class and a handler, and no attribute

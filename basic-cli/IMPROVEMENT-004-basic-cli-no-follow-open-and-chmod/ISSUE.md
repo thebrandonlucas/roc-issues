@@ -7,7 +7,7 @@ replaced by a symlink between the two calls leaks the link target's bytes.
 `Path.set_permissions!` sets only `OwnerOnly` or `PublicRead`, follows
 symlinks, and cannot set execute bits.
 
-**Nightly:** `nightly-2026-11-15-f25da45` (linux x86_64), basic-cli `0.28.1`
+**Nightly:** `nightly-2026-11-18-a520eed` (linux x86_64), basic-cli `0.28.1`
 
 ### What it takes today
 

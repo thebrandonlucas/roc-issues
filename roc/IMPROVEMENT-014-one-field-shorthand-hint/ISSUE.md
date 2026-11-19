@@ -6,7 +6,7 @@ the mismatch surfaces, which can be far from the braces and does not mention
 them. A hint at the block (write `{ a: a }` for a one-field record) would make
 the cause plain.
 
-**Nightly:** `nightly-2026-11-15-f25da45` (linux x86_64)
+**Nightly:** `nightly-2026-11-18-a520eed` (linux x86_64)
 
 ### Repro
 

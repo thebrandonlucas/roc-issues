@@ -1,9 +1,9 @@
 {
-  description = "Dec fraction-digit repro shell with Roc nightly-2026-11-15-f25da45";
+  description = "Dec fraction-digit repro shell with Roc nightly-2026-11-18-a520eed";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    overlay0.url = "github:roc-lang/roc-overlay/1181a21dee94818725b9ecfa5ed54e7d9219cd0e";
+    overlay0.url = "github:roc-lang/roc-overlay/69640a7dd0ad1e8d8123ff4a34dff5c57c19fa3a";
   };
 
   outputs =
@@ -17,7 +17,7 @@
         inherit system;
         overlays = [ overlay0.overlays.default ];
       };
-      rocFor = pkgs: pkgs.rocpkgs.nightly-2026-11-15-f25da45;
+      rocFor = pkgs: pkgs.rocpkgs.nightly-2026-11-18-a520eed;
     in
     {
       packages = forAllSystems (system: {

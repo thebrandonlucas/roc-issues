@@ -1,6 +1,6 @@
 # Spec steps for a right-click, a request's body, and Enter in a textarea
 
-**roc-signals:** `0.6.0` · **Nightly:** `nightly-2026-11-15-f25da45` (linux x86_64)
+**roc-signals:** `0.6.0` (unchanged in `0.7.0-rc1`) · **Nightly:** `nightly-2026-11-18-a520eed` (linux x86_64)
 
 Three things an app does that a `.scm` spec cannot drive or check, in either
 runner:

@@ -1,6 +1,6 @@
 # Let an app animate elements to where an update puts them without holding the page's rendering
 
-**roc-signals:** `0.6.0` (unchanged in `0.7.0-rc1`) · **Nightly:** `nightly-2026-11-15-f25da45` (linux x86_64)
+**roc-signals:** `0.6.0` (unchanged in `0.7.0-rc1`) · **Nightly:** `nightly-2026-11-18-a520eed` (linux x86_64)
 
 `ViewTransition(types)` is the only way to animate what a turn changes, and
 it works as the browser's view transitions do: the batch is applied in the

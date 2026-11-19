@@ -7,7 +7,7 @@ returns `Err(BadNumStr)`, the second fails the whole document with
 Numbers printed from a float often have 19 or more fraction digits, so such
 a document is valid JSON that cannot be decoded into `Dec`.
 
-**Nightly:** `nightly-2026-11-15-f25da45` (linux x86_64)
+**Nightly:** `nightly-2026-11-18-a520eed` (linux x86_64)
 
 ### Repro
 

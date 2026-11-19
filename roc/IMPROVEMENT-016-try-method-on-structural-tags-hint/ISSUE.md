@@ -6,7 +6,7 @@ found on it. The "missing method" error shows the type as `[Err([Empty]), Ok(Str
 which looks like a `Try`, and says nothing more. A hint naming `Try` would make
 the fix plain.
 
-**Nightly:** `nightly-2026-11-15-f25da45` (linux x86_64)
+**Nightly:** `nightly-2026-11-18-a520eed` (linux x86_64)
 
 ### Repro
 
