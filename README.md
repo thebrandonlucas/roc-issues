@@ -112,7 +112,6 @@ Improvements are design ideas and need not have a harness.
 
 Bugs:
 
-- [BUG-039: A fold's literal seed is reported as "literal defaulted" when the step is `sum + x`](./roc/BUG-039-fold-seed-literal-defaulted-warning/ISSUE.md)
 
 Improvements:
 
@@ -205,6 +204,7 @@ flat `archive/` folder so links from filed issues keep working.
 - [BUG-036: A package dependency whose path is a type module, not a package, is accepted, and its values "do not exist"](./archive/BUG-036-package-path-to-type-module-accepted/ISSUE.md) (filed as roc-lang/roc#13111)
 - [BUG-037: `Json.to_str` and `Json.parse` say the builtin `Try` has no `encoder_for` or `parser_for`](./archive/BUG-037-try-encoder-for-and-parser-for-missing/ISSUE.md) (filed as roc-lang/roc#13112)
 - [RS-012: `--specialize=no` measured on two sites built with roc-signals](./archive/RS-012-specialize-no-for-a-site/COMMENT.md) (posted as a comment on lukewilliamboswell/roc-signals#180)
+- [BUG-039: A fold's literal seed is reported as "literal defaulted" when the step is `sum + x`](./archive/BUG-039-fold-seed-literal-defaulted-warning/ISSUE.md) (fixed by `nightly-2026-11-18-a520eed` before it was filed)
 
 ## Adding a repro
 

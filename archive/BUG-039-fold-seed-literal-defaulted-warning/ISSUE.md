@@ -1,5 +1,7 @@
 # A fold's literal seed is reported as "literal defaulted" when the step is `sum + x`
 
+> **Archived 2026-11-19:** no longer reproduces on `nightly-2026-11-18-a520eed`, the first nightly after `nightly-2026-11-15-f25da45` (the last it reproduces on); fixed before it was filed.
+
 In an annotated function, `list.fold(0, |sum, x| sum + x)` over a `List(U32)`
 gets a "literal defaulted" warning on the `0`, which says nothing determines
 the literal's type and names `U32` as "the default type". `roc check` and
