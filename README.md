@@ -148,6 +148,8 @@ roc-signals release and nightly it applies to.
 - [RS-016: Let an app bind Cmd on macOS and Ctrl elsewhere](./roc-signals/RS-016-platform-primary-shortcut/ISSUE.md)
 - [RS-017: Let `Html.icon_button` take extra attributes](./roc-signals/RS-017-icon-button-attributes/ISSUE.md)
 - [RS-018: Spec steps for a right-click, a request's body, and Enter in a textarea](./roc-signals/RS-018-spec-context-menu-request-body-textarea-enter/ISSUE.md)
+- [RS-019: Let a drag show what it carries under the pointer, and find its target in the layout it started from](./roc-signals/RS-019-drag-ghost-and-press-time-zones/ISSUE.md)
+- [RS-020: Let an app animate elements to where an update puts them without holding the page's rendering](./roc-signals/RS-020-animate-moves-without-holding-frames/ISSUE.md)
 
 ## Archived
 
